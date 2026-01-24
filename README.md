@@ -1,3 +1,4 @@
+<div align="center">
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java Logo" width="180" height="180"/>   
 </p>
