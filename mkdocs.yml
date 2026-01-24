@@ -1,0 +1,266 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+# =============================================================================
+# MY JAVA ROADMAP - DOCUMENTATION SITE
+# =============================================================================
+
+site_name: My Java Roadmap
+site_url: https://7amo10.github.io/My-Java-Rodemap/
+site_author: Ahmed Ashour
+site_description: >-
+  A comprehensive documentation of my Java learning journey, including notes,
+  book summaries, resources, and applied project references.
+
+# Repository
+repo_name: 7amo10/My-Java-Rodemap
+repo_url: https://github.com/7amo10/My-Java-Rodemap
+
+# Copyright
+copyright: Copyright &copy; 2025 - 2026 Ahmed Ashour
+
+# =============================================================================
+# THEME CONFIGURATION
+# =============================================================================
+theme:
+  name: material
+  language: en
+  
+  # Color palette with light/dark mode toggle
+  palette:
+    # Light mode
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  # Font configuration
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  # Features
+  features:
+    # Navigation
+    - navigation.instant          # Instant loading (SPA-like)
+    - navigation.instant.prefetch # Prefetch links on hover
+    - navigation.tracking         # URL updates with anchor
+    - navigation.tabs             # Top-level navigation tabs
+    - navigation.tabs.sticky      # Tabs remain visible on scroll
+    - navigation.sections         # Render navigation sections
+    - navigation.expand           # Expand all collapsible sections
+    - navigation.path             # Breadcrumb navigation
+    - navigation.top              # Back to top button
+    - navigation.footer           # Footer navigation
+    
+    # Table of contents
+    - toc.follow                  # TOC follows scrolling
+    
+    # Search
+    - search.suggest              # Search suggestions
+    - search.highlight            # Highlight search terms
+    - search.share                # Search sharing
+    
+    # Content
+    - content.code.copy           # Copy button for code blocks
+    - content.code.annotate       # Code annotations
+    - content.tabs.link           # Link content tabs
+    
+    # Header
+    - #header.autohide             # Auto-hide header on scroll
+
+  # Icons
+  icon:
+    repo: fontawesome/brands/github
+    logo: fontawesome/brands/java
+  
+  favicon: assets/favicon.png
+
+# =============================================================================
+# PLUGINS
+# =============================================================================
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  
+  - tags
+  
+  # Uncomment below plugins after installing them
+  # - minify:
+  #     minify_html: true
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
+  #     type: timeago
+
+# =============================================================================
+# MARKDOWN EXTENSIONS
+# =============================================================================
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      title: On this page
+      toc_depth: 3
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: ahmedashour
+      repo: My-Java-Rodemap
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# =============================================================================
+# EXTRA CONFIGURATION
+# =============================================================================
+extra:
+  # Social links in footer
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/7amo10
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/eng-ahmed-ashour-45b65b263
+      name: LinkedIn
+  
+  # Analytics (uncomment and configure)
+  # analytics:
+  #   provider: google
+  #   property: G-XXXXXXXXXX
+
+  # Version provider (optional)
+  # version:
+  #   provider: mike
+
+  # Status indicators for docs
+  status:
+    new: Recently added
+    deprecated: Deprecated
+    wip: Work in Progress
+
+# Extra CSS
+extra_css:
+  - stylesheets/custom.css
+
+# Extra JavaScript
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# =============================================================================
+# NAVIGATION STRUCTURE
+# =============================================================================
+nav:
+  - Home: index.md
+  
+  - Learning Notes:
+    - notes/index.md
+    - Phase 1 - Java Fundamentals:
+      - notes/phase-1/index.md
+      - Topic 1 - Java Basic Interactive Applications:
+        - notes/phase-1/topic-1-java-basic-Interactive-applications/index.md
+        - notes/phase-1/topic-1-java-basic-Interactive-applications/topic-note.md
+        - notes/phase-1/topic-1-java-basic-Interactive-applications/topic-note-2.md
+        - notes/phase-1/topic-1-java-basic-Interactive-applications/book-reading.md
+        - notes/phase-1/topic-1-java-basic-Interactive-applications/summary.md
+      - Topic 2 - OOP & Class Design:
+        - notes/phase-1/topic-2-oop-class-design/index.md
+        - notes/phase-1/topic-2-oop-class-design/topic-note.md
+        - notes/phase-1/topic-2-oop-class-design/book-reading.md
+        - notes/phase-1/topic-2-oop-class-design/summary.md
+      - Topic 3 - Arrays, Lists & Generics:
+        - notes/phase-1/topic-3-arrays-lists-generics/index.md
+        - notes/phase-1/topic-3-arrays-lists-generics/topic-note.md
+        - notes/phase-1/topic-3-arrays-lists-generics/book-reading.md
+        - notes/phase-1/topic-3-arrays-lists-generics/summary.md
+      - Topic 4 - Lambdas & Streams:
+        - notes/phase-1/topic-4-lambdas-streams/index.md
+        - notes/phase-1/topic-4-lambdas-streams/topic-note.md
+        - notes/phase-1/topic-4-lambdas-streams/book-reading.md
+        - notes/phase-1/topic-4-lambdas-streams/summary.md
+      - Topic 5 - Collections Framework:
+        - notes/phase-1/topic-5-collections-framework/index.md
+        - notes/phase-1/topic-5-collections-framework/topic-note.md
+        - notes/phase-1/topic-5-collections-framework/book-reading.md
+        - notes/phase-1/topic-5-collections-framework/summary.md
+    - Phase 2 - Advanced Java:
+      - notes/phase-2/index.md
+      - notes/phase-2/multithreading.md
+      - notes/phase-2/jvm-internals.md
+      - notes/phase-2/garbage-collection.md
+      - notes/phase-2/performance.md
+      - notes/phase-2/advanced-features.md
+  
+  - Book Summaries:
+    - books/index.md
+    - Must-Read:
+      - books/effective-java.md
+      - books/java-concurrency.md
+      - books/clean-code.md
+      - books/head-first-design-patterns.md
+      - books/modern-java-in-action.md
+      - books/java-performance.md
+    - Phase 1 Books:
+      - books/head-first-java.md
+      - books/core-java-vol1.md
+      - books/java-complete-reference.md
+    - Phase 2 Books:
+      - books/optimizing-java.md
+  
+  - Resources:
+    - resources/index.md
+    - resources/tutorials.md
+    - resources/courses.md
+    - resources/documentation.md
+    - resources/tools.md
+  
+  - Projects:
+    - projects/index.md
+    - projects/project-template.md
+  
+  - Tags: tags.md
+
+
