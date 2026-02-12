@@ -586,7 +586,7 @@ From Effective Java and the course:
 ## :material-link-variant: Related Topics
 
 - [Syntax, Variables & Control Flow](../topic-1-java-basic-Interactive-applications/summary.md)
-- [Arrays, Lists & Generics](../topic-3-arrays-lists-generics/summary.md)
+- [Arrays, Lists & Autoboxing](../topic-3-arrays-lists-generics/summary.md)
 - [Collections Framework](../topic-5-collections-framework/summary.md)
 
 ---

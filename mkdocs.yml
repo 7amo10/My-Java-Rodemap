@@ -217,21 +217,29 @@ nav:
         - notes/phase-1/topic-2-oop-class-design/topic-challenges.md
         - notes/phase-1/topic-2-oop-class-design/book-reading.md
         - notes/phase-1/topic-2-oop-class-design/summary.md
-      - Topic 3 - Arrays, Lists & Generics:
+      - Topic 3 - Arrays, Lists & Autoboxing:
         - notes/phase-1/topic-3-arrays-lists-generics/index.md
         - notes/phase-1/topic-3-arrays-lists-generics/topic-note.md
+        - notes/phase-1/topic-3-arrays-lists-generics/topic-note-part2.md
+        - notes/phase-1/topic-3-arrays-lists-generics/topic-note-part3.md
+        - notes/phase-1/topic-3-arrays-lists-generics/topic-note-part4.md
         - notes/phase-1/topic-3-arrays-lists-generics/book-reading.md
         - notes/phase-1/topic-3-arrays-lists-generics/summary.md
-      - Topic 4 - Lambdas & Streams:
-        - notes/phase-1/topic-4-lambdas-streams/index.md
-        - notes/phase-1/topic-4-lambdas-streams/topic-note.md
-        - notes/phase-1/topic-4-lambdas-streams/book-reading.md
-        - notes/phase-1/topic-4-lambdas-streams/summary.md
-      - Topic 5 - Collections Framework:
-        - notes/phase-1/topic-5-collections-framework/index.md
-        - notes/phase-1/topic-5-collections-framework/topic-note.md
-        - notes/phase-1/topic-5-collections-framework/book-reading.md
-        - notes/phase-1/topic-5-collections-framework/summary.md
+      - Topic 4 - Abstraction, Interfaces, Generics & Nested Classes:
+        - notes/phase-1/topic-4-abstraction-generics/index.md
+        - notes/phase-1/topic-4-abstraction-generics/topic-note.md
+        - notes/phase-1/topic-4-abstraction-generics/book-reading.md
+        - notes/phase-1/topic-4-abstraction-generics/summary.md
+      - Topic 5 - Lambdas & Streams:
+        - notes/phase-1/topic-5-lambdas-streams/index.md
+        - notes/phase-1/topic-5-lambdas-streams/topic-note.md
+        - notes/phase-1/topic-5-lambdas-streams/book-reading.md
+        - notes/phase-1/topic-5-lambdas-streams/summary.md
+      - Topic 6 - Collections Framework:
+        - notes/phase-1/topic-6-collections-framework/index.md
+        - notes/phase-1/topic-6-collections-framework/topic-note.md
+        - notes/phase-1/topic-6-collections-framework/book-reading.md
+        - notes/phase-1/topic-6-collections-framework/summary.md
     - Phase 2 - Advanced Java:
       - notes/phase-2/index.md
       - notes/phase-2/multithreading.md

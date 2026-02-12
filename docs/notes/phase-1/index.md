@@ -36,29 +36,37 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
 
     [:octicons-arrow-right-24: Explore Topic](topic-2-oop-class-design/index.md)
 
--   :material-format-list-bulleted:{ .lg .middle } **Topic 3: Arrays, Lists & Generics**
+-   :material-format-list-bulleted:{ .lg .middle } **Topic 3: Arrays, Lists & Autoboxing**
 
     ---
 
-    Arrays, ArrayList, LinkedList, Generics, Type Parameters, Wildcards.
+    Arrays, ArrayList, LinkedList, Iterators, Autoboxing/Unboxing, Enums.
 
     [:octicons-arrow-right-24: Explore Topic](topic-3-arrays-lists-generics/index.md)
 
--   :material-lambda:{ .lg .middle } **Topic 4: Lambdas & Streams**
+-   :material-code-braces:{ .lg .middle } **Topic 4: Abstraction, Interfaces, Generics & Nested Classes**
+
+    ---
+
+    Abstract classes, interfaces, generics, bounded types, wildcards, comparators, nested & anonymous classes.
+
+    [:octicons-arrow-right-24: Explore Topic](topic-4-abstraction-generics/index.md)
+
+-   :material-lambda:{ .lg .middle } **Topic 5: Lambdas & Streams**
 
     ---
 
     Lambda expressions, Functional Interfaces, Stream API, Optional, Method References.
 
-    [:octicons-arrow-right-24: Explore Topic](topic-4-lambdas-streams/index.md)
+    [:octicons-arrow-right-24: Explore Topic](topic-5-lambdas-streams/index.md)
 
--   :material-database:{ .lg .middle } **Topic 5: Collections Framework**
+-   :material-database:{ .lg .middle } **Topic 6: Collections Framework**
 
     ---
 
     List, Set, Map, Queue implementations, internal workings, performance characteristics.
 
-    [:octicons-arrow-right-24: Explore Topic](topic-5-collections-framework/index.md)
+    [:octicons-arrow-right-24: Explore Topic](topic-6-collections-framework/index.md)
 
 </div>
 
@@ -88,11 +96,13 @@ Each topic folder contains three key documents:
 
 - [ ] Topic 1: Java Basic Interactive Applications
 - [ ] Topic 2: OOP & Class Design Internals
-- [ ] Topic 3: Arrays, Lists & Generics
-- [ ] Topic 4: Lambdas & Streams
-- [ ] Topic 5: Collections Framework
+- [ ] Topic 3: Arrays, Lists & Autoboxing
+- [ ] Topic 4: Abstraction, Interfaces, Generics & Nested Classes
+- [ ] Topic 5: Lambdas & Streams
+- [ ] Topic 6: Collections Framework
 - [ ] Phase 1 Project
 
 ---
 
 *Phase Start Date: <!-- Add date --> | Target Completion: <!-- Add date -->*
+
