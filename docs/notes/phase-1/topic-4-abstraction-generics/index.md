@@ -1,3 +1,9 @@
+---
+id: index
+aliases: []
+tags: []
+---
+
 # Topic 4: Abstraction, Interfaces, Generics & Nested Classes
 
 > Mastering Java's abstraction mechanisms — from abstract classes and interfaces to generics, comparators, and nested class types.
@@ -6,11 +12,15 @@
 
 ## :material-folder-open: Topic Structure
 
-| Document | Purpose | Status |
-|----------|---------|--------|
-| [:material-pencil: Topic Note](topic-note.md) | Course notes from Tim Buchalka | :material-pencil-outline: To Do |
-| [:material-book-open-page-variant: Book Reading](book-reading.md) | Effective Java insights | :material-pencil-outline: To Do |
-| [:material-school: Summary](summary.md) | Combined final understanding | :material-pencil-outline: To Do |
+| Document                                                                                    | Purpose                                                                                                                  | Status                           |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| [:material-pencil: Part 1 — Abstract Classes](topic-note.md)                                | Abstraction, generalization, abstract classes, multi-level hierarchies, Store challenge                                  | :material-check-circle: Complete |
+| [:material-pencil: Part 2 — Interfaces & Challenge](topic-note-part2.md)                    | Interface contracts, multiple implementations, default/static/private methods, interface vs abstract, Mappable challenge | :material-check-circle: Complete |
+| [:material-pencil: Part 3 — Generics: Classes & Bounds](topic-note-part3.md)                | Generics fundamentals, type parameters, raw types, upper bounds, Layer challenge                                         | :material-check-circle: Complete |
+| [:material-pencil: Part 4 — Generics: Comparable, Wildcards & Erasure](topic-note-part4.md) | Comparable, Comparator, wildcards, type erasure, advanced techniques                                                     | :material-check-circle: Complete |
+| [:material-pencil: Part 5 — Nested Classes](topic-note-part5.md)                            | Static Nested, Inner, Local, and Anonymous classes                                                                       | :material-check-circle: Complete |
+| [:material-book-open-page-variant: Book Reading](book-reading.md)                           | Effective Java insights                                                                                                  | :material-check-circle: Complete |
+| [:material-school: Summary](summary.md)                                                     | Combined final understanding                                                                                             | :material-check-circle: Complete |
 
 ---
 
@@ -29,19 +39,25 @@
 ## :material-bookshelf: Resources
 
 ### Primary Course
+
 - [Tim Buchalka's Java Masterclass](https://www.udemy.com/course/java-the-complete-java-developer-course/) — Sections 11, 12 & 13
 
 ### Book Reference
+
 - **Effective Java** by Joshua Bloch — Items 26–33 (Generics), Items 18–25 (Interfaces)
 
 ### Course Sections Covered
-| Section | Title |
-|---------|-------|
-| Section 11 | Mastering Abstraction & Interfaces — Expand Polymorphism & Java Hierarchies |
-| Section 12 | Deep Dive into Java Generics — Bounds, Comparators & Advanced Techniques |
-| Section 13 | Exploring Nested Classes, Local Types & Anonymous Classes |
+
+| Section                    | Title                                                      | Part                          |
+| -------------------------- | ---------------------------------------------------------- | ----------------------------- |
+| Section 11 (Lectures 1–7)  | Abstract Classes                                           | Part 1                        |
+| Section 11 (Lectures 8–16) | Interfaces & Interface Challenge                           | Part 2                        |
+| Section 12 (Lectures 1–6)  | Generics: Classes, Bounds & Layer Challenge                | Part 3                        |
+| Section 12 (Lectures 7–12) | Generics: Comparable, Comparator, Wildcards & Type Erasure | Part 4                        |
+| Section 13                 | Exploring Nested Classes, Local Types & Anonymous Classes  | [Part 5](topic-note-part5.md) |
 
 ### Key Internals to Understand
+
 - Difference between arrays (covariant) and generics (invariant)
 - Type erasure mechanism and its implications
 - Raw types vs parameterized types
@@ -53,14 +69,15 @@
 
 ## :material-checkbox-marked-outline: Progress Tracker
 
-- [ ] Complete Tim's course Section 11 (Abstraction & Interfaces)
-- [ ] Complete Tim's course Section 12 (Generics)
-- [ ] Complete Tim's course Section 13 (Nested Classes)
-- [ ] Write topic notes
-- [ ] Read Effective Java related items
-- [ ] Complete book reading notes
-- [ ] Synthesize final summary
+- [x] Write Part 1 topic notes (Abstract Classes, Lectures 1–7)
+- [x] Write Part 2 topic notes (Interfaces & Challenge, Lectures 8–16)
+- [x] Write Part 3 topic notes (Generics: Classes & Bounds, Lectures 1–6)
+- [x] Write Part 4 topic notes (Generics: Comparable, Wildcards & Erasure, Lectures 7–12)
+- [x] Write Part 5 topic notes (Nested Classes, Section 13)
+- [x] Read Effective Java related items
+- [x] Complete book reading notes
+- [x] Synthesize final summary
 
 ---
 
-*Last Updated: 2026-02-11*
+_Last Updated: 2026-02-25_

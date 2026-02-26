@@ -228,6 +228,10 @@ nav:
       - Topic 4 - Abstraction, Interfaces, Generics & Nested Classes:
         - notes/phase-1/topic-4-abstraction-generics/index.md
         - notes/phase-1/topic-4-abstraction-generics/topic-note.md
+        - notes/phase-1/topic-4-abstraction-generics/topic-note-part2.md
+        - notes/phase-1/topic-4-abstraction-generics/topic-note-part3.md
+        - notes/phase-1/topic-4-abstraction-generics/topic-note-part4.md
+        - notes/phase-1/topic-4-abstraction-generics/topic-note-part5.md
         - notes/phase-1/topic-4-abstraction-generics/book-reading.md
         - notes/phase-1/topic-4-abstraction-generics/summary.md
       - Topic 5 - Lambdas & Streams:
