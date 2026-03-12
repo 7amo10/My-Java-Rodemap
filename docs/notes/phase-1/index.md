@@ -52,13 +52,13 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
 
     [:octicons-arrow-right-24: Explore Topic](topic-4-abstraction-generics/index.md)
 
--   :material-lambda:{ .lg .middle } **Topic 5: Lambdas & Streams**
+-   :material-lambda:{ .lg .middle } **Topic 5: Lambda Expressions & Functional Programming**
 
     ---
 
-    Lambda expressions, Functional Interfaces, Stream API, Optional, Method References.
+    Lambda syntax, functional interfaces (Consumer, Predicate, Function, Supplier), method references, chaining with andThen/compose, Comparator convenience methods.
 
-    [:octicons-arrow-right-24: Explore Topic](topic-5-lambdas-streams/index.md)
+    [:octicons-arrow-right-24: Explore Topic](topic-5-lambdas-method-references/index.md)
 
 -   :material-database:{ .lg .middle } **Topic 6: Collections Framework**
 
@@ -67,6 +67,14 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
     List, Set, Map, Queue implementations, internal workings, performance characteristics.
 
     [:octicons-arrow-right-24: Explore Topic](topic-6-collections-framework/index.md)
+
+-   :material-waves:{ .lg .middle } **Topic 7: Java Streams API**
+
+    ---
+
+    Stream pipelines, intermediate & terminal operations, Collectors, Optional, parallel streams.
+
+    [:octicons-arrow-right-24: Explore Topic](topic-7-streams/index.md)
 
 </div>
 
@@ -98,8 +106,9 @@ Each topic folder contains three key documents:
 - [ ] Topic 2: OOP & Class Design Internals
 - [ ] Topic 3: Arrays, Lists & Autoboxing
 - [ ] Topic 4: Abstraction, Interfaces, Generics & Nested Classes
-- [ ] Topic 5: Lambdas & Streams
+- [ ] Topic 5: Lambda Expressions & Functional Programming
 - [ ] Topic 6: Collections Framework
+- [ ] Topic 7: Java Streams API
 - [ ] Phase 1 Project
 
 ---

@@ -63,7 +63,7 @@ flowchart LR
     before -->|"5 lines → 1 line"| after
 
     style before fill:#b71c1c,color:#fff
-    style after fill:#2e7d32,color:#fff
+    style after fill:#7cb342,color:#fff
 ```
 
 #### Syntax Quick Reference
@@ -89,8 +89,8 @@ flowchart TD
     end
 
     style L1 fill:#1565c0,color:#fff
-    style L2 fill:#6a1b9a,color:#fff
-    style L3 fill:#00695c,color:#fff
+    style L2 fill:#5b8ba4,color:#fff
+    style L3 fill:#7cb342,color:#fff
 ```
 
 ---
@@ -123,8 +123,8 @@ flowchart TD
     end
 
     style operators fill:#1565c0,color:#fff
-    style conversions fill:#6a1b9a,color:#fff
-    style endpoints fill:#00695c,color:#fff
+    style conversions fill:#5b8ba4,color:#fff
+    style endpoints fill:#7cb342,color:#fff
 ```
 
 #### The Full 43-Interface Derivation
@@ -140,8 +140,8 @@ flowchart LR
 
     style BI fill:#1565c0,color:#fff
     style PRIM fill:#e65100,color:#fff
-    style CROSS fill:#4a148c,color:#fff
-    style OBJ fill:#004d40,color:#fff
+    style CROSS fill:#9ece6a,color:#fff
+    style OBJ fill:#5b8ba4,color:#fff
 ```
 
 #### API Methods That Accept Functional Interfaces
@@ -174,9 +174,9 @@ flowchart TD
     end
 
     style ST fill:#1565c0,color:#fff
-    style BR fill:#2e7d32,color:#fff
+    style BR fill:#9ece6a,color:#fff
     style UR fill:#e65100,color:#fff
-    style CR fill:#6a1b9a,color:#fff
+    style CR fill:#7e56c2,color:#fff
 ```
 
 #### The Unbounded Receiver — The Confusing One
@@ -218,7 +218,7 @@ flowchart LR
     end
 
     style at fill:#1565c0,color:#fff
-    style co fill:#6a1b9a,color:#fff
+    style co fill:#7e56c2,color:#fff
 ```
 
 ```java
@@ -263,7 +263,7 @@ flowchart LR
     C3 --> RESULT["Peter PumpkinEater\nPeter Pan\nMinnie Mouse\nMickey Mouse"]
 
     style C1 fill:#1565c0,color:#fff
-    style C3 fill:#2e7d32,color:#fff
+    style C3 fill:#9ece6a,color:#fff
 ```
 
 | Method | Type | Purpose |
@@ -305,7 +305,6 @@ flowchart TD
     INST --> N3
     INST --> N4
 
-    style anon fill:#b71c1c,color:#fff
 ```
 
 #### The `invokedynamic` Approach (What Java Actually Does)
@@ -330,7 +329,6 @@ flowchart TD
     CACHE --> Y3
     CACHE --> Y4
 
-    style indy fill:#1b5e20,color:#fff
 ```
 
 #### Step-by-Step: What Happens at Runtime
@@ -411,8 +409,6 @@ flowchart LR
         LP4["4. JIT can inline aggressively"]
     end
 
-    style anonPerf fill:#b71c1c,color:#fff
-    style lambdaPerf fill:#1b5e20,color:#fff
 ```
 
 | Aspect | Anonymous Class | Lambda |
@@ -475,6 +471,11 @@ flowchart TD
         F --> LOCK["Strategy is LOCKED\nat compile time\n❌ Can't change without recompiling"]
     end
 
+    style fixed fill:#b71c1c,color:#fff
+```
+
+```mermaid
+flowchart TD
     subgraph flexible["invokedynamic (actual)"]
         I["javac emits\ninvokedynamic instruction"]
         I --> RUNTIME["JVM chooses strategy\nAT RUNTIME"]
@@ -484,8 +485,7 @@ flowchart TD
         RUNTIME --> S4["Allocate nothing\n(singleton for non-capturing)"]
     end
 
-    style fixed fill:#b71c1c,color:#fff
-    style flexible fill:#1b5e20,color:#fff
+    style flexible fill:#5b8ba4,color:#fff
 ```
 
 > _The JVM is free to change its lambda implementation strategy in future versions without recompiling any existing code._ This is why `invokedynamic` was chosen over simply generating anonymous classes or method handles directly.

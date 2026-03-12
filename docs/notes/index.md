@@ -18,14 +18,15 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
 
 [:octicons-arrow-right-24: Go to Phase 1](phase-1/index.md)
 
-| Topic                                                                                                        | Description                                                                | Status                    |
-| ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- | ------------------------- |
-| [Topic 1: Java Basic Interactive Applications](phase-1/topic-1-java-basic-Interactive-applications/index.md) | Variables, data types, operators, control flow, loops, methods, user input | :material-check-circle:   |
-| [Topic 2: OOP & Class Design](phase-1/topic-2-oop-class-design/index.md)                                     | Classes, inheritance, polymorphism, abstraction, composition               | :material-check-circle:   |
-| [Topic 3: Arrays, Lists & Autoboxing](phase-1/topic-3-arrays-lists-generics/index.md)                        | Arrays, ArrayList, LinkedList, Iterators, Autoboxing, Enums                | :material-check-circle:   |
-| [Topic 4: Abstraction, Interfaces, Generics & Nested Classes](phase-1/topic-4-abstraction-generics/index.md) | Abstract classes, interfaces, generics, wildcards, nested classes          | :material-circle-outline: |
-| [Topic 5: Lambdas & Streams](phase-1/topic-5-lambdas-streams/index.md)                                       | Lambda expressions, Stream API, Optional, Method References                | :material-circle-outline: |
-| [Topic 6: Collections Framework](phase-1/topic-6-collections-framework/index.md)                             | List, Set, Map, Queue implementations, internals                           | :material-circle-outline: |
+| Topic                                                                                                                               | Description                                                                                     | Status                    |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------- |
+| [Topic 1: Java Basic Interactive Applications](phase-1/topic-1-java-basic-Interactive-applications/index.md)                        | Variables, data types, operators, control flow, loops, methods, user input                      | :material-check-circle:   |
+| [Topic 2: OOP & Class Design](phase-1/topic-2-oop-class-design/index.md)                                                            | Classes, inheritance, polymorphism, abstraction, composition                                    | :material-check-circle:   |
+| [Topic 3: Arrays, Lists & Autoboxing](phase-1/topic-3-arrays-lists-generics/index.md)                                               | Arrays, ArrayList, LinkedList, Iterators, Autoboxing, Enums                                     | :material-check-circle:   |
+| [Topic 4: Abstraction, Interfaces, Generics & Nested Classes](phase-1/topic-4-abstraction-generics/index.md)                         | Abstract classes, interfaces, generics, wildcards, nested classes                               | :material-check-circle: |
+| [Topic 5: Lambda Expressions & Functional Programming](phase-1/topic-5-lambdas-method-references/index.md)                          | Lambda syntax, functional interfaces, method references, chaining, Comparator convenience       | :material-check-circle: |
+| [Topic 6: Collections Framework](phase-1/topic-6-collections-framework/index.md)                                                    | List, Set, Map, Queue implementations, internals                                                | :material-circle-outline: |
+| [Topic 7: Java Streams API](phase-1/topic-7-streams/index.md)                                                                       | Stream pipelines, intermediate & terminal operations, Collectors, Optional, parallel streams    | :material-circle-outline: |
 
 ---
 
