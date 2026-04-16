@@ -25,7 +25,7 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
 | [Topic 3: Arrays, Lists & Autoboxing](phase-1/topic-3-arrays-lists-generics/index.md)                                               | Arrays, ArrayList, LinkedList, Iterators, Autoboxing, Enums                                     | :material-check-circle:   |
 | [Topic 4: Abstraction, Interfaces, Generics & Nested Classes](phase-1/topic-4-abstraction-generics/index.md)                         | Abstract classes, interfaces, generics, wildcards, nested classes                               | :material-check-circle: |
 | [Topic 5: Lambda Expressions & Functional Programming](phase-1/topic-5-lambdas-method-references/index.md)                          | Lambda syntax, functional interfaces, method references, chaining, Comparator convenience       | :material-check-circle: |
-| [Topic 6: Collections Framework](phase-1/topic-6-collections-framework/index.md)                                                    | List, Set, Map, Queue implementations, internals                                                | :material-circle-outline: |
+| [Topic 6: Collections Framework](phase-1/topic-6-collections-framework/index.md)                                                    | List, Set, Map, Queue implementations, internals                                                | :material-check-circle: |
 | [Topic 7: Java Streams API](phase-1/topic-7-streams/index.md)                                                                       | Stream pipelines, intermediate & terminal operations, Collectors, Optional, parallel streams    | :material-circle-outline: |
 
 ---

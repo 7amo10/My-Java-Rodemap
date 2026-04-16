@@ -243,6 +243,10 @@ nav:
       - Topic 6 - Collections Framework:
         - notes/phase-1/topic-6-collections-framework/index.md
         - notes/phase-1/topic-6-collections-framework/topic-note.md
+        - notes/phase-1/topic-6-collections-framework/topic-note-part2.md
+        - notes/phase-1/topic-6-collections-framework/topic-note-part3.md
+        - notes/phase-1/topic-6-collections-framework/topic-note-part4.md
+        - notes/phase-1/topic-6-collections-framework/topic-note-part5.md
         - notes/phase-1/topic-6-collections-framework/book-reading.md
         - notes/phase-1/topic-6-collections-framework/summary.md
       - Topic 7 - Java Streams API:
@@ -286,5 +290,4 @@ nav:
     - projects/project-template.md
   
   - Tags: tags.md
-
 
