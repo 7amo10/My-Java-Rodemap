@@ -76,6 +76,14 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
 
     [:octicons-arrow-right-24: Explore Topic](topic-7-streams/index.md)
 
+-   :material-shield-lock:{ .lg .middle } **Topic 8: Mastering Mutability, Immutability & Final Keyword**
+
+    ---
+
+    Mutable vs immutable objects, final modifier, defensive copies, unmodifiable collections, sealed classes (JDK 17).
+
+    [:octicons-arrow-right-24: Explore Topic](topic-8-mutability-immutability/index.md)
+
 </div>
 
 ---
@@ -109,6 +117,7 @@ Each topic folder contains three key documents:
 - [ ] Topic 5: Lambda Expressions & Functional Programming
 - [ ] Topic 6: Collections Framework
 - [ ] Topic 7: Java Streams API
+- [ ] Topic 8: Mastering Mutability, Immutability & Final Keyword
 - [ ] Phase 1 Project
 
 ---

@@ -254,6 +254,13 @@ nav:
         - notes/phase-1/topic-7-streams/topic-note.md
         - notes/phase-1/topic-7-streams/book-reading.md
         - notes/phase-1/topic-7-streams/summary.md
+      - Topic 8 - Mastering Mutability, Immutability & Final Keyword:
+        - notes/phase-1/topic-8-mutability-immutability/index.md
+        - notes/phase-1/topic-8-mutability-immutability/topic-note.md
+        - notes/phase-1/topic-8-mutability-immutability/topic-note-part2.md
+        - notes/phase-1/topic-8-mutability-immutability/topic-note-part3.md
+        - notes/phase-1/topic-8-mutability-immutability/book-reading.md
+        - notes/phase-1/topic-8-mutability-immutability/summary.md
     - Phase 2 - Advanced Java:
       - notes/phase-2/index.md
       - notes/phase-2/multithreading.md
