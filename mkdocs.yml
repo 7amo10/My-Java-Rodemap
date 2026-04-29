@@ -252,6 +252,8 @@ nav:
       - Topic 7 - Java Streams API:
         - notes/phase-1/topic-7-streams/index.md
         - notes/phase-1/topic-7-streams/topic-note.md
+        - notes/phase-1/topic-7-streams/topic-note-part2.md
+        - notes/phase-1/topic-7-streams/topic-note-part3.md
         - notes/phase-1/topic-7-streams/book-reading.md
         - notes/phase-1/topic-7-streams/summary.md
       - Topic 8 - Mastering Mutability, Immutability & Final Keyword:
