@@ -1,0 +1,5569 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive documentation of my Java learning journey, including notes, book summaries, resources, and applied project references.">
+      
+      
+        <meta name="author" content="Ahmed Ashour">
+      
+      
+        <link rel="canonical" href="https://7amo10.github.io/My-Java-Rodemap/notes/phase-1/topic-7-streams/summary/">
+      
+      
+        <link rel="prev" href="../book-reading/">
+      
+      
+        <link rel="next" href="../../topic-8-mutability-immutability/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Summary: Comprehensive Java Streams Operations, Pipelines & Sources - My Java Roadmap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#summary-comprehensive-java-streams-operations-pipelines-sources" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="My Java Roadmap" class="md-header__button md-logo" aria-label="My Java Roadmap" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M277.8 312.9c9.8-6.7 23.4-12.5 23.4-12.5s-38.7 7-77.2 10.2c-47.1 3.9-97.7 4.7-123.1 1.3-60.1-8 33-30.1 33-30.1s-36.1-2.4-80.6 19c-52.5 25.4 130 37 224.5 12.1m-85.4-32.1c-19-42.7-83.1-80.2 0-145.8C296.1 53.2 242.9 0 242.9 0c21.5 84.5-75.6 110.1-110.7 162.6-23.9 35.9 11.7 74.4 60.2 118.2M307 104.6c.1 0-175.2 43.8-91.5 140.2 24.7 28.4-6.5 54-6.5 54s62.7-32.4 33.9-72.9c-26.9-37.8-47.5-56.6 64.1-121.3m-6.1 270.5c-.5 1-1.2 1.8-2 2.6 128.3-33.7 81.1-118.9 19.8-97.3-3.3 1.2-6.2 3.4-8.2 6.3 3.6-1.3 7.3-2.3 11-3 31-6.5 75.5 41.5-20.6 91.4m47.1 62.3s14.5 11.9-15.9 21.2c-57.9 17.5-240.8 22.8-291.6.7-18.3-7.9 16-19 26.8-21.3 11.2-2.4 17.7-2 17.7-2-20.3-14.3-131.3 28.1-56.4 40.2C232.8 509.4 401 461.3 348 437.4M124.5 396c-78.7 22 47.9 67.4 148.1 24.5q-14.7-5.7-28.2-13.8c-44.7 8.5-65.4 9.1-106 4.5-33.5-3.8-13.9-15.2-13.9-15.2m179.8 97.2C225.6 508 128.5 506.3 71 496.8c0-.1 11.8 9.7 72.4 13.6 92.2 5.9 233.8-3.3 237.1-46.9 0 0-6.4 16.5-76.2 29.7M260.7 353c-59.2 11.4-93.5 11.1-136.8 6.6-33.5-3.5-11.6-19.7-11.6-19.7-86.8 28.8 48.2 61.4 169.5 25.9-7.8-2.8-15-7.1-21.1-12.8"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Java Roadmap
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Summary: Comprehensive Java Streams Operations, Pipelines &amp; Sources
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/7amo10/My-Java-Rodemap" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    7amo10/My-Java-Rodemap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+  Learning Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../books/" class="md-tabs__link">
+          
+  
+  
+  Book Summaries
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projects/" class="md-tabs__link">
+          
+  
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Java Roadmap" class="md-nav__button md-logo" aria-label="My Java Roadmap" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M277.8 312.9c9.8-6.7 23.4-12.5 23.4-12.5s-38.7 7-77.2 10.2c-47.1 3.9-97.7 4.7-123.1 1.3-60.1-8 33-30.1 33-30.1s-36.1-2.4-80.6 19c-52.5 25.4 130 37 224.5 12.1m-85.4-32.1c-19-42.7-83.1-80.2 0-145.8C296.1 53.2 242.9 0 242.9 0c21.5 84.5-75.6 110.1-110.7 162.6-23.9 35.9 11.7 74.4 60.2 118.2M307 104.6c.1 0-175.2 43.8-91.5 140.2 24.7 28.4-6.5 54-6.5 54s62.7-32.4 33.9-72.9c-26.9-37.8-47.5-56.6 64.1-121.3m-6.1 270.5c-.5 1-1.2 1.8-2 2.6 128.3-33.7 81.1-118.9 19.8-97.3-3.3 1.2-6.2 3.4-8.2 6.3 3.6-1.3 7.3-2.3 11-3 31-6.5 75.5 41.5-20.6 91.4m47.1 62.3s14.5 11.9-15.9 21.2c-57.9 17.5-240.8 22.8-291.6.7-18.3-7.9 16-19 26.8-21.3 11.2-2.4 17.7-2 17.7-2-20.3-14.3-131.3 28.1-56.4 40.2C232.8 509.4 401 461.3 348 437.4M124.5 396c-78.7 22 47.9 67.4 148.1 24.5q-14.7-5.7-28.2-13.8c-44.7 8.5-65.4 9.1-106 4.5-33.5-3.8-13.9-15.2-13.9-15.2m179.8 97.2C225.6 508 128.5 506.3 71 496.8c0-.1 11.8 9.7 72.4 13.6 92.2 5.9 233.8-3.3 237.1-46.9 0 0-6.4 16.5-76.2 29.7M260.7 353c-59.2 11.4-93.5 11.1-136.8 6.6-33.5-3.5-11.6-19.7-11.6-19.7-86.8 28.8 48.2 61.4 169.5 25.9-7.8-2.8-15-7.1-21.1-12.8"/></svg>
+
+    </a>
+    My Java Roadmap
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/7amo10/My-Java-Rodemap" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    7amo10/My-Java-Rodemap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learning Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 - Java Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 - Java Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1: Java Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1 - Java Basic Interactive Applications
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 1 - Java Basic Interactive Applications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1: Java Basic Interactive Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Syntax, Variables &amp; Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/topic-note-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 2: Control Flow, Loops &amp; User Input
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Syntax, Variables &amp; Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Syntax, Variables &amp; Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 2 - OOP & Class Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 2 - OOP & Class Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 2: OOP &amp; Class Design Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 1: Classes, Objects &amp; Encapsulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 2: Inheritance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 3: Strings &amp; StringBuilder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 4: Composition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 5: Encapsulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 6: Polymorphism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-challenges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OOP Challenges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: OOP &amp; Class Design Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: OOP &amp; Class Design Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 3 - Arrays, Lists & Autoboxing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 3 - Arrays, Lists & Autoboxing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 3: Arrays, Lists &amp; Autoboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Advanced Arrays in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: ArrayList — Java's Resizable Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: LinkedList &amp; Iterators — Doubly Linked Lists in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/topic-note-part4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Autoboxing, Unboxing &amp; Enums
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Arrays, Lists &amp; Autoboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Arrays, Lists &amp; Autoboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 4 - Abstraction, Interfaces, Generics & Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 4 - Abstraction, Interfaces, Generics & Nested Classes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-4-abstraction-generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 4: Abstraction, Interfaces, Generics &amp; Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-4-abstraction-generics/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Abstract Classes (Part 1 of Section 11)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-4-abstraction-generics/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Interfaces &amp; the Interface Challenge (Part 2 of Section 11)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-4-abstraction-generics/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Java Generics — Classes, Bounds &amp; the Layer Challenge (Part 3 — Section 12, Lectures 1–6)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-4-abstraction-generics/topic-note-part4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Comparable, Comparator, Wildcards, Type Erasure &amp; Final Challenge (Part 4 — Section 12, Lectures 7–12)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-4-abstraction-generics/topic-note-part5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Nested Classes, Local Types &amp; Anonymous Classes (Part 5 — Section 13)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-4-abstraction-generics/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Abstraction, Interfaces, Generics &amp; Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-4-abstraction-generics/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Abstraction, Interfaces, Generics &amp; Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 5 - Lambda Expressions & Functional Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 5 - Lambda Expressions & Functional Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 5: Lambda Expressions &amp; Functional Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Lambda Expressions &amp; Functional Interfaces (Part 1 — Section 14, Lectures 1–8)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Method References, Chaining &amp; Comparator Convenience (Part 2 — Section 14, Lectures 9–13)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Lambda Expressions &amp; Functional Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Lambda Expressions &amp; Functional Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 6 - Collections Framework
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 6 - Collections Framework
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 6: Collections Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Collections Framework Fundamentals &amp; Collections Utility Methods (Part 1 — Section 15, Lectures 1–8)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Hashing, Set Identity, and Set Algebra in Real Projects (Part 2 — Section 15, Lectures 9–14)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Ordered Sets, NavigableSet, and TreeSet Challenge Design (Part 3 — Section 15, Lectures 15–18)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note-part4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Map Interface, Advanced Map APIs, and HashMap Challenge (Part 4 — Section 15, Lectures 19–23)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note-part5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Ordered Maps, Enum Collections, and Final Store Challenge (Part 5 — Section 15, Lectures 24–29)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Collections Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Collections Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 7 - Java Streams API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 7 - Java Streams API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 7: Comprehensive Java Streams Operations, Pipelines &amp; Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 1: Core Concepts, Pipelines &amp; Stream Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 2: Intermediate &amp; Terminal Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 3: Collect, Reduce, Optional &amp; flatMap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Comprehensive Java Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Comprehensive Java Streams Operations, Pipelines &amp; Sources
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Comprehensive Java Streams Operations, Pipelines &amp; Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Takeaways">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-streams-are-declarative-processing-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Streams Are Declarative Processing Pipelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-three-stream-laws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Three Stream Laws
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-stream-creation-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Stream Creation Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-intermediate-operations-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Intermediate Operations At a Glance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-terminal-operations-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Terminal Operations At a Glance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-collectors-the-power-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Collectors — The Power Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-optional-safe-null-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Optional — Safe Null Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-flatmap-flattening-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. flatMap — Flattening Hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-internals-deep-dive-performance-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Internals &amp; Deep-Dive Performance Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Internals &amp; Deep-Dive Performance Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-1-stream-lazy-evaluation-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal 1: Stream Lazy Evaluation Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-2-short-circuit-operations-in-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal 2: Short-Circuit Operations in Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-3-parallel-streams-the-forkjoin-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal 3: Parallel Streams &amp; the Fork/Join Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-4-spliterator-stream-source-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal 4: Spliterator &amp; Stream Source Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonus-internal-collector-internals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus Internal: Collector Internals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-decision-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Decision Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Decision Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-streams-vs-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Streams vs Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-tolist-vs-collectorstolist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use toList() vs Collectors.toList()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-orelse-vs-orelseget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use orElse vs orElseGet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-code-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential Code Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Essential Code Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern-1-collection-processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 1: Collection Processing Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-2-group-aggregate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 2: Group &amp; Aggregate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-3-flatten-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 3: Flatten &amp; Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-4-safe-value-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 4: Safe Value Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-5-primitive-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 5: Primitive Statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 8 - Mastering Mutability, Immutability & Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 8 - Mastering Mutability, Immutability & Final Keyword
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 8: Mastering Mutability, Immutability &amp; Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 1: Mutability Fundamentals, the final Modifier &amp; Immutable Class Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 2: Deep Copies, Unmodifiable Collections &amp; Constructor Mastery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 3: Game Console Framework, Final Classes &amp; Sealed Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Mutability, Immutability &amp; the Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Mastering Mutability, Immutability &amp; the Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 - Advanced Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 - Advanced Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2: Advanced Java &amp; Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/multithreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreading &amp; Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/jvm-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JVM Internals &amp; Memory Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/garbage-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Garbage Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Performance Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/advanced-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Java Features (Java 9+)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Summaries
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Book Summaries
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Summaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Must-Read
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Must-Read
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/effective-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Effective Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/java-concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Concurrency in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/clean-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clean Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/head-first-design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Head First Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/modern-java-in-action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Java in Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/java-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 Books
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/head-first-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Head First Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/core-java-vol1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Java Volume I - Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/java-complete-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java: The Complete Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 Books
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/optimizing-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimizing Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/project-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Takeaways">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-streams-are-declarative-processing-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Streams Are Declarative Processing Pipelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-three-stream-laws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Three Stream Laws
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-stream-creation-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Stream Creation Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-intermediate-operations-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Intermediate Operations At a Glance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-terminal-operations-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Terminal Operations At a Glance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-collectors-the-power-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Collectors — The Power Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-optional-safe-null-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Optional — Safe Null Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-flatmap-flattening-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. flatMap — Flattening Hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-internals-deep-dive-performance-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Internals &amp; Deep-Dive Performance Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Internals &amp; Deep-Dive Performance Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-1-stream-lazy-evaluation-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal 1: Stream Lazy Evaluation Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-2-short-circuit-operations-in-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal 2: Short-Circuit Operations in Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-3-parallel-streams-the-forkjoin-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal 3: Parallel Streams &amp; the Fork/Join Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-4-spliterator-stream-source-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal 4: Spliterator &amp; Stream Source Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonus-internal-collector-internals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus Internal: Collector Internals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-decision-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Decision Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Decision Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-streams-vs-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Streams vs Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-tolist-vs-collectorstolist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use toList() vs Collectors.toList()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-orelse-vs-orelseget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use orElse vs orElseGet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-code-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential Code Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Essential Code Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern-1-collection-processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 1: Collection Processing Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-2-group-aggregate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 2: Group &amp; Aggregate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-3-flatten-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 3: Flatten &amp; Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-4-safe-value-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 4: Safe Value Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-5-primitive-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 5: Primitive Statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Learning Notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Phase 1 - Java Fundamentals
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Topic 7 - Java Streams API
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="summary-comprehensive-java-streams-operations-pipelines-sources"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span> Summary: Comprehensive Java Streams Operations, Pipelines &amp; Sources<a class="headerlink" href="#summary-comprehensive-java-streams-operations-pipelines-sources" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Status:</strong> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg></span> Complete</p>
+</blockquote>
+<hr />
+<h2 id="key-takeaways"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<h3 id="1-streams-are-declarative-processing-pipelines">1. Streams Are Declarative Processing Pipelines<a class="headerlink" href="#1-streams-are-declarative-processing-pipelines" title="Permanent link">&para;</a></h3>
+<p>A stream is <strong>not</strong> a data structure — it's a sequence of computational steps. Think of it as writing a SQL query: you declare <em>what</em> you want, not <em>how</em> to get it.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Source → [Intermediate Ops (0..N)] → Terminal Op (exactly 1) → Result
+</span></code></pre></div>
+<h3 id="2-the-three-stream-laws">2. The Three Stream Laws<a class="headerlink" href="#2-the-three-stream-laws" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Lazy</strong> — Nothing happens until a terminal operation is invoked</li>
+<li><strong>Non-storing</strong> — Streams do not hold data; they process from source on-demand</li>
+<li><strong>Single-use</strong> — Once consumed by a terminal op, a stream cannot be reused</li>
+</ol>
+<h3 id="3-stream-creation-hierarchy">3. Stream Creation Hierarchy<a class="headerlink" href="#3-stream-creation-hierarchy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Method</th>
+<th style="text-align: center;">Finite?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Collection</td>
+<td><code>collection.stream()</code></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Array</td>
+<td><code>Arrays.stream(array)</code></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Values</td>
+<td><code>Stream.of(a, b, c)</code></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Iterate (3-arg)</td>
+<td><code>Stream.iterate(seed, predicate, op)</code></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Range</td>
+<td><code>IntStream.range</code> / <code>rangeClosed</code></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Iterate (2-arg)</td>
+<td><code>Stream.iterate(seed, op)</code></td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Generate</td>
+<td><code>Stream.generate(supplier)</code></td>
+<td style="text-align: center;">❌</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-intermediate-operations-at-a-glance">4. Intermediate Operations At a Glance<a class="headerlink" href="#4-intermediate-operations-at-a-glance" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Operations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Element Reducing</strong></td>
+<td><code>filter</code>, <code>distinct</code>, <code>limit</code>, <code>skip</code>, <code>takeWhile</code>, <code>dropWhile</code></td>
+</tr>
+<tr>
+<td><strong>Element Transforming</strong></td>
+<td><code>map</code>, <code>mapToInt</code>/<code>mapToDouble</code>/<code>mapToLong</code>, <code>mapToObj</code>, <code>flatMap</code>, <code>peek</code>, <code>sorted</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-terminal-operations-at-a-glance">5. Terminal Operations At a Glance<a class="headerlink" href="#5-terminal-operations-at-a-glance" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Operations</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Iteration</strong></td>
+<td><code>forEach</code>, <code>forEachOrdered</code></td>
+<td><code>void</code></td>
+</tr>
+<tr>
+<td><strong>Aggregation</strong></td>
+<td><code>count</code>, <code>sum</code>, <code>min</code>, <code>max</code>, <code>average</code>, <code>summaryStatistics</code></td>
+<td>Primitive / <code>Optional</code></td>
+</tr>
+<tr>
+<td><strong>Matching</strong></td>
+<td><code>allMatch</code>, <code>anyMatch</code>, <code>noneMatch</code></td>
+<td><code>boolean</code></td>
+</tr>
+<tr>
+<td><strong>Finding</strong></td>
+<td><code>findFirst</code>, <code>findAny</code></td>
+<td><code>Optional&lt;T&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Collecting</strong></td>
+<td><code>collect</code>, <code>toList</code>, <code>toArray</code></td>
+<td>Collection / Array</td>
+</tr>
+<tr>
+<td><strong>Reducing</strong></td>
+<td><code>reduce</code></td>
+<td><code>Optional&lt;T&gt;</code> / <code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-collectors-the-power-tools">6. Collectors — The Power Tools<a class="headerlink" href="#6-collectors-the-power-tools" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Collector</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Collectors.toList()</code></td>
+<td>Mutable List</td>
+</tr>
+<tr>
+<td><code>Collectors.toSet()</code></td>
+<td>Mutable Set</td>
+</tr>
+<tr>
+<td><code>Collectors.toMap(k, v)</code></td>
+<td>Map from key/value mappers</td>
+</tr>
+<tr>
+<td><code>Collectors.groupingBy(classifier)</code></td>
+<td>Group by key into <code>Map&lt;K, List&lt;T&gt;&gt;</code></td>
+</tr>
+<tr>
+<td><code>Collectors.partitioningBy(predicate)</code></td>
+<td>Split into <code>Map&lt;Boolean, List&lt;T&gt;&gt;</code></td>
+</tr>
+<tr>
+<td><code>Collectors.joining(delim)</code></td>
+<td>Concatenate strings</td>
+</tr>
+<tr>
+<td><code>Collectors.counting()</code></td>
+<td>Count elements in groups</td>
+</tr>
+<tr>
+<td><code>Collectors.averagingDouble(fn)</code></td>
+<td>Average of mapped values</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-optional-safe-null-handling">7. Optional — Safe Null Handling<a class="headerlink" href="#7-optional-safe-null-handling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Created via <code>Optional.of()</code>, <code>Optional.ofNullable()</code>, <code>Optional.empty()</code></li>
+<li>Access via <code>ifPresent()</code>, <code>ifPresentOrElse()</code>, <code>orElse()</code>, <code>orElseGet()</code></li>
+<li>Has stream-like methods: <code>map()</code>, <code>filter()</code>, <code>flatMap()</code></li>
+<li><strong>Rule</strong>: Methods returning Optional must NEVER return <code>null</code></li>
+<li><strong>Rule</strong>: Prefer <code>orElseGet</code> over <code>orElse</code> for expensive fallbacks</li>
+</ul>
+<h3 id="8-flatmap-flattening-hierarchies">8. flatMap — Flattening Hierarchies<a class="headerlink" href="#8-flatmap-flattening-hierarchies" title="Permanent link">&para;</a></h3>
+<p><code>map</code> = one-to-one transformation; <code>flatMap</code> = one-to-many flattening.
+Use <code>flatMap</code> whenever you have <code>Stream&lt;Collection&lt;T&gt;&gt;</code> and need <code>Stream&lt;T&gt;</code>.</p>
+<hr />
+<h2 id="key-internals-deep-dive-performance-notes"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg></span> Key Internals &amp; Deep-Dive Performance Notes<a class="headerlink" href="#key-internals-deep-dive-performance-notes" title="Permanent link">&para;</a></h2>
+<h3 id="internal-1-stream-lazy-evaluation-mechanism">Internal 1: Stream Lazy Evaluation Mechanism<a class="headerlink" href="#internal-1-stream-lazy-evaluation-mechanism" title="Permanent link">&para;</a></h3>
+<p>Understanding <em>how</em> lazy evaluation works internally is critical. Streams don't execute operations eagerly — they build a <strong>pipeline descriptor</strong> that only materializes when a terminal operation triggers it.</p>
+<h4 id="the-stage-based-pipeline-architecture">The Stage-Based Pipeline Architecture<a class="headerlink" href="#the-stage-based-pipeline-architecture" title="Permanent link">&para;</a></h4>
+<p>Internally, the JVM models a stream pipeline as a <strong>linked list of stages</strong>. Each call to an intermediate operation creates a new <code>AbstractPipeline</code> node that references the previous stage:</p>
+<pre class="mermaid"><code>flowchart LR
+    HEAD["Head Stage\n(Source Spliterator)"] --&gt; S1["Stage 1\nfilter(predicate)"]
+    S1 --&gt; S2["Stage 2\nmap(function)"]
+    S2 --&gt; S3["Stage 3\nsorted()"]
+    S3 --&gt; TERM["Terminal Op\ncollect(toList())"]
+
+    HEAD -.- H_NOTE["Wraps the data source\n(ArrayList.spliterator())"]
+    TERM -.- T_NOTE["Triggers backward traversal\nto build the Sink chain"]
+
+    style HEAD fill:#3d59a1,color:#fff
+    style S1 fill:#4a6fa5,color:#fff
+    style S2 fill:#7b68ae,color:#fff
+    style S3 fill:#7b68ae,color:#fff
+    style TERM fill:#4caf7c,color:#fff
+    style H_NOTE stroke:#e8933a,color:#fff
+    style T_NOTE stroke:#e8933a,color:#fff</code></pre>
+<h4 id="how-terminal-operations-trigger-execution">How Terminal Operations Trigger Execution<a class="headerlink" href="#how-terminal-operations-trigger-execution" title="Permanent link">&para;</a></h4>
+<p>When the terminal operation is invoked, the runtime performs a <strong>backward traversal</strong> of the stage chain, wrapping each stage's operation into a <code>Sink</code> (a specialized <code>Consumer</code>). These sinks are chained together and then the source spliterator pushes elements through the entire fused chain:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant User as User Code
+    participant Term as Terminal Op
+    participant Pipeline as AbstractPipeline
+    participant Sink as Fused Sink Chain
+    participant Source as Spliterator
+
+    User-&gt;&gt;Term: .collect(toList())
+    Term-&gt;&gt;Pipeline: wrapAndCopyInto()
+    Pipeline-&gt;&gt;Pipeline: Walk backward through stages
+    Pipeline-&gt;&gt;Sink: Build fused Sink chain
+    Note over Sink: filter.Sink → map.Sink → sort.Sink → collect.Sink
+    Pipeline-&gt;&gt;Source: forEachRemaining(fusedSink)
+    Source-&gt;&gt;Sink: Push element 1
+    Sink-&gt;&gt;Sink: filter → map → sort buffer
+    Source-&gt;&gt;Sink: Push element 2
+    Sink-&gt;&gt;Sink: filter → map → sort buffer
+    Note over Source,Sink: ...all elements pushed...
+    Sink-&gt;&gt;Term: Final sorted + collected result
+    Term-&gt;&gt;User: Return List</code></pre>
+<h4 id="why-this-matters">Why This Matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>No intermediate collections are created</strong> between stages — elements flow through the fused sink chain one at a time (except for stateful operations like <code>sorted</code>)</li>
+<li><strong>Operation fusion</strong> means the JVM can optimize the combined behavior, not each operation individually</li>
+<li><strong>Dead code elimination</strong>: if a short-circuit terminal op (like <code>findFirst</code>) completes early, remaining source elements are never processed</li>
+</ul>
+<blockquote>
+<p><strong>Resource:</strong> <a href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/stream/AbstractPipeline.java">OpenJDK <code>AbstractPipeline.java</code></a> — The backbone of all stream pipeline implementations, containing <code>wrapAndCopyInto()</code> and <code>wrapSink()</code> methods</p>
+</blockquote>
+<hr />
+<h3 id="internal-2-short-circuit-operations-in-streams">Internal 2: Short-Circuit Operations in Streams<a class="headerlink" href="#internal-2-short-circuit-operations-in-streams" title="Permanent link">&para;</a></h3>
+<p>Short-circuit operations are a critical optimization — they allow the pipeline to <strong>stop processing early</strong> without consuming the entire source.</p>
+<h4 id="which-operations-short-circuit">Which Operations Short-Circuit?<a class="headerlink" href="#which-operations-short-circuit" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart TD
+    SC["Short-Circuit Operations"] --&gt; INT_SC["Intermediate\n(truncating)"]
+    SC --&gt; TERM_SC["Terminal\n(early exit)"]
+
+    INT_SC --&gt; LIMIT["limit(n)\nStops after n elements"]
+    INT_SC --&gt; TAKE["takeWhile(pred)\nStops at first false"]
+
+    TERM_SC --&gt; FIND["findFirst() / findAny()\nStops at first match"]
+    TERM_SC --&gt; ANY["anyMatch(pred)\nStops at first true"]
+    TERM_SC --&gt; ALL["allMatch(pred)\nStops at first false"]
+    TERM_SC --&gt; NONE["noneMatch(pred)\nStops at first true"]
+
+    style SC fill:#3d59a1,color:#fff
+    style INT_SC fill:#7b68ae,color:#fff
+    style TERM_SC fill:#4caf7c,color:#fff
+    style LIMIT fill:#4a6fa5,color:#fff
+    style TAKE fill:#4a6fa5,color:#fff
+    style FIND fill:#4caf7c,color:#fff
+    style ANY fill:#4caf7c,color:#fff
+    style ALL fill:#4caf7c,color:#fff
+    style NONE fill:#4caf7c,color:#fff</code></pre>
+<h4 id="how-short-circuiting-works-internally">How Short-Circuiting Works Internally<a class="headerlink" href="#how-short-circuiting-works-internally" title="Permanent link">&para;</a></h4>
+<p>The <code>Sink</code> interface has a <code>cancellationRequested()</code> method. When a short-circuit operation determines the result is complete, it sets a flag that propagates upstream:</p>
+<pre class="mermaid"><code>flowchart LR
+    E1["Element 1"] --&gt; F1["filter ✓"] --&gt; M1["map"] --&gt; LIMIT["limit(3)\ncount: 1"]
+    E2["Element 2"] --&gt; F2["filter ✗"]
+    E3["Element 3"] --&gt; F3["filter ✓"] --&gt; M3["map"] --&gt; LIMIT2["limit(3)\ncount: 2"]
+    E4["Element 4"] --&gt; F4["filter ✓"] --&gt; M4["map"] --&gt; LIMIT3["limit(3)\ncount: 3 ✅"]
+    E5["Element 5"] --&gt; STOP["⛔ CANCELLED\nNot processed"]
+    E6["Element 6"] --&gt; STOP2["⛔ CANCELLED\nNot processed"]
+
+    style E1 fill:#4a6fa5,color:#fff
+    style E2 fill:#4a6fa5,color:#fff
+    style E3 fill:#4a6fa5,color:#fff
+    style E4 fill:#4a6fa5,color:#fff
+    style E5 fill:#7e56c2,color:#999
+    style E6 fill:#7e56c2,color:#999
+    style STOP fill:#dc5c59,color:#fff
+    style STOP2 fill:#dc5c59,color:#fff
+    style LIMIT3 fill:#4caf7c,color:#fff</code></pre>
+<h4 id="performance-impact-infinite-streams">Performance Impact — Infinite Streams<a class="headerlink" href="#performance-impact-infinite-streams" title="Permanent link">&para;</a></h4>
+<p>Short-circuiting is <strong>essential</strong> for infinite streams. Without <code>limit</code>, <code>findFirst</code>, or <code>takeWhile</code>, an infinite source would loop forever:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Without short-circuit → runs forever ❌</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">Stream</span><span class="p">.</span><span class="na">iterate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">Main</span><span class="p">::</span><span class="n">isPrime</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span><span class="w">  </span><span class="c1">// Never terminates!</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// With short-circuit → terminates after 20 results ✅</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">Stream</span><span class="p">.</span><span class="na">iterate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">Main</span><span class="p">::</span><span class="n">isPrime</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w">                       </span><span class="c1">// Short-circuit!</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="stateful-vs-stateless-impact-on-short-circuiting">Stateful vs Stateless — Impact on Short-Circuiting<a class="headerlink" href="#stateful-vs-stateless-impact-on-short-circuiting" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Operation Type</th>
+<th>Examples</th>
+<th style="text-align: center;">Can Short-Circuit Effectively?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Stateless</strong></td>
+<td><code>filter</code>, <code>map</code>, <code>peek</code></td>
+<td style="text-align: center;">✅ Process one-at-a-time</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Stateful (bounded)</strong></td>
+<td><code>limit</code>, <code>skip</code>, <code>takeWhile</code></td>
+<td style="text-align: center;">✅ Track count/condition</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Stateful (unbounded)</strong></td>
+<td><code>sorted</code>, <code>distinct</code></td>
+<td style="text-align: center;">⚠️ Must see ALL elements first</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">sorted + limit Trap</p>
+<p><code>stream.sorted().limit(5)</code> must sort <strong>all</strong> elements before limiting to 5. But <code>stream.limit(5).sorted()</code> only sorts 5 elements. Order matters!</p>
+</div>
+<blockquote>
+<p><strong>Resource:</strong> <a href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/stream/Sink.java">OpenJDK <code>Sink.java</code></a> — The <code>cancellationRequested()</code> mechanism that enables short-circuiting</p>
+</blockquote>
+<hr />
+<h3 id="internal-3-parallel-streams-the-forkjoin-framework">Internal 3: Parallel Streams &amp; the Fork/Join Framework<a class="headerlink" href="#internal-3-parallel-streams-the-forkjoin-framework" title="Permanent link">&para;</a></h3>
+<p>Parallel streams split work across multiple CPU cores using Java's <strong>Fork/Join Framework</strong> (introduced in Java 7).</p>
+<h4 id="how-parallel-streams-work">How Parallel Streams Work<a class="headerlink" href="#how-parallel-streams-work" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart TD
+    SOURCE["Source Data\n[1, 2, 3, 4, 5, 6, 7, 8]"] --&gt; SPLIT["Spliterator.trySplit()"]
+
+    SPLIT --&gt; LEFT["Left Half\n[1, 2, 3, 4]"]
+    SPLIT --&gt; RIGHT["Right Half\n[5, 6, 7, 8]"]
+
+    LEFT --&gt; SPLIT_L["trySplit()"]
+    RIGHT --&gt; SPLIT_R["trySplit()"]
+
+    SPLIT_L --&gt; LL["[1, 2]"]
+    SPLIT_L --&gt; LR["[3, 4]"]
+    SPLIT_R --&gt; RL["[5, 6]"]
+    SPLIT_R --&gt; RR["[7, 8]"]
+
+    LL --&gt; P1["Thread 1\nprocess"]
+    LR --&gt; P2["Thread 2\nprocess"]
+    RL --&gt; P3["Thread 3\nprocess"]
+    RR --&gt; P4["Thread 4\nprocess"]
+
+    P1 --&gt; COMBINE["Combiner\n(merge results)"]
+    P2 --&gt; COMBINE
+    P3 --&gt; COMBINE
+    P4 --&gt; COMBINE
+
+    COMBINE --&gt; RESULT["Final Result"]
+
+    style SOURCE fill:#3d59a1,color:#fff
+    style SPLIT fill:#7b68ae,color:#fff
+    style SPLIT_L fill:#7b68ae,color:#fff
+    style SPLIT_R fill:#7b68ae,color:#fff
+    style P1 fill:#4caf7c,color:#fff
+    style P2 fill:#4caf7c,color:#fff
+    style P3 fill:#4caf7c,color:#fff
+    style P4 fill:#4caf7c,color:#fff
+    style COMBINE fill:#e8933a,color:#fff
+    style RESULT fill:#4caf7c,color:#fff</code></pre>
+<h4 id="the-forkjoin-framework-under-the-hood">The Fork/Join Framework Under the Hood<a class="headerlink" href="#the-forkjoin-framework-under-the-hood" title="Permanent link">&para;</a></h4>
+<p>Parallel streams run on the <strong>common ForkJoinPool</strong> (<code>ForkJoinPool.commonPool()</code>), which defaults to <code>Runtime.getRuntime().availableProcessors() - 1</code> threads plus the calling thread.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph pool["ForkJoinPool.commonPool()"]
+        direction TB
+        W1["Worker Thread 1"]
+        W2["Worker Thread 2"]
+        W3["Worker Thread 3"]
+        WN["Worker Thread N\n(N = CPU cores - 1)"]
+    end
+
+    CALLING["Calling Thread\n(main)"] --&gt; TASK["ForkJoinTask\n(stream pipeline)"]
+    TASK --&gt; FORK["fork() — split into subtasks"]
+    FORK --&gt; W1
+    FORK --&gt; W2
+    FORK --&gt; W3
+    FORK --&gt; WN
+
+    W1 --&gt; STEAL["Work Stealing\n(idle threads steal from busy queues)"]
+    W2 --&gt; STEAL
+    W3 --&gt; STEAL
+    WN --&gt; STEAL
+
+    STEAL --&gt; JOIN["join() — combine results"]
+
+    style pool color:#fff
+    style CALLING fill:#3d59a1,color:#fff
+    style TASK fill:#7b68ae,color:#fff
+    style FORK fill:#e8933a,color:#fff
+    style STEAL fill:#4a6fa5,color:#fff
+    style JOIN fill:#4caf7c,color:#fff</code></pre>
+<p><strong>Work Stealing</strong>: Each worker thread has its own deque (double-ended queue). When a thread finishes its work, it <strong>steals</strong> tasks from the tail of another thread's deque, ensuring load balancing.</p>
+<h4 id="when-to-use-parallel-streams">When to Use Parallel Streams<a class="headerlink" href="#when-to-use-parallel-streams" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Good for Parallel ✅</th>
+<th>Bad for Parallel ❌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source</strong></td>
+<td><code>ArrayList</code>, arrays, <code>IntStream.range</code></td>
+<td><code>LinkedList</code>, <code>Stream.iterate</code>, IO-bound</td>
+</tr>
+<tr>
+<td><strong>Operations</strong></td>
+<td>Stateless (<code>filter</code>, <code>map</code>)</td>
+<td>Stateful (<code>sorted</code>, <code>distinct</code>, <code>limit</code>)</td>
+</tr>
+<tr>
+<td><strong>Terminal</strong></td>
+<td><code>reduce</code>, <code>count</code>, <code>sum</code>, <code>collect</code></td>
+<td><code>forEach</code> (non-deterministic order)</td>
+</tr>
+<tr>
+<td><strong>Data size</strong></td>
+<td>Large (10,000+ elements)</td>
+<td>Small (overhead &gt; benefit)</td>
+</tr>
+<tr>
+<td><strong>Element cost</strong></td>
+<td>CPU-intensive per element</td>
+<td>Simple operations</td>
+</tr>
+</tbody>
+</table>
+<h4 id="the-three-parameter-reduce-in-parallel-context">The Three-Parameter <code>reduce</code> in Parallel Context<a class="headerlink" href="#the-three-parameter-reduce-in-parallel-context" title="Permanent link">&para;</a></h4>
+<p>The combiner parameter only matters for parallel streams:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Sequential: accumulator processes elements one-by-one</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// Parallel: each thread accumulates locally, then combiner merges results</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">students</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">()</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">.</span><span class="na">reduce</span><span class="p">(</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="mi">0</span><span class="p">,</span><span class="w">                                          </span><span class="c1">// identity</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="p">(</span><span class="n">subtotal</span><span class="p">,</span><span class="w"> </span><span class="n">student</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">subtotal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="na">getAge</span><span class="p">(),</span><span class="w">  </span><span class="c1">// accumulator</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="n">Integer</span><span class="p">::</span><span class="n">sum</span><span class="w">                                </span><span class="c1">// combiner (parallel merge)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="common-pitfalls">Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Permanent link">&para;</a></h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// ❌ forEach on parallel → non-deterministic order</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">list</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">()</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span><span class="w">  </span><span class="c1">// Output order is random!</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// ✅ forEachOrdered → preserves encounter order (but loses parallelism benefit)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">list</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">()</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">.</span><span class="na">forEachOrdered</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">// ❌ Shared mutable state → race condition</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span><span class="c1">// NOT thread-safe!</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">stream</span><span class="p">.</span><span class="na">parallel</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">results</span><span class="p">::</span><span class="n">add</span><span class="p">);</span><span class="w">    </span><span class="c1">// ConcurrentModificationException!</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1">// ✅ Use collect instead</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stream</span><span class="p">.</span><span class="na">parallel</span><span class="p">()</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">          </span><span class="c1">// Thread-safe accumulation</span>
+</span></code></pre></div>
+<blockquote>
+<p><strong>Resource:</strong> <a href="https://jcip.net/">Java Concurrency in Practice by Brian Goetz</a> — Chapter 6 on Fork/Join and work-stealing algorithms
+<strong>Resource:</strong> <a href="http://gee.cs.oswego.edu/dl/papers/fj.pdf">Doug Lea's Fork/Join Paper</a> — Original design paper by the framework's author</p>
+</blockquote>
+<hr />
+<h3 id="internal-4-spliterator-stream-source-characteristics">Internal 4: Spliterator &amp; Stream Source Characteristics<a class="headerlink" href="#internal-4-spliterator-stream-source-characteristics" title="Permanent link">&para;</a></h3>
+<p>The <code>Spliterator</code> (splitable iterator) is the <strong>engine</strong> that drives stream processing. It determines how data is traversed, split for parallelism, and optimized.</p>
+<h4 id="what-is-a-spliterator">What Is a Spliterator?<a class="headerlink" href="#what-is-a-spliterator" title="Permanent link">&para;</a></h4>
+<p>Every stream source provides a <code>Spliterator&lt;T&gt;</code> that has two core responsibilities:</p>
+<ol>
+<li><strong>Traverse</strong> elements sequentially (<code>tryAdvance</code> / <code>forEachRemaining</code>)</li>
+<li><strong>Split</strong> the element space for parallel processing (<code>trySplit</code>)</li>
+</ol>
+<pre class="mermaid"><code>flowchart TD
+    SPLIT["Spliterator&amp;lt;T&amp;gt;"] --&gt; TRAVERSE["Sequential Traversal"]
+    SPLIT --&gt; PARALLEL["Parallel Splitting"]
+    SPLIT --&gt; CHARS["Characteristics"]
+
+    TRAVERSE --&gt; TRY["tryAdvance(consumer)\nProcess one element"]
+    TRAVERSE --&gt; EACH["forEachRemaining(consumer)\nProcess all remaining"]
+
+    PARALLEL --&gt; TRYSPLIT["trySplit()\nSplit into two halves"]
+    PARALLEL --&gt; EST["estimateSize()\nApproximate remaining count"]
+
+    CHARS --&gt; FLAGS["Characteristic Flags\n(bitwise OR of constants)"]
+
+    style SPLIT fill:#3d59a1,color:#fff
+    style TRAVERSE fill:#4a6fa5,color:#fff
+    style PARALLEL fill:#7b68ae,color:#fff
+    style CHARS fill:#4caf7c,color:#fff</code></pre>
+<h4 id="characteristic-flags-the-optimization-signals">Characteristic Flags — The Optimization Signals<a class="headerlink" href="#characteristic-flags-the-optimization-signals" title="Permanent link">&para;</a></h4>
+<p>Each <code>Spliterator</code> reports a set of <strong>characteristics</strong> as bit flags. The stream pipeline uses these flags to skip unnecessary work:</p>
+<pre class="mermaid"><code>flowchart TD
+    CHARACTERISTICS["Spliterator Characteristics"] --&gt; ORDERED["ORDERED\nElements have defined encounter order"]
+    CHARACTERISTICS --&gt; SIZED["SIZED\nExact element count is known"]
+    CHARACTERISTICS --&gt; SUBSIZED["SUBSIZED\nSub-spliterators are also SIZED"]
+    CHARACTERISTICS --&gt; DISTINCT_C["DISTINCT\nAll elements are unique"]
+    CHARACTERISTICS --&gt; SORTED_C["SORTED\nElements are in natural order"]
+    CHARACTERISTICS --&gt; NONNULL["NONNULL\nSource guarantees no nulls"]
+    CHARACTERISTICS --&gt; IMMUTABLE["IMMUTABLE\nSource cannot be modified"]
+    CHARACTERISTICS --&gt; CONCURRENT["CONCURRENT\nSource safely supports concurrent modification"]
+
+    style CHARACTERISTICS fill:#3d59a1,color:#fff
+    style ORDERED fill:#4a6fa5,color:#fff
+    style SIZED fill:#4a6fa5,color:#fff
+    style SUBSIZED fill:#4a6fa5,color:#fff
+    style DISTINCT_C fill:#7b68ae,color:#fff
+    style SORTED_C fill:#7b68ae,color:#fff
+    style NONNULL fill:#4caf7c,color:#fff
+    style IMMUTABLE fill:#4caf7c,color:#fff
+    style CONCURRENT fill:#4caf7c,color:#fff</code></pre>
+<h4 id="how-characteristics-enable-optimizations">How Characteristics Enable Optimizations<a class="headerlink" href="#how-characteristics-enable-optimizations" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Characteristic</th>
+<th>Optimization Enabled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>SIZED</strong></td>
+<td><code>count()</code> returns immediately without traversing; <code>toArray()</code> pre-allocates exact array size</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>DISTINCT</strong></td>
+<td><code>distinct()</code> operation becomes a no-op (already unique)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>SORTED</strong></td>
+<td><code>sorted()</code> operation becomes a no-op (already ordered)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>ORDERED</strong></td>
+<td><code>findFirst()</code> is well-defined; parallel streams preserve order when needed</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>SUBSIZED</strong></td>
+<td>Enables balanced parallel splitting — each half knows its exact size</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>NONNULL</strong></td>
+<td>Skip null checks in <code>Optional</code>-returning operations</td>
+</tr>
+</tbody>
+</table>
+<h4 id="characteristics-by-collection-type">Characteristics by Collection Type<a class="headerlink" href="#characteristics-by-collection-type" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th style="text-align: center;">ORDERED</th>
+<th style="text-align: center;">SIZED</th>
+<th style="text-align: center;">DISTINCT</th>
+<th style="text-align: center;">SORTED</th>
+<th style="text-align: center;">Parallel Split Quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ArrayList</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⭐⭐⭐ Excellent (index-based split)</td>
+</tr>
+<tr>
+<td><code>LinkedList</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⭐ Poor (must traverse to split)</td>
+</tr>
+<tr>
+<td><code>HashSet</code></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⭐⭐ Good (bucket-based split)</td>
+</tr>
+<tr>
+<td><code>TreeSet</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⭐⭐ Good (tree-based split)</td>
+</tr>
+<tr>
+<td><code>IntStream.range</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⭐⭐⭐ Excellent (arithmetic split)</td>
+</tr>
+<tr>
+<td><code>Stream.iterate</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⭐ Terrible (sequential dependency)</td>
+</tr>
+<tr>
+<td><code>Stream.generate</code></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⭐ Terrible (no structure)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="how-operations-change-characteristics">How Operations Change Characteristics<a class="headerlink" href="#how-operations-change-characteristics" title="Permanent link">&para;</a></h4>
+<p>Intermediate operations can <strong>add or remove</strong> characteristics from the stream:</p>
+<pre class="mermaid"><code>flowchart LR
+    SRC["ArrayList.stream()\nORDERED, SIZED"] --&gt; FILTER["filter()\n-SIZED"]
+    FILTER --&gt; MAP["map()\n(unchanged)"]
+    MAP --&gt; SORTED_OP["sorted()\n+SORTED, +ORDERED"]
+    SORTED_OP --&gt; DISTINCT_OP["distinct()\n+DISTINCT, -SIZED"]
+
+    style SRC fill:#3d59a1,color:#fff
+    style FILTER fill:#dc5c59,color:#fff
+    style MAP fill:#4a6fa5,color:#fff
+    style SORTED_OP fill:#4caf7c,color:#fff
+    style DISTINCT_OP fill:#7b68ae,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Adds</th>
+<th>Removes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filter()</code></td>
+<td>—</td>
+<td>SIZED</td>
+</tr>
+<tr>
+<td><code>map()</code></td>
+<td>—</td>
+<td>DISTINCT, SORTED</td>
+</tr>
+<tr>
+<td><code>sorted()</code></td>
+<td>SORTED, ORDERED</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>distinct()</code></td>
+<td>DISTINCT</td>
+<td>SIZED</td>
+</tr>
+<tr>
+<td><code>limit()</code> / <code>skip()</code></td>
+<td>—</td>
+<td>SIZED</td>
+</tr>
+<tr>
+<td><code>flatMap()</code></td>
+<td>—</td>
+<td>DISTINCT, SORTED, SIZED</td>
+</tr>
+<tr>
+<td><code>unordered()</code></td>
+<td>—</td>
+<td>ORDERED</td>
+</tr>
+</tbody>
+</table>
+<h4 id="the-trysplit-balancing-strategy">The <code>trySplit()</code> Balancing Strategy<a class="headerlink" href="#the-trysplit-balancing-strategy" title="Permanent link">&para;</a></h4>
+<p>For efficient parallelism, <code>trySplit()</code> should return a spliterator covering approximately <strong>half</strong> the remaining elements. The quality varies dramatically by source:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// ArrayList: splits by index → O(1), perfectly balanced</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// [0..49] → left: [0..24], right: [25..49]</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">// LinkedList: must traverse to find midpoint → O(n)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// Degrades to sequential in practice</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// IntStream.range(0, 1000): arithmetic split → O(1)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">// left: range(0, 500), right: range(500, 1000)</span>
+</span></code></pre></div>
+<blockquote>
+<p><strong>Resource:</strong> <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Spliterator.html">Spliterator JavaDoc</a> — Full specification of characteristics and splitting contracts
+<strong>Resource:</strong> <a href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/ArrayList.java">OpenJDK <code>ArrayListSpliterator</code></a> — See how <code>trySplit()</code> divides the backing array by index midpoint</p>
+</blockquote>
+<hr />
+<h3 id="bonus-internal-collector-internals">Bonus Internal: Collector Internals<a class="headerlink" href="#bonus-internal-collector-internals" title="Permanent link">&para;</a></h3>
+<p>The <code>Collector</code> interface's four functions map directly to stream processing stages:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Role</th>
+<th>Example for <code>toList()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>supplier()</code></td>
+<td>Create accumulation container</td>
+<td><code>ArrayList::new</code></td>
+</tr>
+<tr>
+<td><code>accumulator()</code></td>
+<td>Add element to container</td>
+<td><code>List::add</code></td>
+</tr>
+<tr>
+<td><code>combiner()</code></td>
+<td>Merge two containers (parallel)</td>
+<td><code>(a,b) -&gt; { a.addAll(b); return a; }</code></td>
+</tr>
+<tr>
+<td><code>finisher()</code></td>
+<td>Final transformation</td>
+<td><code>Function.identity()</code></td>
+</tr>
+</tbody>
+</table>
+<p>In parallel execution, each thread gets its own container from <code>supplier()</code>, fills it with <code>accumulator()</code>, and the framework uses <code>combiner()</code> to merge all thread-local containers into a single result:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph t1["Thread 1"]
+        S1["supplier()\nArrayList①"] --&gt; A1["accumulator()\nadd elements 1-250"]
+    end
+    subgraph t2["Thread 2"]
+        S2["supplier()\nArrayList②"] --&gt; A2["accumulator()\nadd elements 251-500"]
+    end
+    subgraph t3["Thread 3"]
+        S3["supplier()\nArrayList③"] --&gt; A3["accumulator()\nadd elements 501-750"]
+    end
+    subgraph t4["Thread 4"]
+        S4["supplier()\nArrayList④"] --&gt; A4["accumulator()\nadd elements 751-1000"]
+    end
+
+    A1 --&gt; C1["combiner()\nmerge ①+②"]
+    A2 --&gt; C1
+    A3 --&gt; C2["combiner()\nmerge ③+④"]
+    A4 --&gt; C2
+    C1 --&gt; CF["combiner()\nmerge all"]
+    C2 --&gt; CF
+    CF --&gt; FIN["finisher()\nFinal List"]
+
+    style t1 color:#fff
+    style t2 color:#fff
+    style t3 color:#fff
+    style t4 color:#fff
+    style C1 fill:#e8933a,color:#fff
+    style C2 fill:#e8933a,color:#fff
+    style CF fill:#e8933a,color:#fff
+    style FIN fill:#4caf7c,color:#fff</code></pre>
+<blockquote>
+<p><strong>Resource:</strong> <a href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/stream/Collectors.java">OpenJDK <code>Collectors.java</code></a> — All built-in collector implementations
+<strong>Resource:</strong> <a href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/stream/ReduceOps.java">OpenJDK <code>ReduceOps.java</code></a> — How <code>collect</code> and <code>reduce</code> terminal operations orchestrate the Collector</p>
+</blockquote>
+<hr />
+<h2 id="quick-decision-guide"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.19 14.19 6 18l3.81-8.19L18 6m-6-4A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 8.9a1.1 1.1 0 0 0-1.1 1.1 1.1 1.1 0 0 0 1.1 1.1 1.1 1.1 0 0 0 1.1-1.1 1.1 1.1 0 0 0-1.1-1.1"/></svg></span> Quick Decision Guide<a class="headerlink" href="#quick-decision-guide" title="Permanent link">&para;</a></h2>
+<h3 id="when-to-use-streams-vs-loops">When to Use Streams vs Loops<a class="headerlink" href="#when-to-use-streams-vs-loops" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>✅ Use streams when:
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  → You&#39;re building a transformation pipeline (filter/map/collect)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  → You need declarative data processing (reads like SQL)
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  → You want aggregation (count, sum, grouping)
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  → You&#39;re working with Collections/Arrays as source
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>❌ Use loops when:
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  → You need break/continue/return logic
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  → You need to modify elements in place
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  → You need index-based access
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>  → Side effects are the primary goal
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>  → Checked exceptions must be thrown
+</span></code></pre></div>
+<h3 id="when-to-use-tolist-vs-collectorstolist">When to Use <code>toList()</code> vs <code>Collectors.toList()</code><a class="headerlink" href="#when-to-use-tolist-vs-collectorstolist" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>toList()             → Unmodifiable result, no further mutation needed
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Collectors.toList()  → Mutable result, will add/remove/shuffle later
+</span></code></pre></div>
+<h3 id="when-to-use-orelse-vs-orelseget">When to Use <code>orElse</code> vs <code>orElseGet</code><a class="headerlink" href="#when-to-use-orelse-vs-orelseget" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>orElse(defaultValue)         → When default is a constant or cheap
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>orElseGet(() -&gt; compute())   → When default is expensive (DB call, creation)
+</span></code></pre></div>
+<hr />
+<h2 id="concept-map"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"/></svg></span> Concept Map<a class="headerlink" href="#concept-map" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TD
+    STREAMS["Java Streams API"] --&gt; SOURCE["Sources"]
+    STREAMS --&gt; INT["Intermediate Ops"]
+    STREAMS --&gt; TERM["Terminal Ops"]
+    STREAMS --&gt; OPT["Optional"]
+    STREAMS --&gt; COLL["Collectors"]
+
+    SOURCE --&gt; S1["Collections\nArrays\nStream.of"]
+    SOURCE --&gt; S2["Infinite\ngenerate / iterate"]
+    SOURCE --&gt; S3["Primitive\nIntStream / DoubleStream"]
+
+    INT --&gt; I1["Reducing\nfilter, distinct, limit\nskip, takeWhile, dropWhile"]
+    INT --&gt; I2["Transforming\nmap, flatMap, sorted, peek\nmapToInt/Double/Long"]
+
+    TERM --&gt; T1["forEach\ncount, sum"]
+    TERM --&gt; T2["collect\nreduce"]
+    TERM --&gt; T3["allMatch, anyMatch\nfindFirst, findAny"]
+
+    OPT --&gt; O1["of / ofNullable / empty"]
+    OPT --&gt; O2["ifPresent / orElseGet"]
+    OPT --&gt; O3["map / filter"]
+
+    COLL --&gt; C1["toList / toSet / toMap"]
+    COLL --&gt; C2["groupingBy\npartitioningBy"]
+    COLL --&gt; C3["joining / counting"]
+
+    style STREAMS fill:#3d59a1,color:#fff
+    style SOURCE fill:#4a6fa5,color:#fff
+    style INT fill:#7b68ae,color:#fff
+    style TERM fill:#4caf7c,color:#fff
+    style OPT fill:#e8933a,color:#fff
+    style COLL fill:#dc5c59,color:#fff</code></pre>
+<hr />
+<h2 id="essential-code-patterns"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.6 16.6 4.6-4.6-4.6-4.6L16 6l6 6-6 6zm-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6z"/></svg></span> Essential Code Patterns<a class="headerlink" href="#essential-code-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="pattern-1-collection-processing-pipeline">Pattern 1: Collection Processing Pipeline<a class="headerlink" href="#pattern-1-collection-processing-pipeline" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataList</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">predicate</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">transformation</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">comparator</span><span class="p">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</span></code></pre></div>
+<h3 id="pattern-2-group-aggregate">Pattern 2: Group &amp; Aggregate<a class="headerlink" href="#pattern-2-group-aggregate" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">countByGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="n">Item</span><span class="p">::</span><span class="n">getCategory</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="n">Collectors</span><span class="p">.</span><span class="na">counting</span><span class="p">()</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="p">));</span>
+</span></code></pre></div>
+<h3 id="pattern-3-flatten-process">Pattern 3: Flatten &amp; Process<a class="headerlink" href="#pattern-3-flatten-process" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">long</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nestedMap</span><span class="p">.</span><span class="na">values</span><span class="p">().</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">Collection</span><span class="p">::</span><span class="n">stream</span><span class="p">)</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">predicate</span><span class="p">)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p">.</span><span class="na">count</span><span class="p">();</span>
+</span></code></pre></div>
+<h3 id="pattern-4-safe-value-retrieval">Pattern 4: Safe Value Retrieval<a class="headerlink" href="#pattern-4-safe-value-retrieval" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="n">getValue</span><span class="p">())</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">toUpperCase</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="s">&quot;DEFAULT&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="pattern-5-primitive-statistics">Pattern 5: Primitive Statistics<a class="headerlink" href="#pattern-5-primitive-statistics" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">IntSummaryStatistics</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="p">.</span><span class="na">mapToInt</span><span class="p">(</span><span class="n">Item</span><span class="p">::</span><span class="n">getQuantity</span><span class="p">)</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="p">.</span><span class="na">summaryStatistics</span><span class="p">();</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1">// stats.getCount(), stats.getSum(), stats.getAverage(), stats.getMin(), stats.getMax()</span>
+</span></code></pre></div>
+<hr />
+<p><em>Last Updated: 2026-04-29</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../book-reading/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Book Reading: Comprehensive Java Streams">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Book Reading: Comprehensive Java Streams
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../topic-8-mutability-immutability/" class="md-footer__link md-footer__link--next" aria-label="Next: Topic 8: Mastering Mutability, Immutability &amp;amp; Final Keyword">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Topic 8: Mastering Mutability, Immutability &amp; Final Keyword
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - 2026 Ahmed Ashour
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/7amo10" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/in/eng-ahmed-ashour-45b65b263" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", null], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

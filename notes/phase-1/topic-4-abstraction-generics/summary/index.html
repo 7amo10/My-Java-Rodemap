@@ -1,0 +1,5869 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive documentation of my Java learning journey, including notes, book summaries, resources, and applied project references.">
+      
+      
+        <meta name="author" content="Ahmed Ashour">
+      
+      
+        <link rel="canonical" href="https://7amo10.github.io/My-Java-Rodemap/notes/phase-1/topic-4-abstraction-generics/summary/">
+      
+      
+        <link rel="prev" href="../book-reading/">
+      
+      
+        <link rel="next" href="../../topic-5-lambdas-method-references/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Summary: Abstraction, Interfaces, Generics & Nested Classes - My Java Roadmap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#summary-abstraction-interfaces-generics-nested-classes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="My Java Roadmap" class="md-header__button md-logo" aria-label="My Java Roadmap" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M277.8 312.9c9.8-6.7 23.4-12.5 23.4-12.5s-38.7 7-77.2 10.2c-47.1 3.9-97.7 4.7-123.1 1.3-60.1-8 33-30.1 33-30.1s-36.1-2.4-80.6 19c-52.5 25.4 130 37 224.5 12.1m-85.4-32.1c-19-42.7-83.1-80.2 0-145.8C296.1 53.2 242.9 0 242.9 0c21.5 84.5-75.6 110.1-110.7 162.6-23.9 35.9 11.7 74.4 60.2 118.2M307 104.6c.1 0-175.2 43.8-91.5 140.2 24.7 28.4-6.5 54-6.5 54s62.7-32.4 33.9-72.9c-26.9-37.8-47.5-56.6 64.1-121.3m-6.1 270.5c-.5 1-1.2 1.8-2 2.6 128.3-33.7 81.1-118.9 19.8-97.3-3.3 1.2-6.2 3.4-8.2 6.3 3.6-1.3 7.3-2.3 11-3 31-6.5 75.5 41.5-20.6 91.4m47.1 62.3s14.5 11.9-15.9 21.2c-57.9 17.5-240.8 22.8-291.6.7-18.3-7.9 16-19 26.8-21.3 11.2-2.4 17.7-2 17.7-2-20.3-14.3-131.3 28.1-56.4 40.2C232.8 509.4 401 461.3 348 437.4M124.5 396c-78.7 22 47.9 67.4 148.1 24.5q-14.7-5.7-28.2-13.8c-44.7 8.5-65.4 9.1-106 4.5-33.5-3.8-13.9-15.2-13.9-15.2m179.8 97.2C225.6 508 128.5 506.3 71 496.8c0-.1 11.8 9.7 72.4 13.6 92.2 5.9 233.8-3.3 237.1-46.9 0 0-6.4 16.5-76.2 29.7M260.7 353c-59.2 11.4-93.5 11.1-136.8 6.6-33.5-3.5-11.6-19.7-11.6-19.7-86.8 28.8 48.2 61.4 169.5 25.9-7.8-2.8-15-7.1-21.1-12.8"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Java Roadmap
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Summary: Abstraction, Interfaces, Generics &amp; Nested Classes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/7amo10/My-Java-Rodemap" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    7amo10/My-Java-Rodemap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+  Learning Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../books/" class="md-tabs__link">
+          
+  
+  
+  Book Summaries
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projects/" class="md-tabs__link">
+          
+  
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Java Roadmap" class="md-nav__button md-logo" aria-label="My Java Roadmap" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M277.8 312.9c9.8-6.7 23.4-12.5 23.4-12.5s-38.7 7-77.2 10.2c-47.1 3.9-97.7 4.7-123.1 1.3-60.1-8 33-30.1 33-30.1s-36.1-2.4-80.6 19c-52.5 25.4 130 37 224.5 12.1m-85.4-32.1c-19-42.7-83.1-80.2 0-145.8C296.1 53.2 242.9 0 242.9 0c21.5 84.5-75.6 110.1-110.7 162.6-23.9 35.9 11.7 74.4 60.2 118.2M307 104.6c.1 0-175.2 43.8-91.5 140.2 24.7 28.4-6.5 54-6.5 54s62.7-32.4 33.9-72.9c-26.9-37.8-47.5-56.6 64.1-121.3m-6.1 270.5c-.5 1-1.2 1.8-2 2.6 128.3-33.7 81.1-118.9 19.8-97.3-3.3 1.2-6.2 3.4-8.2 6.3 3.6-1.3 7.3-2.3 11-3 31-6.5 75.5 41.5-20.6 91.4m47.1 62.3s14.5 11.9-15.9 21.2c-57.9 17.5-240.8 22.8-291.6.7-18.3-7.9 16-19 26.8-21.3 11.2-2.4 17.7-2 17.7-2-20.3-14.3-131.3 28.1-56.4 40.2C232.8 509.4 401 461.3 348 437.4M124.5 396c-78.7 22 47.9 67.4 148.1 24.5q-14.7-5.7-28.2-13.8c-44.7 8.5-65.4 9.1-106 4.5-33.5-3.8-13.9-15.2-13.9-15.2m179.8 97.2C225.6 508 128.5 506.3 71 496.8c0-.1 11.8 9.7 72.4 13.6 92.2 5.9 233.8-3.3 237.1-46.9 0 0-6.4 16.5-76.2 29.7M260.7 353c-59.2 11.4-93.5 11.1-136.8 6.6-33.5-3.5-11.6-19.7-11.6-19.7-86.8 28.8 48.2 61.4 169.5 25.9-7.8-2.8-15-7.1-21.1-12.8"/></svg>
+
+    </a>
+    My Java Roadmap
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/7amo10/My-Java-Rodemap" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    7amo10/My-Java-Rodemap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learning Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 - Java Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 - Java Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1: Java Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1 - Java Basic Interactive Applications
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 1 - Java Basic Interactive Applications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1: Java Basic Interactive Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Syntax, Variables &amp; Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/topic-note-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 2: Control Flow, Loops &amp; User Input
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Syntax, Variables &amp; Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-1-java-basic-Interactive-applications/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Syntax, Variables &amp; Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 2 - OOP & Class Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 2 - OOP & Class Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 2: OOP &amp; Class Design Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 1: Classes, Objects &amp; Encapsulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 2: Inheritance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 3: Strings &amp; StringBuilder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 4: Composition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 5: Encapsulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-note-part6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 6: Polymorphism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/topic-challenges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OOP Challenges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: OOP &amp; Class Design Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-2-oop-class-design/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: OOP &amp; Class Design Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 3 - Arrays, Lists & Autoboxing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 3 - Arrays, Lists & Autoboxing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 3: Arrays, Lists &amp; Autoboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Advanced Arrays in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: ArrayList — Java's Resizable Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: LinkedList &amp; Iterators — Doubly Linked Lists in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/topic-note-part4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Autoboxing, Unboxing &amp; Enums
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Arrays, Lists &amp; Autoboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-3-arrays-lists-generics/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Arrays, Lists &amp; Autoboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 4 - Abstraction, Interfaces, Generics & Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 4 - Abstraction, Interfaces, Generics & Nested Classes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 4: Abstraction, Interfaces, Generics &amp; Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Abstract Classes (Part 1 of Section 11)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Interfaces &amp; the Interface Challenge (Part 2 of Section 11)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Java Generics — Classes, Bounds &amp; the Layer Challenge (Part 3 — Section 12, Lectures 1–6)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic-note-part4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Comparable, Comparator, Wildcards, Type Erasure &amp; Final Challenge (Part 4 — Section 12, Lectures 7–12)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic-note-part5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Nested Classes, Local Types &amp; Anonymous Classes (Part 5 — Section 13)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Abstraction, Interfaces, Generics &amp; Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Abstraction, Interfaces, Generics &amp; Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Abstraction, Interfaces, Generics &amp; Nested Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#topic-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topic Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-abstract-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Abstract Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Generics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-wildcards-pecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Wildcards &amp; PECS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-nested-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Nested Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-internals-to-understand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Internals to Understand
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Internals to Understand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-arrays-covariant-vs-generics-invariant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Arrays (Covariant) vs Generics (Invariant)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-type-erasure-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Type Erasure Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-raw-types-vs-parameterized-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Raw Types vs Parameterized Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pecs-principle-producer-extends-consumer-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. PECS Principle (Producer Extends, Consumer Super)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-abstract-class-vs-interface-the-deep-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Abstract Class vs Interface — The Deep Decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-nested-class-scope-and-access-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Nested Class Scope and Access Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-patterns-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Patterns &amp; Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Patterns &amp; Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-java-abstraction-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Java Abstraction Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effective-java-best-practices-applied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effective Java Best Practices Applied
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Pitfalls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Pitfalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trying-to-instantiate-an-abstract-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Trying to Instantiate an Abstract Class
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-abstract-private-and-abstract-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. abstract + private and abstract + final
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generic-array-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Generic Array Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-raw-comparable-the-classcastexception-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Raw Comparable — The ClassCastException Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-overloading-on-type-arguments-same-erasure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Overloading on Type Arguments (Same Erasure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-calling-inner-class-methods-without-an-outer-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Calling Inner Class Methods Without an Outer Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-adding-elements-to-extends-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Adding Elements to ? extends T
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-calling-interface-default-methods-with-wrong-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Calling Interface Default Methods with Wrong Super
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-classes-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstract Classes &amp; Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-erasure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type Erasure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wildcards-pecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wildcards &amp; PECS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effective-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effective Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 5 - Lambda Expressions & Functional Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 5 - Lambda Expressions & Functional Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 5: Lambda Expressions &amp; Functional Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Lambda Expressions &amp; Functional Interfaces (Part 1 — Section 14, Lectures 1–8)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Method References, Chaining &amp; Comparator Convenience (Part 2 — Section 14, Lectures 9–13)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Lambda Expressions &amp; Functional Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-5-lambdas-method-references/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Lambda Expressions &amp; Functional Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 6 - Collections Framework
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 6 - Collections Framework
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 6: Collections Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Collections Framework Fundamentals &amp; Collections Utility Methods (Part 1 — Section 15, Lectures 1–8)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Hashing, Set Identity, and Set Algebra in Real Projects (Part 2 — Section 15, Lectures 9–14)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Ordered Sets, NavigableSet, and TreeSet Challenge Design (Part 3 — Section 15, Lectures 15–18)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note-part4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Map Interface, Advanced Map APIs, and HashMap Challenge (Part 4 — Section 15, Lectures 19–23)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/topic-note-part5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note: Ordered Maps, Enum Collections, and Final Store Challenge (Part 5 — Section 15, Lectures 24–29)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Collections Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-6-collections-framework/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Collections Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 7 - Java Streams API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 7 - Java Streams API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-7-streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 7: Comprehensive Java Streams Operations, Pipelines &amp; Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-7-streams/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 1: Core Concepts, Pipelines &amp; Stream Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-7-streams/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 2: Intermediate &amp; Terminal Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-7-streams/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 3: Collect, Reduce, Optional &amp; flatMap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-7-streams/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Comprehensive Java Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-7-streams/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Comprehensive Java Streams Operations, Pipelines &amp; Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 8 - Mastering Mutability, Immutability & Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 8 - Mastering Mutability, Immutability & Final Keyword
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 8: Mastering Mutability, Immutability &amp; Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/topic-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 1: Mutability Fundamentals, the final Modifier &amp; Immutable Class Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/topic-note-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 2: Deep Copies, Unmodifiable Collections &amp; Constructor Mastery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/topic-note-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Note Part 3: Game Console Framework, Final Classes &amp; Sealed Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/book-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Reading: Mutability, Immutability &amp; the Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topic-8-mutability-immutability/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary: Mastering Mutability, Immutability &amp; the Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 - Advanced Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 - Advanced Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2: Advanced Java &amp; Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/multithreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreading &amp; Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/jvm-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JVM Internals &amp; Memory Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/garbage-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Garbage Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Performance Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase-2/advanced-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Java Features (Java 9+)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Summaries
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Book Summaries
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book Summaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Must-Read
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Must-Read
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/effective-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Effective Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/java-concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Concurrency in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/clean-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clean Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/head-first-design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Head First Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/modern-java-in-action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Java in Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/java-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 Books
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/head-first-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Head First Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/core-java-vol1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Java Volume I - Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/java-complete-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java: The Complete Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 Books
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/optimizing-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimizing Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/project-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#topic-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topic Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-abstract-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Abstract Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Generics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-wildcards-pecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Wildcards &amp; PECS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-nested-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Nested Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-internals-to-understand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Internals to Understand
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Internals to Understand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-arrays-covariant-vs-generics-invariant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Arrays (Covariant) vs Generics (Invariant)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-type-erasure-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Type Erasure Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-raw-types-vs-parameterized-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Raw Types vs Parameterized Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pecs-principle-producer-extends-consumer-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. PECS Principle (Producer Extends, Consumer Super)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-abstract-class-vs-interface-the-deep-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Abstract Class vs Interface — The Deep Decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-nested-class-scope-and-access-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Nested Class Scope and Access Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-patterns-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Patterns &amp; Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Patterns &amp; Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-java-abstraction-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Java Abstraction Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effective-java-best-practices-applied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effective Java Best Practices Applied
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Pitfalls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Pitfalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trying-to-instantiate-an-abstract-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Trying to Instantiate an Abstract Class
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-abstract-private-and-abstract-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. abstract + private and abstract + final
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generic-array-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Generic Array Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-raw-comparable-the-classcastexception-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Raw Comparable — The ClassCastException Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-overloading-on-type-arguments-same-erasure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Overloading on Type Arguments (Same Erasure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-calling-inner-class-methods-without-an-outer-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Calling Inner Class Methods Without an Outer Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-adding-elements-to-extends-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Adding Elements to ? extends T
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-calling-interface-default-methods-with-wrong-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Calling Interface Default Methods with Wrong Super
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-classes-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstract Classes &amp; Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-erasure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type Erasure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wildcards-pecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wildcards &amp; PECS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effective-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effective Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Learning Notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Phase 1 - Java Fundamentals
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Topic 4 - Abstraction, Interfaces, Generics & Nested Classes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="summary-abstraction-interfaces-generics-nested-classes"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span> Summary: Abstraction, Interfaces, Generics &amp; Nested Classes<a class="headerlink" href="#summary-abstraction-interfaces-generics-nested-classes" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Combined Knowledge from:</strong> Tim Buchalka's Course (Sections 11–13) + Effective Java<br />
+<strong>Mastery Level:</strong> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span></p>
+</blockquote>
+<hr />
+<h2 id="topic-overview"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.09 11.77 1.47 6.33L14 14.74 8.44 18.1l1.46-6.33L5 7.5l6.47-.54L14 1l2.53 5.96L23 7.5zM2 12.43c.19 0 .38-.06.55-.17l3.2-2.11-1.57-1.36-2.73 1.8c-.461.3-.589.91-.29 1.41.2.27.52.43.84.43m-.84 9.12c.2.29.52.45.84.45.19 0 .38-.05.55-.16l4.11-2.71.34-1.37.31-1.45-5.86 3.85c-.461.31-.589.93-.29 1.39m.29-6.17a1 1 0 0 0-.29 1.38c.2.3.52.45.84.45.19 0 .38-.05.55-.16l5.42-3.55.27-1.19-.92-.81z"/></svg></span> Topic Overview<a class="headerlink" href="#topic-overview" title="Permanent link">&para;</a></h2>
+<p>This topic is the heart of professional Java design. It covers the full <strong>abstraction toolbox</strong> — from abstract classes and interfaces to generic types, bounded wildcards, and nested classes. Together, these features let you write code that is simultaneously <strong>type-safe</strong>, <strong>reusable</strong>, <strong>flexible</strong>, and <strong>encapsulated</strong>.</p>
+<pre class="mermaid"><code>mindmap
+  root((Topic 4))
+    **Abstraction**
+      Abstract Classes
+      Generalization
+      Method Modifiers
+    **Interfaces**
+      Contracts
+      Default Methods
+      Multiple Inheritance of Type
+      Coding to Interface
+    **Generics**
+      Generic Classes
+      Generic Methods
+      Bounded Types
+      Wildcards &amp; PECS
+      Type Erasure
+    **Nested Classes**
+      Static Nested
+      Inner Classes
+      Local Classes
+      Anonymous Classes</code></pre>
+<hr />
+<h2 id="core-concepts"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2m5.6-4c-.8-2.3-3-4-5.6-4-3.3 0-6 2.7-6 6s2.7 6 6 6c2.6 0 4.8-1.7 5.6-4H16v4h4v-4h3v-4z"/></svg></span> Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="1-abstract-classes">1. Abstract Classes<a class="headerlink" href="#1-abstract-classes" title="Permanent link">&para;</a></h3>
+<p><strong>Definition:</strong> A class declared <code>abstract</code> that cannot be instantiated. It acts as a strict base class that forces subclasses to provide implementations for all abstract methods.</p>
+<pre class="mermaid"><code>classDiagram
+    class Animal {
+        &lt;&lt;abstract&gt;&gt;
+        #String type
+        -String size
+        -double weight
+        +Animal(type, size, weight)
+        +move(speed)* void
+        +makeNoise()* void
+        +getExplicitType() String$
+    }
+    class Mammal {
+        &lt;&lt;abstract&gt;&gt;
+        +move(speed) void
+        +shedHair()* void
+    }
+    class Dog {
+        +makeNoise() void
+        +shedHair() void
+    }
+    class Fish {
+        +move(speed) void
+        +makeNoise() void
+    }
+    class Horse {
+        +makeNoise() void
+        +shedHair() void
+    }
+
+    Animal &lt;|-- Mammal
+    Animal &lt;|-- Fish
+    Mammal &lt;|-- Dog
+    Mammal &lt;|-- Horse
+
+    note for Mammal "Implements move()\nAdds shedHair()\nLeaves makeNoise() abstract"
+    note for Animal "Cannot instantiate.\nBut CAN use as type in\nvariables, params, collections."</code></pre>
+<h4 id="key-rules-quick-reference">Key Rules Quick Reference<a class="headerlink" href="#key-rules-quick-reference" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cannot instantiate</td>
+<td><code>new Animal()</code> → compile error</td>
+</tr>
+<tr>
+<td>Can have constructors</td>
+<td>Subclasses MUST call <code>super(...)</code></td>
+</tr>
+<tr>
+<td>Mix abstract + concrete</td>
+<td>Some methods forced, some inherited, some locked (<code>final</code>)</td>
+</tr>
+<tr>
+<td><code>abstract + private</code></td>
+<td>❌ Illegal — contradictory modifiers</td>
+</tr>
+<tr>
+<td><code>abstract + final</code></td>
+<td>❌ Illegal — contradictory modifiers</td>
+</tr>
+<tr>
+<td>Abstract class extends abstract</td>
+<td>OK — can implement some, none, or all parent abstract methods, and add new ones</td>
+</tr>
+</tbody>
+</table>
+<h4 id="when-to-use-abstract-classes">When to Use Abstract Classes<a class="headerlink" href="#when-to-use-abstract-classes" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart TD
+    Q1["Do subclasses share common behavior?"] --&gt;|Yes| Q2["Is some behavior the same across all?"]
+    Q2 --&gt;|Yes| Q3["Should creation be prevented for the base?"]
+    Q3 --&gt;|Yes| AC["Use Abstract Class\n✓ Shared code via concrete methods\n✓ Forced contracts via abstract methods\n✓ No direct instantiation"]
+    Q3 --&gt;|No| CC["Use Concrete Parent"]
+    Q2 --&gt;|No| IF["Consider Interface Only"]
+    Q1 --&gt;|No| NONE["No inheritance needed"]
+
+    style AC fill:#1b5e20,color:#fff</code></pre>
+<hr />
+<h3 id="2-interfaces">2. Interfaces<a class="headerlink" href="#2-interfaces" title="Permanent link">&para;</a></h3>
+<p><strong>Definition:</strong> A contract type defining behavioral obligations. Any class implementing an interface promises to provide all its abstract methods. Unlike abstract classes, a class can implement <strong>multiple</strong> interfaces.</p>
+<h4 id="interface-member-types">Interface Member Types<a class="headerlink" href="#interface-member-types" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart LR
+    subgraph members["Interface Members"]
+        M1["Abstract methods\n(implicit: public abstract)\nMust be implemented"]
+        M2["Default methods (JDK 8)\n(explicit: default keyword)\nInherited, can be overridden"]
+        M3["Static methods (JDK 8)\n(called via InterfaceName.method())\nNot inherited"]
+        M4["Private methods (JDK 9)\n(code reuse inside interface)\nNot accessible outside"]
+        M5["Constants\n(implicit: public static final)\nAlways accessible"]
+    end</code></pre>
+<h4 id="abstract-class-vs-interface-the-decision-matrix">Abstract Class vs Interface — The Decision Matrix<a class="headerlink" href="#abstract-class-vs-interface-the-decision-matrix" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart TD
+    Q1["Do the types share an IS-A family relationship?"] --&gt;|Yes, same family| Q2["Do they share common implementation?"]
+    Q2 --&gt;|Yes| AC["Abstract Class"]
+    Q1 --&gt;|No, unrelated types sharing behavior| IF["Interface"]
+    Q2 --&gt;|No| BOTH["Consider Interface with\nSkeletal Implementation\n(Abstract + Interface)"]
+
+    style AC fill:#1565c0,color:#fff
+    style IF fill:#6a1b9a,color:#fff
+    style BOTH fill:#4527a0,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: center;">Abstract Class</th>
+<th style="text-align: center;">Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple inheritance</td>
+<td style="text-align: center;">❌ Single extends</td>
+<td style="text-align: center;">✅ Multiple implements</td>
+</tr>
+<tr>
+<td>Constructor</td>
+<td style="text-align: center;">✅ Yes</td>
+<td style="text-align: center;">❌ No</td>
+</tr>
+<tr>
+<td>Instance state (fields)</td>
+<td style="text-align: center;">✅ Yes</td>
+<td style="text-align: center;">❌ No (constants only)</td>
+</tr>
+<tr>
+<td>Common implementation</td>
+<td style="text-align: center;">✅ Concrete methods</td>
+<td style="text-align: center;">✅ Default methods (JDK 8+)</td>
+</tr>
+<tr>
+<td>Records/Enums can use</td>
+<td style="text-align: center;">❌ Cannot extend</td>
+<td style="text-align: center;">✅ Can implement</td>
+</tr>
+<tr>
+<td>Skeletal implementation</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅ AbstractXxx pattern</td>
+</tr>
+</tbody>
+</table>
+<h4 id="coding-to-an-interface">Coding to an Interface<a class="headerlink" href="#coding-to-an-interface" title="Permanent link">&para;</a></h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// ❌ Tight coupling — breaks when implementation changes</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">triggerFliers</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">FlightEnabled</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fliers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// ✅ Coded to interface — any List implementation works</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">triggerFliers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">FlightEnabled</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fliers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>Apply this to <strong>parameters</strong>, <strong>return types</strong>, <strong>local variables</strong>, and <strong>fields</strong>. The implementation becomes a one-line swap.</p>
+<hr />
+<h3 id="3-generics">3. Generics<a class="headerlink" href="#3-generics" title="Permanent link">&para;</a></h3>
+<p><strong>Definition:</strong> A language mechanism that lets you write classes and methods parameterized by type, providing compile-time type safety without sacrificing reusability.</p>
+<h4 id="the-three-stage-evolution">The Three-Stage Evolution<a class="headerlink" href="#the-three-stage-evolution" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart LR
+    subgraph s1["Stage 1: Specific"]
+        B1["BaseballTeam\nList&amp;lt;BaseballPlayer&amp;gt;\n❌ Only baseball"]
+    end
+    subgraph s2["Stage 2: Polymorphic"]
+        B2["SportsTeam\nList&amp;lt;Player&amp;gt;\n⚠️ Any sport, NO type safety"]
+    end
+    subgraph s3["Stage 3: Generic"]
+        B3["Team&amp;lt;T extends Player&amp;gt;\nList&amp;lt;T&amp;gt;\n✅ Any sport WITH compile-time safety"]
+    end
+    s1 --&gt;|"add interface"| s2
+    s2 --&gt;|"add type param"| s3
+
+    style s1 fill:#8b0000,color:#fff
+    style s2 fill:#8b6914,color:#fff
+    style s3 fill:#006400,color:#fff</code></pre>
+<h4 id="type-parameter-naming-conventions">Type Parameter Naming Conventions<a class="headerlink" href="#type-parameter-naming-conventions" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Letter</th>
+<th>Meaning</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>T</code></td>
+<td>Type</td>
+<td><code>class Box&lt;T&gt;</code> — general-purpose</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>E</code></td>
+<td>Element</td>
+<td><code>interface List&lt;E&gt;</code> — JCF collections</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>K</code> / <code>V</code></td>
+<td>Key / Value</td>
+<td><code>interface Map&lt;K, V&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>N</code></td>
+<td>Number</td>
+<td>Numeric types</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>S</code>, <code>U</code></td>
+<td>2<sup>nd</sup>, 3<sup>rd</sup> params</td>
+<td><code>class Team&lt;T, S&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="upper-bounds">Upper Bounds<a class="headerlink" href="#upper-bounds" title="Permanent link">&para;</a></h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Without bound: T can only use Object methods</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">class</span> <span class="nc">Team</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// With upper bound: T can use Player&#39;s methods too</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">class</span> <span class="nc">Team</span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// OR multiple bounds (class must come first!):</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kd">class</span> <span class="nc">QueryList</span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">QueryItem</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="comparable-and-comparator">Comparable and Comparator<a class="headerlink" href="#comparable-and-comparator" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart TD
+    subgraph natural["Natural Ordering — Comparable&amp;lt;T&amp;gt;"]
+        C1["class Student implements Comparable&amp;lt;Student&amp;gt;"]
+        M1["compareTo(Student o): compare THIS vs o"]
+        C1 --&gt; M1 --&gt; U1["Arrays.sort(array) — no extra arg"]
+    end</code></pre>
+<pre class="mermaid"><code>flowchart TD
+    subgraph custom["Custom Ordering — Comparator&amp;lt;T&amp;gt;"]
+        C2["class GpaComparator implements Comparator&amp;lt;Student&amp;gt;"]
+        M2["compare(Student o1, Student o2): compare two externals"]
+        C2 --&gt; M2 --&gt; U2["Arrays.sort(array, comparator)\n.reversed() for descending"]
+    end</code></pre>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th style="text-align: center;"><code>Comparable&lt;T&gt;</code></th>
+<th style="text-align: center;"><code>Comparator&lt;T&gt;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Package</td>
+<td style="text-align: center;"><code>java.lang</code></td>
+<td style="text-align: center;"><code>java.util</code></td>
+</tr>
+<tr>
+<td>Method</td>
+<td style="text-align: center;"><code>compareTo(T o)</code> — 1 arg</td>
+<td style="text-align: center;"><code>compare(T o1, T o2)</code> — 2 args</td>
+</tr>
+<tr>
+<td>Number per class</td>
+<td style="text-align: center;">One (natural order)</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+<tr>
+<td>Who implements</td>
+<td style="text-align: center;">The class itself</td>
+<td style="text-align: center;">A separate class</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-wildcards-pecs">4. Wildcards &amp; PECS<a class="headerlink" href="#4-wildcards-pecs" title="Permanent link">&para;</a></h3>
+<p><strong>The Core Problem:</strong> Generics are <strong>invariant</strong> — <code>List&lt;LPAStudent&gt;</code> is NOT a <code>List&lt;Student&gt;</code>, even though <code>LPAStudent extends Student</code>. Wildcards add controlled flexibility.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph types["Type Hierarchy (IS-A applies)"]
+        S["Student"] --&gt; L["LPAStudent"]
+    end
+    subgraph containers["Container Types (IS-A does NOT apply)"]
+        LS["List&amp;lt;Student&amp;gt;"]
+        LL["List&amp;lt;LPAStudent&amp;gt;"]
+        LS -.-x LL
+    end</code></pre>
+<h4 id="the-pecs-principle">The PECS Principle<a class="headerlink" href="#the-pecs-principle" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>**P**roducer **E**xtends, **C**onsumer **S**uper</p>
+</blockquote>
+<pre class="mermaid"><code>flowchart TD
+    subgraph pecs["PECS Decision"]
+        Q["What does the parameter do?"]
+        Q --&gt; PE["Produces values\n(you READ from it)"]
+        Q --&gt; CS["Consumes values\n(you WRITE to it)"]
+        Q --&gt; BOTH2["Both reads and writes"]
+        PE --&gt; EXT["Use ? extends T"]
+        CS --&gt; SUP["Use ? super T"]
+        BOTH2 --&gt; TP["Use type parameter T\n(no wildcard)"]
+    end
+
+    style EXT fill:#1565c0,color:#fff
+    style SUP fill:#4527a0,color:#fff
+    style TP fill:#2e7d32,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Wildcard</th>
+<th style="text-align: center;">Reads as</th>
+<th style="text-align: center;">Can Write</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;?&gt;</code></td>
+<td style="text-align: center;"><code>Object</code></td>
+<td style="text-align: center;">❌</td>
+<td>Any type, logic uses <code>instanceof</code></td>
+</tr>
+<tr>
+<td><code>&lt;? extends T&gt;</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;">❌</td>
+<td><strong>Producer</strong> — reading elements (pushAll)</td>
+</tr>
+<tr>
+<td><code>&lt;? super T&gt;</code></td>
+<td style="text-align: center;"><code>Object</code></td>
+<td style="text-align: center;">✅ T + subtypes</td>
+<td><strong>Consumer</strong> — adding elements (popAll)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-nested-classes">5. Nested Classes<a class="headerlink" href="#5-nested-classes" title="Permanent link">&para;</a></h3>
+<p><strong>Definition:</strong> A class declared inside another class or interface. Used when two classes are tightly coupled and the inner type has no meaningful existence independent of the outer.</p>
+<pre class="mermaid"><code>flowchart TD
+    NC["Nested Class"] --&gt; Q1["Does it need access to\nouter INSTANCE members?"]
+    Q1 --&gt;|No| SN["Static Nested Class\n(static class Inner)\nInstantiate: new Outer.Inner()"]
+    Q1 --&gt;|Yes| Q2["Where is it used?"]
+    Q2 --&gt;|"Across the whole class"| IC["Inner Class\n(class Inner)\nInstantiate: outerInst.new Inner()"]
+    Q2 --&gt;|"Only inside a method"| Q3["Used once or multiple times?"]
+    Q3 --&gt;|"Multiple times"| LC["Local Class\n(class inside method block)"]
+    Q3 --&gt;|"Only once"| AC["Anonymous Class\n(new Interface(){...})\nPrefer lambda for functional interfaces"]
+
+    style SN fill:#1565c0,color:#fff
+    style IC fill:#6a1b9a,color:#fff
+    style LC fill:#4527a0,color:#fff
+    style AC fill:#006064,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: center;"><code>static</code>?</th>
+<th style="text-align: center;">Outer Ref?</th>
+<th>Scope</th>
+<th>Instantiation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static Nested</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td>Class-level</td>
+<td><code>new Outer.Nested()</code></td>
+</tr>
+<tr>
+<td>Inner</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>Class-level</td>
+<td><code>outerInst.new Inner()</code></td>
+</tr>
+<tr>
+<td>Local</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>Method block</td>
+<td>Inside method only</td>
+</tr>
+<tr>
+<td>Anonymous</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>Expression</td>
+<td><code>new Interface() { ... }</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-internals-to-understand"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 8.58c.78 0 1.44.61 1.44 1.42s-.66 1.44-1.44 1.44-1.42-.66-1.42-1.44.61-1.42 1.42-1.42M13 3c3.88 0 7 3.14 7 7 0 2.8-1.63 5.19-4 6.31V21H9v-3H8c-1.11 0-2-.89-2-2v-3H4.5c-.42 0-.66-.5-.42-.81L6 9.66A7.003 7.003 0 0 1 13 3m3 7c0-.16 0-.25-.06-.39l.89-.66c.05-.04.09-.18.05-.28l-.8-1.36c-.05-.09-.19-.14-.28-.09l-.99.42c-.18-.19-.42-.33-.65-.42L14 6.19c-.03-.14-.08-.19-.22-.19h-1.59c-.1 0-.19.05-.19.19l-.14 1.03c-.23.09-.47.23-.66.42l-1.03-.42c-.09-.05-.17 0-.23.09l-.8 1.36c-.05.14-.05.24.05.28l.84.66c0 .14-.03.28-.03.39 0 .13.03.27.03.41l-.84.65c-.1.05-.1.14-.05.24l.8 1.4c.06.1.14.1.23.1l.99-.43c.23.19.42.29.7.38l.14 1.08c0 .09.09.17.19.17h1.59c.14 0 .19-.08.22-.17l.16-1.08c.23-.09.47-.19.65-.37l.99.42c.09 0 .23 0 .28-.1l.8-1.4c.04-.1 0-.19-.05-.24l-.83-.65z"/></svg></span> Key Internals to Understand<a class="headerlink" href="#key-internals-to-understand" title="Permanent link">&para;</a></h2>
+<h3 id="1-arrays-covariant-vs-generics-invariant">1. Arrays (Covariant) vs Generics (Invariant)<a class="headerlink" href="#1-arrays-covariant-vs-generics-invariant" title="Permanent link">&para;</a></h3>
+<p>This is one of Java's most important design trade-offs. Arrays and generic types have opposing variance rules:</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph arr["Arrays — COVARIANT"]
+        A1["String[] IS-A Object[]\n(allowed by compiler)"]
+        A2["objectArray[0] = new Integer(1)"]
+        A3["💥 ArrayStoreException\nat RUNTIME"]
+        A1 --&gt; A2 --&gt; A3
+    end
+    subgraph gen["Generics — INVARIANT"]
+        G1["List&amp;lt;String&amp;gt; is NOT a List&amp;lt;Object&amp;gt;\n(rejected by compiler)"]
+        G2["✅ Compile error immediately\nBug caught before shipping"]
+    end
+
+    style A3 fill:#c62828,color:#fff
+    style G2 fill:#2e7d32,color:#fff</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// ❌ ARRAY COVARIANCE — compiles but fails at runtime:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">objectArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Long</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">objectArray</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I don&#39;t fit here!&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// ArrayStoreException at runtime!</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// ✅ GENERIC INVARIANCE — fails at compile time (safer):</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// COMPILE ERROR</span>
+</span></code></pre></div>
+<p><strong>Why arrays are covariant:</strong> Legacy design from Java 1.0, before generics existed, to allow methods like <code>Arrays.sort(Object[])</code> to sort any array.</p>
+<p><strong>Why generics are invariant:</strong> To prevent the type-safety hole shown above. Wildcards (<code>? extends T</code>) provide controlled covariance when needed.</p>
+<hr />
+<h3 id="2-type-erasure-mechanism">2. Type Erasure Mechanism<a class="headerlink" href="#2-type-erasure-mechanism" title="Permanent link">&para;</a></h3>
+<p>The Java compiler <strong>erases</strong> all generic type information before producing bytecode. This makes generics backward-compatible with pre-Java 5 code, but has important implications.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph source["Source Code (.java)"]
+        S1["List&amp;lt;String&amp;gt; names"]
+        S2["Team&amp;lt;T extends Player&amp;gt;"]
+        S3["&amp;lt;T extends Comparable&amp;lt;T&amp;gt;&amp;gt; T max(List&amp;lt;T&amp;gt;)"]
+    end
+    subgraph bytecode["Bytecode (.class) — After Erasure"]
+        B1["List names (Object elements)"]
+        B2["Team (T → Player)"]
+        B3["Comparable max(List list)"]
+    end
+    S1 --&gt;|"erase → Object"| B1
+    S2 --&gt;|"erase → first bound"| B2
+    S3 --&gt;|"erase → Comparable"| B3</code></pre>
+<h4 id="erasure-rules">Erasure Rules<a class="headerlink" href="#erasure-rules" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Erased To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T</code> (no bound)</td>
+<td><code>Object</code></td>
+</tr>
+<tr>
+<td><code>T extends Foo</code></td>
+<td><code>Foo</code></td>
+</tr>
+<tr>
+<td><code>T extends Foo &amp; Bar</code></td>
+<td><code>Foo</code> (first bound)</td>
+</tr>
+<tr>
+<td><code>List&lt;String&gt;</code></td>
+<td><code>List</code></td>
+</tr>
+<tr>
+<td><code>List&lt;Integer&gt;</code></td>
+<td><code>List</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="the-three-consequences-of-type-erasure">The Three Consequences of Type Erasure<a class="headerlink" href="#the-three-consequences-of-type-erasure" title="Permanent link">&para;</a></h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// 1. Cannot create generic arrays</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="w">  </span><span class="c1">// ❌ &quot;generic array creation&quot; — type not known at runtime</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">// 2. Cannot overload on type arguments — same erasure</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// ❌ Both erase to process(List)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// ❌ &quot;have the same erasure&quot;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// 3. Cannot use instanceof with parameterized types</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// ❌ Type erased at runtime</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;?&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">      </span><span class="c1">// ✅ Allowed — wildcard is safe</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Why Erasure Exists</p>
+<p>Type erasure preserves <strong>binary compatibility</strong>: compiled <code>ArrayList.class</code> from Java 5+ works with all Java code regardless of the type parameter. The JVM sees only the raw type, and the compiler inserts casts wherever needed (these are guaranteed safe because it verified the types before erasing them).</p>
+</div>
+<h4 id="the-bridge-method">The Bridge Method<a class="headerlink" href="#the-bridge-method" title="Permanent link">&para;</a></h4>
+<p>When a class implements a parameterized interface, the compiler inserts a synthetic <strong>bridge method</strong> to handle type erasure correctly:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Source:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">class</span> <span class="nc">StudentList</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Student</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Parameterized method</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">// After erasure (what bytecode contains):</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kd">class</span> <span class="nc">StudentList</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Student</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Original</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">          </span><span class="c1">// Synthetic bridge method!</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">compareTo</span><span class="p">((</span><span class="n">Student</span><span class="p">)</span><span class="w"> </span><span class="n">o</span><span class="p">);</span><span class="w">        </span><span class="c1">// Delegates + casts</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="3-raw-types-vs-parameterized-types">3. Raw Types vs Parameterized Types<a class="headerlink" href="#3-raw-types-vs-parameterized-types" title="Permanent link">&para;</a></h3>
+<p>Raw types are the dangerous "no type parameter" form of a generic class. They exist only for backward compatibility.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph raw["Raw Type — stamps (no param)"]
+        R1["Can add anything to it\nNo compile-time check"]
+        R2["Cast required on retrieval"]
+        R3["ClassCastException at runtime"]
+    end
+    subgraph param["Parameterized Type — stamps&amp;lt;Stamp&amp;gt;"]
+        P1["Only Stamp can be added\nCompile-time enforced"]
+        P2["No cast on retrieval — Stamp returned"]
+        P3["Type error caught at compile time"]
+    end
+
+    style R3 fill:#c62828,color:#fff
+    style P3 fill:#2e7d32,color:#fff</code></pre>
+<p><strong>The key distinction:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>Example</th>
+<th>Safety</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raw type</td>
+<td><code>List stamps</code></td>
+<td>❌ No type checking</td>
+</tr>
+<tr>
+<td>Unbounded wildcard</td>
+<td><code>List&lt;?&gt; stamps</code></td>
+<td>✅ Read-only, safe</td>
+</tr>
+<tr>
+<td>Parameterized</td>
+<td><code>List&lt;Stamp&gt; stamps</code></td>
+<td>✅ Full type safety</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Use <code>List&lt;?&gt;</code> when you genuinely don't care about the element type (e.g., counting elements in common). Use a parameterized type for everything else. <strong>Never use raw types in new code.</strong></p>
+</blockquote>
+<hr />
+<h3 id="4-pecs-principle-producer-extends-consumer-super">4. PECS Principle (Producer Extends, Consumer Super)<a class="headerlink" href="#4-pecs-principle-producer-extends-consumer-super" title="Permanent link">&para;</a></h3>
+<p>PECS is the mental model for choosing the correct wildcard when writing flexible generic APIs.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph insight["Core Insight"]
+        I1["? extends T ← T-values flow OUT\n(we read them as T)"]
+        I2["? super T ← T-values flow IN\n(we add them as T)"]
+    end
+
+    subgraph examples["Real Examples"]
+        E1["pushAll(Iterable&amp;lt;? extends E&amp;gt; src)\nsrc PRODUCES E values → extends"]
+        E2["popAll(Collection&amp;lt;? super E&amp;gt; dst)\ndst CONSUMES E values → super"]
+        E3["Comparable&amp;lt;? super T&amp;gt; — compareTo CONSUMES\nT values to compare → super"]
+    end
+
+    insight --&gt; examples</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Stack&lt;E&gt; with PECS-correct methods:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">// src is a PRODUCER of E values — use ? extends E</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pushAll</span><span class="p">(</span><span class="n">Iterable</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w"> </span><span class="n">push</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">// dst is a CONSUMER of E values — use ? super E</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">popAll</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">super</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="n">dst</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">pop</span><span class="p">());</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>The payoff:</strong> <code>Stack&lt;Number&gt;</code> can now push from <code>Iterable&lt;Integer&gt;</code> and pop into <code>Collection&lt;Object&gt;</code> — the API is maximally flexible without sacrificing type safety.</p>
+<blockquote>
+<p><strong>Corollary:</strong> <code>Comparator&lt;T&gt;</code> and <code>Comparable&lt;T&gt;</code> are consumers (they consume T values to produce a result). For maximum flexibility, declare them with <code>? super T</code>: <code>&lt;T extends Comparable&lt;? super T&gt;&gt;</code>.</p>
+</blockquote>
+<hr />
+<h3 id="5-abstract-class-vs-interface-the-deep-decision">5. Abstract Class vs Interface — The Deep Decision<a class="headerlink" href="#5-abstract-class-vs-interface-the-deep-decision" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    Q1["What relationship do the types have?"]
+    Q1 --&gt;|"IS-A family\n(Dog IS-A Animal)"| Q2["Do they share implementation?"]
+    Q1 --&gt;|"BEHAVES-AS role\n(Bird BEHAVES-AS FlightEnabled)"| IF["Interface"]
+    Q1 --&gt;|"Both family AND role"| BOTH["extends AbstractClass\n+ implements Interface"]
+    Q2 --&gt;|"Yes — common code"| AC["Abstract Class"]
+    Q2 --&gt;|"No — only contracts"| PURE["Pure Interface\n(all abstract methods)"]
+
+    style AC fill:#1565c0,color:#fff
+    style IF fill:#6a1b9a,color:#fff
+    style BOTH fill:#4527a0,color:#fff
+    style PURE fill:#006064,color:#fff</code></pre>
+<p><strong>The critical rule from Effective Java (Item 23):</strong> Tagged classes (with discriminator fields + switch statements) are always inferior to class hierarchies. If you have a switch on a type tag, that's a sign you need an abstract class.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// ❌ TAGGED CLASS — the anti-pattern</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">class</span> <span class="nc">Shape</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">enum</span><span class="w"> </span><span class="n">Type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">CIRCLE</span><span class="p">,</span><span class="w"> </span><span class="n">RECTANGLE</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">Type</span><span class="w"> </span><span class="n">shapeType</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">shapeType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">CIRCLE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">RECTANGLE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1">// ✅ CLASS HIERARCHY — the abstraction pattern</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="kd">class</span> <span class="nc">Circle</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="kd">class</span> <span class="nc">Rectangle</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="6-nested-class-scope-and-access-rules">6. Nested Class Scope and Access Rules<a class="headerlink" href="#6-nested-class-scope-and-access-rules" title="Permanent link">&para;</a></h3>
+<h4 id="the-hidden-outer-reference">The Hidden Outer Reference<a class="headerlink" href="#the-hidden-outer-reference" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart TD
+    subgraph nonstatic["Nonstatic Inner Class — DANGER"]
+        OBJ["Outer Object (can't be GC'd!)"]
+        INNER["Inner Instance"]
+        INNER -- "hidden enclosing\nreference" --&gt; OBJ
+        CLIENT["Long-lived client"] --&gt; INNER
+        GC["GC"] -. "OBJ is blocked from collection" .-&gt; OBJ
+    end
+    subgraph static2["Static Nested Class — SAFE"]
+        SOBJ["Outer Object (can be GC'd)"]
+        SNESTED["Static Nested Instance\n(no back-link)"]
+        SCLIENT["Long-lived client"] --&gt; SNESTED
+        SGC["GC"] --&gt; SOBJ
+    end
+
+    style GC fill:#c62828,color:#fff
+    style SGC fill:#2e7d32,color:#fff</code></pre>
+<h4 id="effectively-final-in-local-classes">Effectively Final in Local Classes<a class="headerlink" href="#effectively-final-in-local-classes" title="Permanent link">&para;</a></h4>
+<p>Local and anonymous classes can only capture <strong>effectively final</strong> local variables:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">prefix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">      </span><span class="c1">// prefix is effectively final</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="kd">class</span> <span class="nc">Printer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w">  </span><span class="c1">// ✅ captured from enclosing method</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;new&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// ❌ If you add this line, Printer won&#39;t compile!</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">// &quot;Local variable &#39;prefix&#39; defined in enclosing scope must be final or effectively final&quot;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Why?</strong> The local class instance may outlive the method stack frame. To avoid a dangling reference, Java copies the local variable's value at the time the class is instantiated — but only if the value never changes (effectively final).</p>
+<h4 id="the-new-syntax-for-inner-classes">The <code>.new</code> Syntax for Inner Classes<a class="headerlink" href="#the-new-syntax-for-inner-classes" title="Permanent link">&para;</a></h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// Static nested: no outer instance needed</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">Employee</span><span class="p">.</span><span class="na">EmployeeComparator</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span><span class="w"> </span><span class="n">comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">.</span><span class="na">EmployeeComparator</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">);</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">// Inner class: outer instance REQUIRED</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">StoreEmployee</span><span class="w"> </span><span class="n">outer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StoreEmployee</span><span class="p">();</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">StoreEmployee</span><span class="p">.</span><span class="na">StoreComparator</span><span class="o">&lt;</span><span class="n">StoreEmployee</span><span class="o">&gt;</span><span class="w"> </span><span class="n">comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outer</span><span class="p">.</span><span class="na">new</span><span class="w"> </span><span class="n">StoreComparator</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1">// Or chained in one expression:</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kd">var</span><span class="w"> </span><span class="n">comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StoreEmployee</span><span class="p">().</span><span class="na">new</span><span class="w"> </span><span class="n">StoreComparator</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
+<h4 id="resolving-shadowed-fields-outerclassthis">Resolving Shadowed Fields: <code>OuterClass.this</code><a class="headerlink" href="#resolving-shadowed-fields-outerclassthis" title="Permanent link">&para;</a></h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Meal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Outer field</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Item</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w">     </span><span class="c1">// Inner field shadows outer!</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">Item</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Meal</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">price</span><span class="p">;</span><span class="w">  </span><span class="c1">// Outer.this.field</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">            </span><span class="c1">//           ^^^^^^^^^^^^ explicit outer reference</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="design-patterns-best-practices"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> Design Patterns &amp; Best Practices<a class="headerlink" href="#design-patterns-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="the-java-abstraction-toolkit">The Java Abstraction Toolkit<a class="headerlink" href="#the-java-abstraction-toolkit" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph problem["The Design Problem"]
+        P1["Need reusable, type-safe,\nextensible code"]
+    end
+    subgraph tools["The Toolkit"]
+        T1["Abstract Class\n→ Shared implementation\n→ Forced contracts"]
+        T2["Interface\n→ Multiple roles\n→ Unrelated types\n→ Records + Enums"]
+        T3["Generics\n→ Type-safe containers\n→ Reusable algorithms"]
+        T4["Wildcards\n→ API flexibility\n→ PECS-guided"]
+        T5["Nested Classes\n→ Tight encapsulation\n→ Helper types"]
+    end
+    problem --&gt; tools</code></pre>
+<h3 id="effective-java-best-practices-applied">Effective Java Best Practices Applied<a class="headerlink" href="#effective-java-best-practices-applied" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>Item</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interfaces over abstract classes (when possible)</td>
+<td>Item 20</td>
+<td>Records and enums can't extend classes, but can implement interfaces</td>
+</tr>
+<tr>
+<td>Default methods: design carefully</td>
+<td>Item 21</td>
+<td>Adding defaults to existing interfaces can silently break invariants</td>
+</tr>
+<tr>
+<td>Interfaces only to define types</td>
+<td>Item 22</td>
+<td>Constant interfaces pollute namespace and leak impl details</td>
+</tr>
+<tr>
+<td>Class hierarchies over tagged classes</td>
+<td>Item 23</td>
+<td>Tagged classes need O(variants) switch updates; hierarchy is O(1)</td>
+</tr>
+<tr>
+<td>Static member classes over nonstatic</td>
+<td>Item 24</td>
+<td>Inner classes hold hidden outer ref → memory leak risk</td>
+</tr>
+<tr>
+<td>Don't use raw types</td>
+<td>Item 26</td>
+<td>Raw types defer type errors to runtime</td>
+</tr>
+<tr>
+<td>Eliminate unchecked warnings</td>
+<td>Item 27</td>
+<td>Each warning = potential ClassCastException</td>
+</tr>
+<tr>
+<td>Favor generic types</td>
+<td>Item 29</td>
+<td>Generic containers remove client-side casts</td>
+</tr>
+<tr>
+<td>Favor generic methods</td>
+<td>Item 30</td>
+<td>Recursive type bound <code>&lt;T extends Comparable&lt;T&gt;&gt;</code></td>
+</tr>
+<tr>
+<td>Use bounded wildcards (PECS)</td>
+<td>Item 31</td>
+<td>Maximum API flexibility without unsafe operations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="common-pitfalls"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2z"/></svg></span> Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Permanent link">&para;</a></h2>
+<h3 id="1-trying-to-instantiate-an-abstract-class">1. Trying to Instantiate an Abstract Class<a class="headerlink" href="#1-trying-to-instantiate-an-abstract-class" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Animal</span><span class="p">(</span><span class="s">&quot;Dog&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;big&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// ❌ &quot;Cannot instantiate abstract class&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">// ✅ Fix: Animal a = new Dog(&quot;Pug&quot;, &quot;small&quot;, 20);</span>
+</span></code></pre></div>
+<h3 id="2-abstract-private-and-abstract-final">2. <code>abstract + private</code> and <code>abstract + final</code><a class="headerlink" href="#2-abstract-private-and-abstract-final" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">speed</span><span class="p">);</span><span class="w">  </span><span class="c1">// ❌ Contradictory: must override, but can&#39;t see</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">speed</span><span class="p">);</span><span class="w">    </span><span class="c1">// ❌ Contradictory: must override, but can&#39;t override</span>
+</span></code></pre></div>
+<h3 id="3-generic-array-creation">3. Generic Array Creation<a class="headerlink" href="#3-generic-array-creation" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// ❌ Cannot create generic arrays directly</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">E</span><span class="o">[]</span><span class="w"> </span><span class="n">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">E</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span><span class="w">  </span><span class="c1">// &quot;generic array creation&quot;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1">// ✅ Cast with @SuppressWarnings + comment</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;unchecked&quot;</span><span class="p">)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">E</span><span class="o">[]</span><span class="w"> </span><span class="n">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span><span class="w">  </span><span class="c1">// Safe: array never exposed externally</span>
+</span></code></pre></div>
+<h3 id="4-raw-comparable-the-classcastexception-trap">4. Raw Comparable — The ClassCastException Trap<a class="headerlink" href="#4-raw-comparable-the-classcastexception-trap" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">class</span> <span class="nc">Student</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="w"> </span><span class="p">{</span><span class="w">     </span><span class="c1">// ❌ Raw Comparable</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="n">Student</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Student</span><span class="p">)</span><span class="w"> </span><span class="n">o</span><span class="p">;</span><span class="w">      </span><span class="c1">// ClassCastException at runtime if misused!</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="kd">class</span> <span class="nc">Student</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// ✅ Parameterized</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Student</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// Type checked at compile time</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="5-overloading-on-type-arguments-same-erasure">5. Overloading on Type Arguments (Same Erasure)<a class="headerlink" href="#5-overloading-on-type-arguments-same-erasure" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// ❌ Both erase to process(List) — compiler rejects</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1">// ✅ One method with wildcard + instanceof</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="6-calling-inner-class-methods-without-an-outer-instance">6. Calling Inner Class Methods Without an Outer Instance<a class="headerlink" href="#6-calling-inner-class-methods-without-an-outer-instance" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// ❌ Nonstatic inner class requires outer instance</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">var</span><span class="w"> </span><span class="n">comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StoreEmployee</span><span class="p">.</span><span class="na">StoreComparator</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span><span class="c1">// Error!</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1">// ✅ Must use outer instance to call .new</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kd">var</span><span class="w"> </span><span class="n">comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StoreEmployee</span><span class="p">().</span><span class="na">new</span><span class="w"> </span><span class="n">StoreComparator</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
+<h3 id="7-adding-elements-to-extends-t">7. Adding Elements to <code>? extends T</code><a class="headerlink" href="#7-adding-elements-to-extends-t" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">// ❌ Cannot add to ? extends — compiler can&#39;t guarantee type safety</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">readFrom</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">());</span><span class="w">  </span><span class="c1">// COMPILE ERROR — might actually be List&lt;Fish&gt;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">}</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1">// ✅ Use ? extends only for reading</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">readFrom</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Reading is always safe</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="8-calling-interface-default-methods-with-wrong-super">8. Calling Interface Default Methods with Wrong Super<a class="headerlink" href="#8-calling-interface-default-methods-with-wrong-super" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// ❌ Plain super refers to the parent CLASS (Object), not the interface</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">return</span><span class="w"> </span><span class="kd">super</span><span class="p">.</span><span class="na">transition</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span><span class="w">  </span><span class="c1">// Compile error!</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1">// ✅ Must qualify with the interface name</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">return</span><span class="w"> </span><span class="n">FlightEnabled</span><span class="p">.</span><span class="na">super</span><span class="p">.</span><span class="na">transition</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span><span class="w">  </span><span class="c1">// Correct</span>
+</span></code></pre></div>
+<hr />
+<h2 id="best-practices-checklist"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 6a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V19a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6 6 0 0 1 6-6m2 15v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1zm6-10h3v2h-3zM1 11h3v2H1zM13 1v3h-2V1zM4.92 3.5l2.13 2.14-1.42 1.41L3.5 4.93zm12.03 2.13 2.12-2.13 1.43 1.43-2.13 2.12z"/></svg></span> Best Practices Checklist<a class="headerlink" href="#best-practices-checklist" title="Permanent link">&para;</a></h2>
+<p><strong>Abstract Classes:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Make base classes <code>abstract</code> when direct instantiation makes no sense</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Use <code>protected</code> for fields subclasses need to read directly</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Use <code>final</code> on methods that must NOT be overridden by subclasses</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Always provide a <code>super(...)</code> call chain in every subclass constructor</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Prefer abstract classes over tagged classes with discriminator + switch</li>
+</ul>
+<p><strong>Interfaces:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Use interface types in parameters, return types, local vars, and fields (coding to interface)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Add <code>default</code> methods only when backwards compatibility requires it; document carefully</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Never use interfaces as constant repositories — use utility classes or enums</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Use <code>InterfaceName.super.method()</code> to call default methods from overriding implementations</li>
+</ul>
+<p><strong>Generics:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Never use raw types in new code — always specify type parameters</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Eliminate all unchecked warnings; if suppressing, use narrowest scope + comment</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Use upper bounds (<code>T extends X</code>) when a type parameter must call X's methods</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Implement <code>Comparable&lt;T&gt;</code> (not raw <code>Comparable</code>) to prevent ClassCastException</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Static methods in generic classes need their own type parameter declaration</li>
+</ul>
+<p><strong>Wildcards:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Producer (reads) → <code>? extends T</code>; Consumer (writes) → <code>? super T</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Never use wildcards in return types — they leak into client code</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Use <code>Comparable&lt;? super T&gt;</code> for the most flexible natural-ordering constraints</li>
+</ul>
+<p><strong>Nested Classes:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Default to <code>static</code> for nested classes — only remove <code>static</code> if outer-instance access is genuinely needed</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Prefer <code>static</code> nested class for Comparators, Builders, Entries, and helper types</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> In inner classes, use <code>Outer.this.field</code> to reference shadowed outer fields</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Prefer lambdas over anonymous classes for functional interfaces (Topics 5+)</li>
+</ul>
+<hr />
+<h2 id="learning-resources"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2"/></svg></span> Learning Resources<a class="headerlink" href="#learning-resources" title="Permanent link">&para;</a></h2>
+<h3 id="abstract-classes-interfaces">Abstract Classes &amp; Interfaces<a class="headerlink" href="#abstract-classes-interfaces" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html">Oracle — Abstract Methods and Classes</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html">Oracle — Interfaces Tutorial</a></li>
+</ul>
+<h3 id="generics">Generics<a class="headerlink" href="#generics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/generics/index.html">Oracle — Generics Tutorial</a></li>
+<li><a href="https://www.baeldung.com/java-generics">Baeldung — Java Generics Deep Dive</a></li>
+<li><a href="http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html">Angelika Langer — Java Generics FAQ</a> ⭐ The definitive reference</li>
+</ul>
+<h3 id="type-erasure">Type Erasure<a class="headerlink" href="#type-erasure" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/generics/erasure.html">Oracle — Type Erasure</a></li>
+<li><a href="https://www.baeldung.com/java-type-erasure">Baeldung — Type Erasure</a></li>
+</ul>
+<h3 id="wildcards-pecs">Wildcards &amp; PECS<a class="headerlink" href="#wildcards-pecs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/generics/wildcards.html">Oracle — Wildcards</a></li>
+<li><a href="https://www.baeldung.com/java-generics-interview-questions#3-what-is-pecs">Baeldung — Wildcards in Java Generics</a></li>
+<li><a href="https://stackoverflow.com/questions/2723397/what-is-pecs-producer-extends-consumer-super">Stack Overflow — What is PECS?</a> ⭐ Classic answer</li>
+</ul>
+<h3 id="nested-classes">Nested Classes<a class="headerlink" href="#nested-classes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">Oracle — Nested Classes</a></li>
+</ul>
+<h3 id="effective-java">Effective Java<a class="headerlink" href="#effective-java" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://www.oreilly.com/library/view/effective-java-3rd/9780134686097/">Effective Java 3<sup>rd</sup> Edition</a></li>
+<li><a href="https://github.com/HugoMatilla/Effective-JAVA-Summary">GitHub — Effective Java Summary</a></li>
+</ul>
+<hr />
+<h2 id="related-topics"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg></span> Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../topic-2-oop-class-design/summary/">OOP &amp; Class Design Internals</a></li>
+<li><a href="../../topic-3-arrays-lists-generics/summary/">Arrays, Lists &amp; Autoboxing</a></li>
+<li><a href="../../topic-5-lambdas-streams/summary/">Lambdas &amp; Streams</a> <em>(anonymous classes → lambdas)</em></li>
+</ul>
+<hr />
+<h2 id="references"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg></span> References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Course:</strong> Tim Buchalka — Java Programming Masterclass (Sections 11, 12 &amp; 13)</li>
+<li><strong>Book:</strong> Effective Java — Joshua Bloch (Items 20–24, 26–27, 29–31)</li>
+<li><strong>API:</strong> <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html">java.lang.Comparable</a></li>
+<li><strong>API:</strong> <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Comparator.html">java.util.Comparator</a></li>
+<li><strong>API:</strong> <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html">java.util.List</a></li>
+<li><strong>Spec:</strong> <a href="https://docs.oracle.com/javase/specs/jls/se17/html/jls-8.html#jls-8.1.4">JLS §8.1.4 — Superclasses and Subclasses</a></li>
+<li><strong>Spec:</strong> <a href="https://docs.oracle.com/javase/specs/jls/se17/html/jls-4.html#jls-4.10">JLS §4.10 — Subtyping</a></li>
+</ul>
+<hr />
+<p><em>Completed: 2026-02-25 | Confidence: 9/10</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../book-reading/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Book Reading: Abstraction, Interfaces, Generics &amp;amp; Nested Classes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Book Reading: Abstraction, Interfaces, Generics &amp; Nested Classes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../topic-5-lambdas-method-references/" class="md-footer__link md-footer__link--next" aria-label="Next: Topic 5: Lambda Expressions &amp;amp; Functional Programming">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Topic 5: Lambda Expressions &amp; Functional Programming
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - 2026 Ahmed Ashour
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/7amo10" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/in/eng-ahmed-ashour-45b65b263" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", null], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
