@@ -28,6 +28,7 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
 | [Topic 6: Collections Framework](phase-1/topic-6-collections-framework/index.md)                                                    | List, Set, Map, Queue implementations, internals                                                | :material-check-circle: |
 | [Topic 7: Java Streams API](phase-1/topic-7-streams/index.md)                                                                       | Stream pipelines, intermediate & terminal operations, Collectors, Optional, parallel streams    | :material-check-circle: |
 | [Topic 8: Mastering Mutability & Immutability](phase-1/topic-8-mutability-immutability/index.md)                                     | Mutable vs immutable, final modifier, defensive copies, unmodifiable collections, sealed classes | :material-check-circle: |
+| [Topic 9: Java Core Fundamentals — Math, BigDecimal & DateTime](phase-1/topic-9-math-datetime/index.md)                             | Math class, Random, BigDecimal precision, java.time API, Localization, ResourceBundle            | :material-check-circle: |
 
 ---
 

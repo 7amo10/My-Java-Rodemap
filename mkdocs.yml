@@ -263,6 +263,13 @@ nav:
         - notes/phase-1/topic-8-mutability-immutability/topic-note-part3.md
         - notes/phase-1/topic-8-mutability-immutability/book-reading.md
         - notes/phase-1/topic-8-mutability-immutability/summary.md
+      - Topic 9 - Java Core Fundamentals — Math, BigDecimal & DateTime:
+        - notes/phase-1/topic-9-math-datetime/index.md
+        - notes/phase-1/topic-9-math-datetime/topic-note.md
+        - notes/phase-1/topic-9-math-datetime/topic-note-part2.md
+        - notes/phase-1/topic-9-math-datetime/topic-note-part3.md
+        - notes/phase-1/topic-9-math-datetime/book-reading.md
+        - notes/phase-1/topic-9-math-datetime/summary.md
     - Phase 2 - Advanced Java:
       - notes/phase-2/index.md
       - notes/phase-2/multithreading.md

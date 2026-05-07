@@ -84,6 +84,14 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
 
     [:octicons-arrow-right-24: Explore Topic](topic-8-mutability-immutability/index.md)
 
+-   :material-calculator-variant:{ .lg .middle } **Topic 9: Java Core Fundamentals — Math, BigDecimal & DateTime**
+
+    ---
+
+    Math class, Random, BigDecimal precision, java.time API (LocalDate, Instant, ZonedDateTime), Localization, ResourceBundle.
+
+    [:octicons-arrow-right-24: Explore Topic](topic-9-math-datetime/index.md)
+
 </div>
 
 ---
@@ -118,6 +126,7 @@ Each topic folder contains three key documents:
 - [ ] Topic 6: Collections Framework
 - [ ] Topic 7: Java Streams API
 - [ ] Topic 8: Mastering Mutability, Immutability & Final Keyword
+- [ ] Topic 9: Java Core Fundamentals — Math, BigDecimal & DateTime
 - [ ] Phase 1 Project
 
 ---
