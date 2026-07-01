@@ -270,6 +270,18 @@ nav:
         - notes/phase-1/topic-9-math-datetime/topic-note-part3.md
         - notes/phase-1/topic-9-math-datetime/book-reading.md
         - notes/phase-1/topic-9-math-datetime/summary.md
+      - Topic 10 - Mastering Java Concurrency & Multithreading:
+        - notes/phase-1/topic-10-concurrency/index.md
+        - notes/phase-1/topic-10-concurrency/topic-note.md
+        - notes/phase-1/topic-10-concurrency/topic-note-part2.md
+        - notes/phase-1/topic-10-concurrency/topic-note-part3.md
+        - notes/phase-1/topic-10-concurrency/topic-note-part4.md
+        - notes/phase-1/topic-10-concurrency/topic-note-part5.md
+        - notes/phase-1/topic-10-concurrency/book-reading.md
+        - notes/phase-1/topic-10-concurrency/book-reading-part2.md
+        - notes/phase-1/topic-10-concurrency/book-reading-part3.md
+        - notes/phase-1/topic-10-concurrency/book-reading-part4.md
+        - notes/phase-1/topic-10-concurrency/summary.md
     - Phase 2 - Advanced Java:
       - notes/phase-2/index.md
       - notes/phase-2/multithreading.md

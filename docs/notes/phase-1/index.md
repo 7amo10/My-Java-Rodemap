@@ -92,6 +92,14 @@ Build a rock-solid foundation in Java programming, focusing on core concepts and
 
     [:octicons-arrow-right-24: Explore Topic](topic-9-math-datetime/index.md)
 
+-   :material-sync:{ .lg .middle } **Topic 10: Mastering Java Concurrency & Multithreading**
+
+    ---
+
+    Threads, lifecycle states, memory model, synchronization, locks, wait/notify, ExecutorService, thread pools, parallel streams, concurrent collections, deadlock, livelock, starvation, atomics, WatchService.
+
+    [:octicons-arrow-right-24: Explore Topic](topic-10-concurrency/index.md)
+
 </div>
 
 ---
@@ -127,6 +135,7 @@ Each topic folder contains three key documents:
 - [ ] Topic 7: Java Streams API
 - [ ] Topic 8: Mastering Mutability, Immutability & Final Keyword
 - [ ] Topic 9: Java Core Fundamentals — Math, BigDecimal & DateTime
+- [ ] Topic 10: Mastering Java Concurrency & Multithreading
 - [ ] Phase 1 Project
 
 ---
