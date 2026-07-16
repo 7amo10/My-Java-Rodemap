@@ -587,7 +587,7 @@ From Effective Java and the course:
 
 - [Syntax, Variables & Control Flow](../topic-1-java-basic-Interactive-applications/summary.md)
 - [Arrays, Lists & Autoboxing](../topic-3-arrays-lists-generics/summary.md)
-- [Collections Framework](../topic-5-collections-framework/summary.md)
+- [Collections Framework](../topic-6-collections-framework/summary.md)
 
 ---
 

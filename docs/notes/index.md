@@ -1,54 +1,105 @@
----
-id: index
-aliases: []
-tags: []
----
+# :material-notebook-multiple: Learning Notes
 
-# Learning Notes
-
-Structured notes following the Java Roadmap 2025 - covering Phase 1 (Java Fundamentals) and Phase 2 (Advanced Java & Concurrency).
+My structured Java learning journey — from language fundamentals to JVM internals and performance engineering. Each phase builds on the last, with deep notes, book readings, diagrams, and internals.
 
 ---
 
-## Phase 1: Java Fundamentals
+## :material-map: Learning Roadmap Overview
 
-_Duration: 1-2 Months_
+```mermaid
+flowchart LR
+    P1["✅ Phase 1\nJava Fundamentals\n10 Topics — Complete"]
+    --> P2["⚡ Phase 2\nJava Internals & Performance\nIn Progress"]
+    --> P3["🕐 Phase 3\nAdvanced Java & Architecture\nUpcoming"]
 
-Build a rock-solid foundation in Java programming, focusing on core concepts and object-oriented principles.
-
-[:octicons-arrow-right-24: Go to Phase 1](phase-1/index.md)
-
-| Topic                                                                                                                               | Description                                                                                     | Status                    |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------- |
-| [Topic 1: Java Basic Interactive Applications](phase-1/topic-1-java-basic-Interactive-applications/index.md)                        | Variables, data types, operators, control flow, loops, methods, user input                      | :material-check-circle:   |
-| [Topic 2: OOP & Class Design](phase-1/topic-2-oop-class-design/index.md)                                                            | Classes, inheritance, polymorphism, abstraction, composition                                    | :material-check-circle:   |
-| [Topic 3: Arrays, Lists & Autoboxing](phase-1/topic-3-arrays-lists-generics/index.md)                                               | Arrays, ArrayList, LinkedList, Iterators, Autoboxing, Enums                                     | :material-check-circle:   |
-| [Topic 4: Abstraction, Interfaces, Generics & Nested Classes](phase-1/topic-4-abstraction-generics/index.md)                         | Abstract classes, interfaces, generics, wildcards, nested classes                               | :material-check-circle: |
-| [Topic 5: Lambda Expressions & Functional Programming](phase-1/topic-5-lambdas-method-references/index.md)                          | Lambda syntax, functional interfaces, method references, chaining, Comparator convenience       | :material-check-circle: |
-| [Topic 6: Collections Framework](phase-1/topic-6-collections-framework/index.md)                                                    | List, Set, Map, Queue implementations, internals                                                | :material-check-circle: |
-| [Topic 7: Java Streams API](phase-1/topic-7-streams/index.md)                                                                       | Stream pipelines, intermediate & terminal operations, Collectors, Optional, parallel streams    | :material-check-circle: |
-| [Topic 8: Mastering Mutability & Immutability](phase-1/topic-8-mutability-immutability/index.md)                                     | Mutable vs immutable, final modifier, defensive copies, unmodifiable collections, sealed classes | :material-check-circle: |
-| [Topic 9: Java Core Fundamentals — Math, BigDecimal & DateTime](phase-1/topic-9-math-datetime/index.md)                             | Math class, Random, BigDecimal precision, java.time API, Localization, ResourceBundle            | :material-check-circle: |
+    style P1 fill:#4caf7c,color:#fff
+    style P2 fill:#e8933a,color:#fff
+    style P3 fill:#4a6fa5,color:#fff
+```
 
 ---
 
-## Phase 2: Advanced Java & Concurrency
+## :material-folder-open: Phases
 
-_Duration: 2-3 Months_
+<div class="grid cards" markdown>
 
-Master advanced Java concepts including multithreading, concurrency primitives, and JVM internals.
+-   :material-numeric-1-box:{ .lg .middle } **Phase 1 — Java Fundamentals**
 
-[:octicons-arrow-right-24: Go to Phase 2](phase-2/index.md)
+    ---
 
-| Topic                                                     | Description                                        | Status                    |
-| --------------------------------------------------------- | -------------------------------------------------- | ------------------------- |
-| [Multithreading & Concurrency](phase-2/multithreading.md) | Threads, synchronization, locks, ExecutorService   | :material-circle-outline: |
-| [JVM Internals & Memory](phase-2/jvm-internals.md)        | JVM architecture, class loading, memory management | :material-circle-outline: |
-| [Garbage Collection](phase-2/garbage-collection.md)       | GC algorithms, tuning, profiling                   | :material-circle-outline: |
-| [Performance Optimization](phase-2/performance.md)        | Profiling, bottlenecks, optimization techniques    | :material-circle-outline: |
-| [Advanced Java Features](phase-2/advanced-features.md)    | Modules, Records, Sealed Classes, Virtual Threads  | :material-circle-outline: |
+    Build a rock-solid foundation in Java: syntax, OOP principles, generics, lambdas & functional programming, the Collections Framework, Streams API, immutability patterns, DateTime API, and a complete module on concurrency & multithreading.
+
+    **Topics Covered:**
+
+    - Topic 1: Java Basic Interactive Applications
+    - Topic 2: OOP & Class Design Internals
+    - Topic 3: Arrays, Lists & Autoboxing
+    - Topic 4: Abstraction, Interfaces, Generics & Nested Classes
+    - Topic 5: Lambda Expressions & Functional Programming
+    - Topic 6: Collections Framework
+    - Topic 7: Java Streams API
+    - Topic 8: Mastering Mutability, Immutability & Final Keyword
+    - Topic 9: Math, BigDecimal & DateTime API
+    - Topic 10: Mastering Java Concurrency & Multithreading
+
+    **Resources:** Tim Buchalka's Java Masterclass · Effective Java · Core Java Vol. I · Java Concurrency in Practice
+
+    [:octicons-arrow-right-24: Go to Phase 1](phase-1/index.md)
+
+-   :material-numeric-2-box:{ .lg .middle } **Phase 2 — Java Internals & Performance**
+
+    ---
+
+    Master the JVM from the inside out: classloading, JIT compilation tiers, CPU memory hierarchy, performance observables, GC algorithms, profiling tools, microbenchmarking with JMH, and systematic performance engineering methodology.
+
+    **Topics Covered:**
+
+    - Topic 1 *(In Progress)*: Optimizing Java — Part I: Foundations (Chs 1–5)
+    - Topic 2 *(Upcoming)*: Garbage Collection Deep Dive (Chs 6–8)
+    - Topic 3 *(Upcoming)*: Bytecode & JIT Internals (Chs 9–10)
+    - Topic 4 *(Upcoming)*: Profiling & Concurrency Performance (Chs 11–12)
+    - Topic 5 *(Upcoming)*: Advanced JVM Optimization (Chs 13–15)
+
+    **Resources:** Optimizing Java (O'Reilly) · Java Performance: The Definitive Guide · async-profiler · JDK Mission Control
+
+    [:octicons-arrow-right-24: Go to Phase 2](phase-2/index.md)
+
+</div>
 
 ---
 
-!!! tip "Study Approach"
-    - Follow the phases in order. Each topic builds upon previous concepts. Phase 1 establishes the foundation, Phase 2 dives into internals and advanced concepts.
+## :material-book-open-variant: Document Structure
+
+Each topic folder follows a consistent structure:
+
+| Document | Role |
+|----------|------|
+| `index.md` | Topic overview, chapter/lecture map, key internals to understand, progress tracker |
+| `topic-note.md` / `topic-note-partN.md` | Course lecture notes with code examples, mermaid diagrams, and insights |
+| `book-reading.md` / `book-reading-chN.md` | Deep chapter-by-chapter reading notes from the assigned book |
+| `summary.md` | Combined final understanding — API cheat sheets, internals deep-dives, key questions |
+
+---
+
+## :material-checkbox-marked-outline: Overall Progress
+
+### Phase 1 — Java Fundamentals
+
+- [x] Topic 1: Java Basic Interactive Applications
+- [x] Topic 2: OOP & Class Design Internals
+- [x] Topic 3: Arrays, Lists & Autoboxing
+- [x] Topic 4: Abstraction, Interfaces, Generics & Nested Classes
+- [x] Topic 5: Lambda Expressions & Functional Programming
+- [x] Topic 6: Collections Framework
+- [x] Topic 7: Java Streams API
+- [x] Topic 8: Mastering Mutability, Immutability & Final Keyword
+- [x] Topic 9: Java Core Fundamentals — Math, BigDecimal & DateTime
+- [x] Topic 10: Mastering Java Concurrency & Multithreading
+
+### Phase 2 — Java Internals & Performance
+
+- [x] Topic 1 (Part I): Optimizing Java — Foundations (Chapters 1–5)
+- [ ] Topic 2: Garbage Collection Deep Dive (Chapters 6–8)
+- [ ] Topic 3: Bytecode & JIT Internals (Chapters 9–10)
+- [ ] Topic 4: Profiling & Concurrency Performance (Chapters 11–12)
+- [ ] Topic 5: Advanced JVM Optimization Techniques (Chapters 13–15)

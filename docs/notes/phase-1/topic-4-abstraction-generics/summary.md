@@ -821,7 +821,7 @@ return FlightEnabled.super.transition(stage);  // Correct
 
 - [OOP & Class Design Internals](../topic-2-oop-class-design/summary.md)
 - [Arrays, Lists & Autoboxing](../topic-3-arrays-lists-generics/summary.md)
-- [Lambdas & Streams](../topic-5-lambdas-streams/summary.md) _(anonymous classes → lambdas)_
+- [Lambdas & Streams](../topic-5-lambdas-method-references/summary.md) _(anonymous classes → lambdas)_
 
 ---
 

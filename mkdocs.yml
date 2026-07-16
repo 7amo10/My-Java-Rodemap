@@ -282,13 +282,15 @@ nav:
         - notes/phase-1/topic-10-concurrency/book-reading-part3.md
         - notes/phase-1/topic-10-concurrency/book-reading-part4.md
         - notes/phase-1/topic-10-concurrency/summary.md
-    - Phase 2 - Advanced Java:
+    - Phase 2 - Java Internals & Performance:
       - notes/phase-2/index.md
-      - notes/phase-2/multithreading.md
-      - notes/phase-2/jvm-internals.md
-      - notes/phase-2/garbage-collection.md
-      - notes/phase-2/performance.md
-      - notes/phase-2/advanced-features.md
+      - Topic 1 - Optimizing Java Part I (Foundations):
+        - notes/phase-2/topic-1-optimizing-java/index.md
+        - notes/phase-2/topic-1-optimizing-java/book-reading-ch1.md
+        - notes/phase-2/topic-1-optimizing-java/book-reading-ch2.md
+        - notes/phase-2/topic-1-optimizing-java/book-reading-ch3.md
+        - notes/phase-2/topic-1-optimizing-java/book-reading-ch4.md
+        - notes/phase-2/topic-1-optimizing-java/book-reading-ch5.md
   
   - Book Summaries:
     - books/index.md

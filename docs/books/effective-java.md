@@ -21,9 +21,9 @@ The definitive guide to Java programming best practices, written by one of the l
 | Classes and Interfaces | 15-25 | [OOP & Class Design](../notes/phase-1/topic-2-oop-class-design/book-reading.md) |
 | Generics | 26-33 | [Abstraction, Interfaces & Generics](../notes/phase-1/topic-4-abstraction-generics/book-reading.md) |
 | Enums and Annotations | 34-41 | [Arrays, Lists & Autoboxing](../notes/phase-1/topic-3-arrays-lists-generics/book-reading.md) |
-| Lambdas and Streams | 42-48 | [Lambdas & Streams](../notes/phase-1/topic-5-lambdas-streams/book-reading.md) |
-| Methods | 49-56 | [Syntax & Control Flow](../notes/phase-1/topic-1-syntax-variables-control-flow/book-reading.md) |
-| General Programming | 57-68 | [Syntax & Control Flow](../notes/phase-1/topic-1-syntax-variables-control-flow/book-reading.md) |
+| Lambdas and Streams | 42-48 | [Lambdas & Streams](../notes/phase-1/topic-5-lambdas-method-references/book-reading.md) |
+| Methods | 49-56 | [Syntax & Control Flow](../notes/phase-1/topic-1-java-basic-Interactive-applications/book-reading.md) |
+| General Programming | 57-68 | [Syntax & Control Flow](../notes/phase-1/topic-1-java-basic-Interactive-applications/book-reading.md) |
 | Exceptions | 69-77 | *Phase 1 Advanced* |
 | Concurrency | 78-84 | *Phase 2 - Advanced Java* |
 | Serialization | 85-90 | *Phase 2 - Advanced Java* |
