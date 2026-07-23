@@ -35,21 +35,21 @@ Master the JVM internals, performance engineering, garbage collection, and the f
 
     ---
 
-    GC algorithms (Serial, Parallel, CMS, G1, ZGC, Shenandoah), heap structure, GC log analysis, allocation profiling, GC tuning parameters.
+    GC algorithms (Serial, Parallel, CMS, G1, ZGC, Shenandoah), heap structure, tri-color marking, SATB, Brooks pointers, colored pointers, Card Tables, safepoints, GC log analysis, allocation profiling, GC tuning parameters.
 
     **Book:** Optimizing Java, Chapters 6–8
 
-    *[:octicons-clock-24: Coming — Week 2]*
+    [:octicons-arrow-right-24: Explore Topic](topic-2-garbage-collection/index.md)
 
 -   :material-lightning-bolt:{ .lg .middle } **Topic 3: Bytecode & JIT Internals**
 
     ---
 
-    Bytecode deep dive, JIT compilation pipeline, inlining decisions, escape analysis, loop optimizations, code cache management, deoptimization events.
+    JVM as a stack machine, bytecode opcode families, method invocation opcodes, template interpreter, tiered compilation (Tiers 0–4), Code Cache, inlining (the gateway optimization), loop unrolling, escape analysis & scalar replacement, monomorphic dispatch, intrinsics, 8000-byte compilation wall.
 
     **Book:** Optimizing Java, Chapters 9–10
 
-    *[:octicons-clock-24: Coming — Week 3]*
+    [:octicons-arrow-right-24: Explore Topic](topic-3-bytecode-jit/index.md)
 
 -   :material-chart-gantt:{ .lg .middle } **Topic 4: Profiling & Concurrency Performance**
 
@@ -91,8 +91,8 @@ Each topic folder contains reading notes keyed to chapters of the source book:
 | Reading Group | Chapters | Topics | Status |
 |:---:|---|---|:---:|
 | Week 1 | 1–5 | Foundations: observables, JVM, hardware, testing, statistics | :material-check-circle: Complete |
-| Week 2 | 6–8 | Garbage Collection: algorithms, heap, GC logs, tuning | :octicons-clock-24: Upcoming |
-| Week 3 | 9–10 | Bytecode & JIT: internals, inlining, escape analysis | :octicons-clock-24: Upcoming |
+| Week 2 | 6–8 | Garbage Collection: algorithms, heap, GC logs, tuning | :material-check-circle: Complete |
+| Week 3 | 9–10 | Bytecode & JIT: internals, inlining, escape analysis | :material-check-circle: Complete |
 | Week 4 | 11–12 | Profiling & Concurrency: profilers, thread analysis, locks | :octicons-clock-24: Upcoming |
 | Week 5 | 13–15 | Advanced Tools & Optimization | :octicons-clock-24: Upcoming |
 
@@ -111,8 +111,8 @@ Each topic folder contains reading notes keyed to chapters of the source book:
 ## :material-checkbox-marked-outline: Phase Progress
 
 - [x] Topic 1: Optimizing Java — Part I: Foundations (Chapters 1–5)
-- [ ] Topic 2: Garbage Collection Deep Dive (Chapters 6–8)
-- [ ] Topic 3: Bytecode & JIT Internals (Chapters 9–10)
+- [x] Topic 2: Garbage Collection Deep Dive (Chapters 6–8)
+- [x] Topic 3: Bytecode & JIT Internals (Chapters 9–10)
 - [ ] Topic 4: Profiling & Concurrency Performance (Chapters 11–12)
 - [ ] Topic 5: Advanced JVM Optimization Techniques (Chapters 13–15)
 - [ ] Phase 2 Capstone Project
