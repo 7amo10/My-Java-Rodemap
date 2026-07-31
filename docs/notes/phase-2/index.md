@@ -51,25 +51,25 @@ Master the JVM internals, performance engineering, garbage collection, and the f
 
     [:octicons-arrow-right-24: Explore Topic](topic-3-bytecode-jit/index.md)
 
--   :material-chart-gantt:{ .lg .middle } **Topic 4: Profiling & Concurrency Performance**
+-   :material-chart-gantt:{ .lg .middle } **Topic 4: Language Performance & Concurrency**
 
     ---
 
-    CPU and allocation profilers (async-profiler, JFR), flame graphs, lock contention analysis, thread dump analysis, Amdahl's Law in practice.
+    Collection internals (ArrayList vs LinkedList, HashMap bucket/treeify mechanics, TreeMap), domain object memory leak diagnosis, finalization lifecycle & deprecation, `try-with-resources`, Method Handles, Amdahl's Law, JMM (happens-before, `volatile` ≠ atomic), CAS & lock-free atomics, `ReentrantLock`/`ReadWriteLock`/`Semaphore`, `ConcurrentHashMap`, ForkJoinPool work-stealing, LMAX Disruptor, Actor model.
 
     **Book:** Optimizing Java, Chapters 11–12
 
-    *[:octicons-clock-24: Coming — Week 4]*
+    [:octicons-arrow-right-24: Explore Topic](topic-4-profiling-concurrency/index.md)
 
 -   :material-wrench:{ .lg .middle } **Topic 5: Advanced JVM Optimization Techniques**
 
     ---
 
-    Profiler tools in depth, JVM as a platform, advanced code-level optimizations, data structures for performance, off-heap memory, Project Valhalla preview.
+    Profiling prerequisites & safepoint bias, `AsyncGetCallTrace()`, async-profiler, JFR/JMC, flame graphs (CPU/allocation), TLAB sampling, heap dump analysis, logging benchmarks (JUL vs Log4j 2.6 zero-GC), Agrona buffers & cache-line-padded queues, SBE copy-free codec, Aeron 8 latency principles & lock-free log appender, Compact Strings, Segmented Code Cache, VarHandles, Project Valhalla value types, Graal/Truffle/Futamura, Project Loom virtual threads.
 
     **Book:** Optimizing Java, Chapters 13–15
 
-    *[:octicons-clock-24: Coming — Week 5]*
+    [:octicons-arrow-right-24: Explore Topic](topic-5-advanced-jvm/index.md)
 
 </div>
 
@@ -93,8 +93,8 @@ Each topic folder contains reading notes keyed to chapters of the source book:
 | Week 1 | 1–5 | Foundations: observables, JVM, hardware, testing, statistics | :material-check-circle: Complete |
 | Week 2 | 6–8 | Garbage Collection: algorithms, heap, GC logs, tuning | :material-check-circle: Complete |
 | Week 3 | 9–10 | Bytecode & JIT: internals, inlining, escape analysis | :material-check-circle: Complete |
-| Week 4 | 11–12 | Profiling & Concurrency: profilers, thread analysis, locks | :octicons-clock-24: Upcoming |
-| Week 5 | 13–15 | Advanced Tools & Optimization | :octicons-clock-24: Upcoming |
+| Week 4 | 11–12 | Language Performance & Concurrency | :material-check-circle: Complete |
+| Week 5 | 13–15 | Advanced JVM: Profiling, Logging & Future | :material-check-circle: Complete |
 
 ---
 
@@ -113,8 +113,8 @@ Each topic folder contains reading notes keyed to chapters of the source book:
 - [x] Topic 1: Optimizing Java — Part I: Foundations (Chapters 1–5)
 - [x] Topic 2: Garbage Collection Deep Dive (Chapters 6–8)
 - [x] Topic 3: Bytecode & JIT Internals (Chapters 9–10)
-- [ ] Topic 4: Profiling & Concurrency Performance (Chapters 11–12)
-- [ ] Topic 5: Advanced JVM Optimization Techniques (Chapters 13–15)
+- [x] Topic 4: Language Performance & Concurrency (Chapters 11–12)
+- [x] Topic 5: Advanced JVM Optimization Techniques (Chapters 13–15)
 - [ ] Phase 2 Capstone Project
 
 ---

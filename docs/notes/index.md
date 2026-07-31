@@ -57,8 +57,8 @@ flowchart LR
     - Topic 1 ✅: Optimizing Java — Part I: Foundations (Chs 1–5)
     - Topic 2 ✅: Garbage Collection Deep Dive (Chs 6–8)
     - Topic 3 ✅: Bytecode & JIT Internals (Chs 9–10)
-    - Topic 4 *(Upcoming)*: Profiling & Concurrency Performance (Chs 11–12)
-    - Topic 5 *(Upcoming)*: Advanced JVM Optimization (Chs 13–15)
+    - Topic 4 ✅: Language Performance & Concurrency (Chs 11–12)
+    - Topic 5 ✅: Advanced JVM Optimization Techniques (Chs 13–15)
 
     **Resources:** Optimizing Java (O'Reilly) · Java Performance: The Definitive Guide · async-profiler · JDK Mission Control
 
@@ -101,5 +101,5 @@ Each topic folder follows a consistent structure:
 - [x] Topic 1 (Part I): Optimizing Java — Foundations (Chapters 1–5)
 - [x] Topic 2: Garbage Collection Deep Dive (Chapters 6–8)
 - [x] Topic 3: Bytecode & JIT Internals (Chapters 9–10)
-- [ ] Topic 4: Profiling & Concurrency Performance (Chapters 11–12)
-- [ ] Topic 5: Advanced JVM Optimization Techniques (Chapters 13–15)
+- [x] Topic 4: Language Performance & Concurrency (Chapters 11–12)
+- [x] Topic 5: Advanced JVM Optimization Techniques (Chapters 13–15)

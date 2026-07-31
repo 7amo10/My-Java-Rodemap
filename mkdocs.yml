@@ -300,6 +300,15 @@ nav:
         - notes/phase-2/topic-3-bytecode-jit/index.md
         - notes/phase-2/topic-3-bytecode-jit/book-reading-ch9.md
         - notes/phase-2/topic-3-bytecode-jit/book-reading-ch10.md
+      - Topic 4 - Language Performance & Concurrency:
+        - notes/phase-2/topic-4-profiling-concurrency/index.md
+        - notes/phase-2/topic-4-profiling-concurrency/book-reading-ch11.md
+        - notes/phase-2/topic-4-profiling-concurrency/book-reading-ch12.md
+      - Topic 5 - Advanced JVM Optimization Techniques:
+        - notes/phase-2/topic-5-advanced-jvm/index.md
+        - notes/phase-2/topic-5-advanced-jvm/book-reading-ch13.md
+        - notes/phase-2/topic-5-advanced-jvm/book-reading-ch14.md
+        - notes/phase-2/topic-5-advanced-jvm/book-reading-ch15.md
   
   - Book Summaries:
     - books/index.md
