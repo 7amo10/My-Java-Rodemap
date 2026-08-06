@@ -336,6 +336,8 @@ nav:
   - Projects:
     - projects/index.md
     - projects/project-template.md
+    - Phase 2 Projects:
+      - projects/phase-2-helix-jvm-engine.md
   
   - Tags: tags.md
 
