@@ -8,13 +8,13 @@ My structured Java learning journey — from language fundamentals to JVM intern
 
 ```mermaid
 flowchart LR
-    P1["✅ Phase 1\nJava Fundamentals\n10 Topics — Complete"]
-    --> P2["⚡ Phase 2\nJava Internals & Performance\nIn Progress"]
-    --> P3["🕐 Phase 3\nAdvanced Java & Architecture\nUpcoming"]
+    P1["Phase 1<br/>Java Fundamentals<br/>10 Topics - Complete"]
+    --> P2["Phase 2<br/>JVM Internals and Performance<br/>5 Topics - Complete"]
+    --> P3["Phase 3<br/>Jakarta EE 10<br/>Microservices and Architecture<br/>In Progress"]
 
     style P1 fill:#4caf7c,color:#fff
-    style P2 fill:#e8933a,color:#fff
-    style P3 fill:#4a6fa5,color:#fff
+    style P2 fill:#4caf7c,color:#fff
+    style P3 fill:#e8933a,color:#fff
 ```
 
 ---
@@ -64,6 +64,23 @@ flowchart LR
 
     [:octicons-arrow-right-24: Go to Phase 2](phase-2/index.md)
 
+-   :material-numeric-3-box:{ .lg .middle } **Phase 3 — Jakarta EE 10: Microservices & Architecture**
+
+    ---
+
+    Master enterprise Java on a real Jakarta EE container: CDI 4.0 dependency injection, JAX-RS 3.1 REST services, JPA 3.1 persistence, JTA transactions, Jakarta Security with JWT, Adam Bien's BCE architecture pattern, ManagedExecutorService, Server-Sent Events, and JPA performance tuning.
+
+    **Weeks Covered:**
+
+    - Week 1: CDI 4.0 Component Model & JAX-RS 3.1 RESTful Services
+    - Week 2: JPA 3.1 Persistence, JTA Transactions & Jakarta Security 3.0
+    - Week 3: BCE Architecture Patterns, Async Execution & Performance Tuning
+    - Week 4 (Capstone): JVM-Pulse EE — Bytecode Inspection Microservice Platform
+
+    **Resources:** Pro Jakarta Persistence · Java EE 8 Application Development · Real-World Java EE Patterns · Design Web APIs
+
+    [:octicons-arrow-right-24: Go to Phase 3](phase-3/index.md)
+
 </div>
 
 ---
@@ -103,3 +120,15 @@ Each topic folder follows a consistent structure:
 - [x] Topic 3: Bytecode & JIT Internals (Chapters 9–10)
 - [x] Topic 4: Language Performance & Concurrency (Chapters 11–12)
 - [x] Topic 5: Advanced JVM Optimization Techniques (Chapters 13–15)
+
+### Phase 3 — Jakarta EE 10: Microservices & Architecture
+
+- [ ] Week 1 — Day 01: CDI 4.0 Scopes, Contexts & Lifecycle
+- [ ] Week 1 — Day 02: Qualifiers, Producers, Interceptors & Events
+- [ ] Week 1 — Day 03: JAX-RS 3.1 Fundamentals & REST Resource Architecture
+- [ ] Week 1 — Day 04: JSON-B / JSON-P & Unified Exception Handling
+- [ ] Week 1 — Day 05: JAX-RS Filters & Request/Response Pipelines
+- [ ] Week 1 — Days 06-07: JVM-Pulse Core Integration Milestone
+- [ ] Week 2 — Day 08-14: JPA 3.1, JTA Transactions & Jakarta Security
+- [ ] Week 3 — Day 15-21: BCE Patterns, Async & Performance Tuning
+- [ ] Week 4 — Day 22-28: JVM-Pulse EE Capstone Project
