@@ -338,6 +338,32 @@ nav:
           - notes/phase-3/week-1-cdi-jaxrs/day-05-jaxrs-filters-pipelines/lab-guide.md
         - Days 06-07 - Week 1 Integration Milestone:
           - notes/phase-3/week-1-cdi-jaxrs/day-06-07-integration-milestone/index.md
+      - Week 2 - JPA, JTA and Security:
+        - notes/phase-3/week-2-jpa-transactions-security/index.md
+        - Day 08 - JPA Entity Mapping:
+          - notes/phase-3/week-2-jpa-transactions-security/day-08-jpa-entity-mappings/index.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-08-jpa-entity-mappings/book-pro-persistence-ch4-ch5.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-08-jpa-entity-mappings/lab-guide.md
+        - Day 09 - Persistence Context and Lifecycle:
+          - notes/phase-3/week-2-jpa-transactions-security/day-09-persistence-context-lifecycle/index.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-09-persistence-context-lifecycle/book-pro-persistence-ch6.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-09-persistence-context-lifecycle/lab-guide.md
+        - Day 10 - JPQL and Criteria API:
+          - notes/phase-3/week-2-jpa-transactions-security/day-10-jpql-criteria-queries/index.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-10-jpql-criteria-queries/book-pro-persistence-ch7.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-10-jpql-criteria-queries/book-pro-persistence-ch8.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-10-jpql-criteria-queries/book-pro-persistence-ch9.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-10-jpql-criteria-queries/lab-guide.md
+        - Day 11 - JTA Transactions and Concurrency:
+          - notes/phase-3/week-2-jpa-transactions-security/day-11-jta-transactions-concurrency/index.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-11-jta-transactions-concurrency/book-pro-persistence-ch12.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-11-jta-transactions-concurrency/lab-guide.md
+        - Day 12 - Jakarta Security and Password Hashing:
+          - notes/phase-3/week-2-jpa-transactions-security/day-12-jakarta-security/index.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-12-jakarta-security/book-ee8appdev-ch9.md
+          - notes/phase-3/week-2-jpa-transactions-security/day-12-jakarta-security/lab-guide.md
+        - Days 13-14 - JWT Authentication Milestone:
+          - notes/phase-3/week-2-jpa-transactions-security/day-13-14-jwt-milestone/index.md
 
   - Book Summaries:
     - books/index.md

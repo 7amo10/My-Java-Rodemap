@@ -50,7 +50,7 @@ Master enterprise Java: contextual dependency injection, RESTful services, data 
 
     **Books:** Pro Persistence (Ch4-9, Ch12) · EE8 AppDev (Ch3, Ch9)
 
-    :material-clock-outline: *Upcoming in Week 2*
+    [:octicons-arrow-right-24: Explore Week 2](week-2-jpa-transactions-security/index.md)
 
 -   :material-sitemap:{ .lg .middle } **Week 3 — Architecture Patterns (BCE), Async Execution & Performance**
 
