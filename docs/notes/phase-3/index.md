@@ -60,7 +60,7 @@ Master enterprise Java: contextual dependency injection, RESTful services, data 
 
     **Books:** EE Patterns (Ch3, Ch6) · Pro Persistence (Ch11, Ch12, Ch14) · EE8 AppDev (Ch10, Ch13)
 
-    :material-clock-outline: *Upcoming in Week 3*
+    [:octicons-arrow-right-24: Explore Week 3](week-3-bce-async-performance/index.md)
 
 -   :material-rocket-launch:{ .lg .middle } **Week 4 — Capstone: JVM-Pulse EE Platform**
 

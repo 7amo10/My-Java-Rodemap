@@ -364,6 +364,31 @@ nav:
           - notes/phase-3/week-2-jpa-transactions-security/day-12-jakarta-security/lab-guide.md
         - Days 13-14 - JWT Authentication Milestone:
           - notes/phase-3/week-2-jpa-transactions-security/day-13-14-jwt-milestone/index.md
+      - Week 3 - BCE, Async and Performance:
+        - notes/phase-3/week-3-bce-async-performance/index.md
+        - Day 15 - BCE Architecture Pattern:
+          - notes/phase-3/week-3-bce-async-performance/day-15-bce-architecture/index.md
+          - notes/phase-3/week-3-bce-async-performance/day-15-bce-architecture/book-adam-bien-bce-ch3.md
+          - notes/phase-3/week-3-bce-async-performance/day-15-bce-architecture/lab-guide.md
+        - Day 16 - Enterprise Concurrency and Managed Threads:
+          - notes/phase-3/week-3-bce-async-performance/day-16-enterprise-concurrency/index.md
+          - notes/phase-3/week-3-bce-async-performance/day-16-enterprise-concurrency/book-ee8appdev-ch13-async.md
+          - notes/phase-3/week-3-bce-async-performance/day-16-enterprise-concurrency/lab-guide.md
+        - Day 17 - Real-Time Communication via SSE:
+          - notes/phase-3/week-3-bce-async-performance/day-17-sse-realtime/index.md
+          - notes/phase-3/week-3-bce-async-performance/day-17-sse-realtime/book-ee8appdev-ch10-sse.md
+          - notes/phase-3/week-3-bce-async-performance/day-17-sse-realtime/lab-guide.md
+        - Day 18 - JPA Performance Tuning and Batch Fetching:
+          - notes/phase-3/week-3-bce-async-performance/day-18-jpa-performance-tuning/index.md
+          - notes/phase-3/week-3-bce-async-performance/day-18-jpa-performance-tuning/book-pro-persistence-ch11.md
+          - notes/phase-3/week-3-bce-async-performance/day-18-jpa-performance-tuning/book-pro-persistence-ch12-caching.md
+          - notes/phase-3/week-3-bce-async-performance/day-18-jpa-performance-tuning/lab-guide.md
+        - Day 19 - Connection Pool and HTTP Throughput Tuning:
+          - notes/phase-3/week-3-bce-async-performance/day-19-connection-pool-tuning/index.md
+          - notes/phase-3/week-3-bce-async-performance/day-19-connection-pool-tuning/book-pro-persistence-ch14.md
+          - notes/phase-3/week-3-bce-async-performance/day-19-connection-pool-tuning/lab-guide.md
+        - Days 20-21 - Full Consolidation and Architectural Audit:
+          - notes/phase-3/week-3-bce-async-performance/day-20-21-consolidation-audit/index.md
 
   - Book Summaries:
     - books/index.md
