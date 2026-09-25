@@ -418,6 +418,8 @@ nav:
     - projects/project-template.md
     - Phase 2 Projects:
       - projects/phase-2-helix-jvm-engine.md
+    - Phase 3 Projects:
+      - projects/phase-3-helix-cortex.md
   
   - Tags: tags.md
 
