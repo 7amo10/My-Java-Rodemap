@@ -10,12 +10,15 @@ My structured Java learning journey — from language fundamentals to JVM intern
 flowchart LR
     P1["Phase 1<br/>Java Fundamentals<br/>10 Topics - Complete"]
     --> P2["Phase 2<br/>JVM Internals and Performance<br/>5 Topics - Complete"]
-    --> P3["Phase 3<br/>Jakarta EE 10<br/>Microservices and Architecture<br/>In Progress"]
+    --> P3["Phase 3<br/>Jakarta EE 10<br/>Microservices and Architecture<br/>Complete"]
+    --> P4["Phase 4<br/>Spring Ecosystem<br/>Spring Boot and Spring Core<br/>In Progress"]
 
     style P1 fill:#4caf7c,color:#fff
     style P2 fill:#4caf7c,color:#fff
-    style P3 fill:#e8933a,color:#fff
+    style P3 fill:#4caf7c,color:#fff
+    style P4 fill:#e8933a,color:#fff
 ```
+
 
 ---
 
@@ -81,6 +84,22 @@ flowchart LR
 
     [:octicons-arrow-right-24: Go to Phase 3](phase-3/index.md)
 
+-   :material-numeric-4-box:{ .lg .middle } **Phase 4 — Spring Ecosystem**
+
+    ---
+
+    Master the Spring framework from first principles to production deployment: IoC container mechanics, dependency injection patterns, Spring Data JPA, REST API design, Spring Security, MVC web layers, advanced ORM relationships, and Aspect-Oriented Programming.
+
+    **Weeks Covered:**
+
+    - Week 1 ✅: Spring Boot Core Foundations (auto-config, DevTools, Actuator, @Value)
+    - Week 2 ✅: Spring Core — IoC, DI, Bean Scopes & Lifecycle
+    - Weeks 3–10: JPA, REST, Security, MVC, AOP *(upcoming)*
+
+    **Resources:** Spring in Action (6th Ed.) — Craig Walls · Chad Darby Spring Boot 3 Course
+
+    [:octicons-arrow-right-24: Go to Phase 4](phase-4/index.md)
+
 </div>
 
 ---
@@ -132,3 +151,9 @@ Each topic folder follows a consistent structure:
 - [ ] Week 2 — Day 08-14: JPA 3.1, JTA Transactions & Jakarta Security
 - [ ] Week 3 — Day 15-21: BCE Patterns, Async & Performance Tuning
 - [ ] Week 4 — Day 22-28: JVM-Pulse EE Capstone Project
+
+### Phase 4 — Spring Ecosystem: Spring Boot & Microservices
+
+- [ ] Week 1: Spring Boot Core Foundations & Actuator (Lab 01)
+- [ ] Week 2: Spring Core IoC, DI & Bean Lifecycle (Lab 02)
+- [ ] Weeks 3–10: Hibernate, REST, Security, MVC, AOP (Upcoming)

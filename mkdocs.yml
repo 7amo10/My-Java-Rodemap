@@ -390,6 +390,24 @@ nav:
         - Days 20-21 - Full Consolidation and Architectural Audit:
           - notes/phase-3/week-3-bce-async-performance/day-20-21-consolidation-audit/index.md
 
+    - Phase 4 - Spring Ecosystem:
+      - notes/phase-4/index.md
+      - Week 1 - Spring Boot Core Foundations:
+        - notes/phase-4/week-1-spring-boot-foundations/index.md
+        - notes/phase-4/week-1-spring-boot-foundations/topic-notes-part1.md
+        - notes/phase-4/week-1-spring-boot-foundations/topic-notes-part2.md
+        - notes/phase-4/week-1-spring-boot-foundations/book-reading-ch1.md
+        - notes/phase-4/week-1-spring-boot-foundations/book-reading-ch18.md
+        - notes/phase-4/week-1-spring-boot-foundations/lab-guide.md
+        - notes/phase-4/week-1-spring-boot-foundations/summary.md
+      - Week 2 - Spring Core IoC DI and Bean Lifecycle:
+        - notes/phase-4/week-2-spring-core-ioc-di/index.md
+        - notes/phase-4/week-2-spring-core-ioc-di/topic-notes-part1.md
+        - notes/phase-4/week-2-spring-core-ioc-di/topic-notes-part2.md
+        - notes/phase-4/week-2-spring-core-ioc-di/book-reading.md
+        - notes/phase-4/week-2-spring-core-ioc-di/lab-guide.md
+        - notes/phase-4/week-2-spring-core-ioc-di/summary.md
+
   - Book Summaries:
     - books/index.md
     - Must-Read:
