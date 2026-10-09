@@ -92,9 +92,11 @@ flowchart LR
 
     **Weeks Covered:**
 
-    - Week 1 ✅: Spring Boot Core Foundations (auto-config, DevTools, Actuator, @Value)
-    - Week 2 ✅: Spring Core — IoC, DI, Bean Scopes & Lifecycle
-    - Weeks 3–10: JPA, REST, Security, MVC, AOP *(upcoming)*
+    - Week 1: Spring Boot Core Foundations (auto-config, DevTools, Actuator, @Value)
+    - Week 2: Spring Core — IoC, DI, Bean Scopes & Lifecycle
+    - Week 3: Hibernate / JPA CRUD & DAO Layer
+    - Week 4: RESTful Services & Error Handling Pipelines
+    - Weeks 5–10: Spring Data JPA, Security, MVC, Advanced ORM, AOP *(upcoming)*
 
     **Resources:** Spring in Action (6th Ed.) — Craig Walls · Chad Darby Spring Boot 3 Course
 
@@ -154,6 +156,9 @@ Each topic folder follows a consistent structure:
 
 ### Phase 4 — Spring Ecosystem: Spring Boot & Microservices
 
-- [ ] Week 1: Spring Boot Core Foundations & Actuator (Lab 01)
-- [ ] Week 2: Spring Core IoC, DI & Bean Lifecycle (Lab 02)
-- [ ] Weeks 3–10: Hibernate, REST, Security, MVC, AOP (Upcoming)
+- [x] Week 1: Spring Boot Core Foundations & Actuator (Lab 01)
+- [x] Week 2: Spring Core IoC, DI & Bean Lifecycle (Lab 02)
+- [x] Week 3: Hibernate / JPA CRUD & DAO Layer (Lab 03)
+- [x] Week 4: RESTful Services & Error Handling Pipelines (Lab 04)
+- [ ] Week 5: Spring Data JPA, Automated Repositories & Spring Data REST (Lab 05)
+- [ ] Weeks 6–10: Security, MVC, Advanced ORM, AOP (Upcoming)

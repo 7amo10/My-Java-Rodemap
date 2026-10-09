@@ -61,23 +61,25 @@ Master the Spring framework from first principles: IoC container internals, depe
 
     ---
 
-    Bridge domain models to relational databases with Jakarta Persistence and Hibernate: entity lifecycle, `EntityManager` transactions, JPQL queries, and DAO layer architecture patterns.
+    Bridge domain models to relational databases with Jakarta Persistence and Hibernate: entity lifecycle, `EntityManager` transactions, JPQL queries, dirty checking, DDL auto generation, and DAO layer patterns.
 
-    **Books:** Spring in Action Ch 3.1-3.2  
-    **Lab:** Student Information System DAO Tier
+    **Books:** Spring in Action Ch 3  
+    **Lab Guide:** [Student Information System DAO Tier](week-3-hibernate-jpa-crud/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-03](https://github.com/7amo10/Spring-Labs/tree/main/Week-03-Hibernate-JPA-CRUD)
 
-    :material-clock-outline: *Upcoming in Week 3*
+    [:octicons-arrow-right-24: Explore Week 3](week-3-hibernate-jpa-crud/index.md)
 
--   :material-api:{ .lg .middle } **Week 4 — REST API Architecture & Services**
+-   :material-api:{ .lg .middle } **Week 4 — RESTful Services & Error Handling**
 
     ---
 
-    Design and build RESTful services with Spring MVC: `@RestController`, HTTP verb mapping, `ResponseEntity`, exception handling with `@ExceptionHandler` and `@ControllerAdvice`, JSON serialization.
+    Design and build production-grade REST APIs with Spring MVC: `@RestController`, HTTP verb semantics, Jackson data binding, global error handling via `@ControllerAdvice`, 3-tier layering with service transactions, and partial resource modifications via `PATCH`.
 
-    **Books:** Spring in Action Ch 7.1  
-    **Lab:** Corporate Employee REST Tier
+    **Books:** Spring in Action Ch 7 (pp. 163–174)  
+    **Lab Guide:** [Corporate Enterprise Employee REST Gateway](week-4-restful-services/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-04](https://github.com/7amo10/Spring-Labs/tree/main/Week-04-RESTful-Services-Error-Handling)
 
-    :material-clock-outline: *Upcoming in Week 4*
+    [:octicons-arrow-right-24: Explore Week 4](week-4-restful-services/index.md)
 
 -   :material-magnify:{ .lg .middle } **Week 5 — Spring Data JPA, REST & OpenAPI**
 
@@ -216,16 +218,38 @@ flowchart TD
 - [ ] Java Config (@Configuration + @Bean)
 - [ ] Week 2 Lab: Dynamic Athletic Dispatcher & 3rd-Party Adapter Service
 
-**Weeks 3–10** *(Upcoming)*
+**Week 3 — Hibernate / JPA Data Access & DAO Layer**
 
-- [ ] Week 3: Hibernate / JPA CRUD & DAO
-- [ ] Week 4: REST API Architecture
-- [ ] Week 5: Spring Data JPA & OpenAPI
-- [ ] Week 6: Spring Security & BCrypt
-- [ ] Week 7: Spring MVC & Bean Validation
-- [ ] Week 8: Full-Stack CRUD & Auth Guard
-- [ ] Week 9: Advanced JPA Relationships
-- [ ] Week 10: Aspect-Oriented Programming
+- [x] Entity mapping: `@Entity`, `@Table`, `@Id`, `@GeneratedValue`, `@Column`
+- [x] Spring Boot auto-configuration for JPA and DataSource
+- [x] DAO architecture and `EntityManager` constructor injection
+- [x] CRUD operations: `persist()`, `find()`, `merge()`, `remove()`
+- [x] JPQL queries: `TypedQuery`, filtering, sorting, named parameters
+- [x] In-memory dirty checking vs explicit `merge()`
+- [x] Bulk JPQL DML and First-Level Cache eviction considerations
+- [x] Hibernate DDL auto schema generation (`spring.jpa.hibernate.ddl-auto`)
+- [x] Week 3 Lab: Student Information System DAO Tier
+
+**Week 4 — RESTful Services & Error Handling**
+
+- [x] REST architecture constraints and HTTP verb semantics
+- [x] Jackson JSON serialization (getters) and deserialization (setters/constructors)
+- [x] `@RestController` and URI routing with `@PathVariable`
+- [x] Controller-local vs Global exception handling (`@ControllerAdvice`)
+- [x] Enterprise 3-tier layering (Controller -> Service -> DAO)
+- [x] Service-tier transaction demarcation with `@Transactional`
+- [x] Defensive `POST` primary key reset (`setId(0)`)
+- [x] Partial entity modification via HTTP `PATCH` and Jackson `JsonMapper`
+- [x] Week 4 Lab: Corporate Enterprise Employee REST Gateway
+
+**Weeks 5–10** *(Upcoming)*
+
+- [ ] Week 5: Spring Data JPA Advanced, Paging & OpenAPI
+- [ ] Week 6: Stateless REST Security & BCrypt
+- [ ] Week 7: Spring MVC Web & Bean Validation
+- [ ] Week 8: Full-Stack MVC CRUD & Auth Guard
+- [ ] Week 9: Advanced JPA Relational Mappings
+- [ ] Week 10: Aspect-Oriented Programming (AOP)
 
 ---
 

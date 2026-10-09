@@ -407,6 +407,20 @@ nav:
         - notes/phase-4/week-2-spring-core-ioc-di/book-reading.md
         - notes/phase-4/week-2-spring-core-ioc-di/lab-guide.md
         - notes/phase-4/week-2-spring-core-ioc-di/summary.md
+      - Week 3 - Hibernate JPA CRUD and DAO Layer:
+        - notes/phase-4/week-3-hibernate-jpa-crud/index.md
+        - notes/phase-4/week-3-hibernate-jpa-crud/topic-notes-part1.md
+        - notes/phase-4/week-3-hibernate-jpa-crud/topic-notes-part2.md
+        - notes/phase-4/week-3-hibernate-jpa-crud/book-reading.md
+        - notes/phase-4/week-3-hibernate-jpa-crud/lab-guide.md
+        - notes/phase-4/week-3-hibernate-jpa-crud/summary.md
+      - Week 4 - RESTful Services and Error Handling:
+        - notes/phase-4/week-4-restful-services/index.md
+        - notes/phase-4/week-4-restful-services/topic-notes-part1.md
+        - notes/phase-4/week-4-restful-services/topic-notes-part2.md
+        - notes/phase-4/week-4-restful-services/book-reading.md
+        - notes/phase-4/week-4-restful-services/lab-guide.md
+        - notes/phase-4/week-4-restful-services/summary.md
 
   - Book Summaries:
     - books/index.md
