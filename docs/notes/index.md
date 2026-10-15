@@ -96,7 +96,9 @@ flowchart LR
     - Week 2: Spring Core — IoC, DI, Bean Scopes & Lifecycle
     - Week 3: Hibernate / JPA CRUD & DAO Layer
     - Week 4: RESTful Services & Error Handling Pipelines
-    - Weeks 5–10: Spring Data JPA, Security, MVC, Advanced ORM, AOP *(upcoming)*
+    - Week 5: Spring Data JPA & Spring Data REST
+    - Week 6: Stateless REST Security & RBAC
+    - Weeks 7–10: Spring MVC, Advanced ORM, AOP *(upcoming)*
 
     **Resources:** Spring in Action (6th Ed.) — Craig Walls · Chad Darby Spring Boot 3 Course
 
@@ -160,5 +162,6 @@ Each topic folder follows a consistent structure:
 - [x] Week 2: Spring Core IoC, DI & Bean Lifecycle (Lab 02)
 - [x] Week 3: Hibernate / JPA CRUD & DAO Layer (Lab 03)
 - [x] Week 4: RESTful Services & Error Handling Pipelines (Lab 04)
-- [ ] Week 5: Spring Data JPA, Automated Repositories & Spring Data REST (Lab 05)
-- [ ] Weeks 6–10: Security, MVC, Advanced ORM, AOP (Upcoming)
+- [x] Week 5: Spring Data JPA, Automated Repositories & Spring Data REST (Lab 05)
+- [x] Week 6: Stateless REST Security & RBAC (Lab 06)
+- [ ] Weeks 7–10: Spring MVC, Advanced ORM, AOP (Upcoming)

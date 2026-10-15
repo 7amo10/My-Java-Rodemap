@@ -85,23 +85,25 @@ Master the Spring framework from first principles: IoC container internals, depe
 
     ---
 
-    Eliminate DAO boilerplate with Spring Data JPA repositories, add pagination and sorting, auto-generate REST endpoints with Spring Data REST, and document APIs with OpenAPI/Swagger.
+    Eliminate DAO boilerplate with Spring Data JPA dynamic proxy repositories, leverage derived query methods, auto-generate hypermedia REST APIs with Spring Data REST, and integrate interactive Swagger UI documentation.
 
-    **Books:** Spring in Action Ch 3.2 · Ch 7.2  
-    **Lab:** Automated Repositories & Sorting
+    **Books:** Spring in Action Ch 3.2.2–3.2.4 · Ch 7.2  
+    **Lab Guide:** [Automated Paginated Fleet Management Service](week-5-spring-data-jpa-rest/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-05](https://github.com/7amo10/Spring-Labs/tree/main/Week-05-Spring-Data-JPA-and-REST)
 
-    :material-clock-outline: *Upcoming in Week 5*
+    [:octicons-arrow-right-24: Explore Week 5](week-5-spring-data-jpa-rest/index.md)
 
--   :material-shield-lock:{ .lg .middle } **Week 6 — Stateless REST Security**
+-   :material-shield-lock:{ .lg .middle } **Week 6 — Stateless REST Security & RBAC**
 
     ---
 
-    Secure REST APIs with Spring Security: HTTP Basic auth, BCrypt password hashing, RBAC with roles and authorities, in-memory and database-backed `UserDetailsService`.
+    Secure REST APIs with Spring Security 6/7: stateless HTTP Basic authentication, BCrypt cryptographic password hashing, role-based access control (RBAC), and relational database authentication via `JdbcUserDetailsManager`.
 
-    **Books:** Spring in Action Ch 5 · Ch 8.1-8.3  
-    **Lab:** HTTP Basic & BCrypt RBAC Shield
+    **Books:** Spring in Action Ch 5 · Ch 8  
+    **Lab Guide:** [Tiered Access REST Security Shield](week-6-rest-security-rbac/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-06](https://github.com/7amo10/Spring-Labs/tree/main/Week-06-Stateless-REST-Security-Shield)
 
-    :material-clock-outline: *Upcoming in Week 6*
+    [:octicons-arrow-right-24: Explore Week 6](week-6-rest-security-rbac/index.md)
 
 -   :material-web:{ .lg .middle } **Week 7 — Spring MVC Web & Bean Validation**
 
@@ -242,11 +244,37 @@ flowchart TD
 - [x] Partial entity modification via HTTP `PATCH` and Jackson `JsonMapper`
 - [x] Week 4 Lab: Corporate Enterprise Employee REST Gateway
 
-**Weeks 5–10** *(Upcoming)*
+**Week 5 — Spring Data JPA, Automated Repositories & Spring Data REST**
 
-- [ ] Week 5: Spring Data JPA Advanced, Paging & OpenAPI
-- [ ] Week 6: Stateless REST Security & BCrypt
-- [ ] Week 7: Spring MVC Web & Bean Validation
+- [x] Refactoring custom DAOs to `JpaRepository<Employee, Integer>`
+- [x] Spring Data JPA dynamic runtime proxy generation
+- [x] Derived query methods and method name parsing grammar
+- [x] Custom JPQL queries with `@Query` and `@Param`
+- [x] Hypermedia APIs via Spring Data REST (`spring-boot-starter-data-rest`)
+- [x] HATEOAS HAL wire representation (`_embedded`, `_links`, `page`)
+- [x] Overriding base paths and collection paths with `@RepositoryRestResource`
+- [x] Client-controlled pagination (`?page=0&size=5`) and sorting (`?sort=lastName,desc`)
+- [x] Automated interactive documentation via OpenAPI 3 & Swagger UI (`springdoc-openapi`)
+- [x] Week 5 Lab: Automated Paginated Fleet Management Service
+
+**Week 6 — Stateless REST Security & RBAC**
+
+- [x] Spring Security architecture, `DelegatingFilterProxy`, and `FilterChainProxy`
+- [x] Declaring custom `SecurityFilterChain` bean via modern Lambda DSL
+- [x] Stateless HTTP Basic authentication and Base64 header decoding
+- [x] Why CSRF is disabled for non-browser stateless REST APIs
+- [x] In-memory user provisioning with `InMemoryUserDetailsManager`
+- [x] Roles vs Authorities mental model and prefix rules (`ROLE_`)
+- [x] Granular route authorization by HTTP method (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`)
+- [x] Relational database authentication via `JdbcUserDetailsManager`
+- [x] Standard Spring Security database schema (`users` and `authorities`)
+- [x] Cryptographic password hashing using salted BCrypt (`BCryptPasswordEncoder`)
+- [x] Adapting non-standard custom schemas via `setUsersByUsernameQuery()`
+- [x] Week 6 Lab: Tiered Access REST Security Shield
+
+**Weeks 7–10** *(Upcoming)*
+
+- [ ] Week 7: Spring MVC Web Architecture, Thymeleaf & Form Validation
 - [ ] Week 8: Full-Stack MVC CRUD & Auth Guard
 - [ ] Week 9: Advanced JPA Relational Mappings
 - [ ] Week 10: Aspect-Oriented Programming (AOP)

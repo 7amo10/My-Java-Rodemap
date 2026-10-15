@@ -421,6 +421,20 @@ nav:
         - notes/phase-4/week-4-restful-services/book-reading.md
         - notes/phase-4/week-4-restful-services/lab-guide.md
         - notes/phase-4/week-4-restful-services/summary.md
+      - Week 5 - Spring Data JPA and Spring Data REST:
+        - notes/phase-4/week-5-spring-data-jpa-rest/index.md
+        - notes/phase-4/week-5-spring-data-jpa-rest/topic-notes.md
+        - notes/phase-4/week-5-spring-data-jpa-rest/book-reading.md
+        - notes/phase-4/week-5-spring-data-jpa-rest/lab-guide.md
+        - notes/phase-4/week-5-spring-data-jpa-rest/summary.md
+      - Week 6 - Stateless REST Security and RBAC:
+        - notes/phase-4/week-6-rest-security-rbac/index.md
+        - notes/phase-4/week-6-rest-security-rbac/topic-notes-part1.md
+        - notes/phase-4/week-6-rest-security-rbac/topic-notes-part2.md
+        - notes/phase-4/week-6-rest-security-rbac/book-reading-ch5.md
+        - notes/phase-4/week-6-rest-security-rbac/book-reading-ch8.md
+        - notes/phase-4/week-6-rest-security-rbac/lab-guide.md
+        - notes/phase-4/week-6-rest-security-rbac/summary.md
 
   - Book Summaries:
     - books/index.md
