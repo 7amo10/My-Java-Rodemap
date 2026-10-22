@@ -435,6 +435,13 @@ nav:
         - notes/phase-4/week-6-rest-security-rbac/book-reading-ch8.md
         - notes/phase-4/week-6-rest-security-rbac/lab-guide.md
         - notes/phase-4/week-6-rest-security-rbac/summary.md
+      - Week 7 - Spring MVC Web Architecture and Form Validation:
+        - notes/phase-4/week-7-spring-mvc-validation/index.md
+        - notes/phase-4/week-7-spring-mvc-validation/topic-notes-part1.md
+        - notes/phase-4/week-7-spring-mvc-validation/topic-notes-part2.md
+        - notes/phase-4/week-7-spring-mvc-validation/book-reading.md
+        - notes/phase-4/week-7-spring-mvc-validation/lab-guide.md
+        - notes/phase-4/week-7-spring-mvc-validation/summary.md
 
   - Book Summaries:
     - books/index.md

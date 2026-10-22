@@ -109,12 +109,13 @@ Master the Spring framework from first principles: IoC container internals, depe
 
     ---
 
-    Build server-side MVC web applications: Thymeleaf templates, model binding, form processing, `BindingResult`, JSR-380 bean validation with `@Valid`, custom validators.
+    Build server-side rendered web applications using Spring MVC and Thymeleaf: `DispatcherServlet` front controller lifecycle, bidirectional form model data binding (`th:object`, `th:field`), input sanitization via `@InitBinder` and `StringTrimmerEditor`, declarative validation via Jakarta Bean Validation (`@NotNull`, `@Size`, `@Min`, `@Max`, `@Pattern`), and developing custom constraints (`@CorporateEmail`).
 
-    **Books:** Spring in Action Ch 2  
-    **Lab:** Form Model Binding & Custom Validator
+    **Books:** Spring in Action Ch 2 (Sections 2.1–2.3)  
+    **Lab Guide:** [Corporate Registration Portal with Custom Constraint Validation](week-7-spring-mvc-validation/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-07](https://github.com/7amo10/Spring-Labs/tree/main/Week-07-Corporate-Registration-Portal)
 
-    :material-clock-outline: *Upcoming in Week 7*
+    [:octicons-arrow-right-24: Explore Week 7](week-7-spring-mvc-validation/index.md)
 
 -   :material-account-lock:{ .lg .middle } **Week 8 — Full-Stack MVC CRUD & Auth Guard**
 
@@ -272,10 +273,24 @@ flowchart TD
 - [x] Adapting non-standard custom schemas via `setUsersByUsernameQuery()`
 - [x] Week 6 Lab: Tiered Access REST Security Shield
 
-**Weeks 7–10** *(Upcoming)*
+**Week 7 — Spring MVC Web Architecture, Thymeleaf & Form Validation**
 
-- [ ] Week 7: Spring MVC Web Architecture, Thymeleaf & Form Validation
-- [ ] Week 8: Full-Stack MVC CRUD & Auth Guard
+- [x] Front Controller pattern and `DispatcherServlet` internal processing lifecycle
+- [x] `@Controller` vs `@RestController` and `Model` data dictionary contract
+- [x] Request parameter extraction: `@RequestParam` vs low-level `HttpServletRequest`
+- [x] Natural templating with Thymeleaf and expression evaluation syntax
+- [x] Bidirectional form data binding via form-backing beans (`th:object`, `th:field`)
+- [x] Dynamic dropdown selects, radio buttons, and checkboxes from external property files
+- [x] Declarative integrity constraints via Jakarta Bean Validation (JSR-380)
+- [x] Enforcing `@Valid` and strict `BindingResult` parameter adjacency rules
+- [x] Input sanitization and whitespace bypass prevention with `@InitBinder` and `StringTrimmerEditor`
+- [x] Localized type mismatch error handling via `messages.properties`
+- [x] Authoring custom validation annotations (`@CorporateEmail`) and `ConstraintValidator`
+- [x] Week 7 Lab: Corporate Registration Portal with Custom Constraint Validation
+
+**Weeks 8–10** *(Upcoming)*
+
+- [ ] Week 8: Full-Stack MVC CRUD & Form-Based Authentication
 - [ ] Week 9: Advanced JPA Relational Mappings
 - [ ] Week 10: Aspect-Oriented Programming (AOP)
 
