@@ -442,6 +442,12 @@ nav:
         - notes/phase-4/week-7-spring-mvc-validation/book-reading.md
         - notes/phase-4/week-7-spring-mvc-validation/lab-guide.md
         - notes/phase-4/week-7-spring-mvc-validation/summary.md
+      - Week 8 - Full-Stack Spring MVC CRUD and Form-Based Security:
+        - notes/phase-4/week-8-fullstack-mvc-security/index.md
+        - notes/phase-4/week-8-fullstack-mvc-security/topic-notes-part1.md
+        - notes/phase-4/week-8-fullstack-mvc-security/topic-notes-part2.md
+        - notes/phase-4/week-8-fullstack-mvc-security/lab-guide.md
+        - notes/phase-4/week-8-fullstack-mvc-security/summary.md
 
   - Book Summaries:
     - books/index.md

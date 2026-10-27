@@ -99,7 +99,8 @@ flowchart LR
     - Week 5: Spring Data JPA & Spring Data REST
     - Week 6: Stateless REST Security & RBAC
     - Week 7: Spring MVC Web Architecture & Form Validation
-    - Weeks 8–10: Full-Stack MVC CRUD, Advanced ORM, AOP *(upcoming)*
+    - Week 8: Full-Stack Spring MVC CRUD & Form-Based Security
+    - Weeks 9–10: Advanced ORM, AOP *(upcoming)*
 
     **Resources:** Spring in Action (6th Ed.) — Craig Walls · Chad Darby Spring Boot 3 Course
 
@@ -166,4 +167,5 @@ Each topic folder follows a consistent structure:
 - [x] Week 5: Spring Data JPA, Automated Repositories & Spring Data REST (Lab 05)
 - [x] Week 6: Stateless REST Security & RBAC (Lab 06)
 - [x] Week 7: Spring MVC Web Architecture & Form Validation (Lab 07)
-- [ ] Weeks 8–10: Full-Stack MVC CRUD, Advanced ORM, AOP (Upcoming)
+- [x] Week 8: Full-Stack Spring MVC CRUD & Form-Based Security (Lab 08)
+- [ ] Weeks 9–10: Advanced ORM, AOP (Upcoming)

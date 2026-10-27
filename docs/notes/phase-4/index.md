@@ -117,16 +117,16 @@ Master the Spring framework from first principles: IoC container internals, depe
 
     [:octicons-arrow-right-24: Explore Week 7](week-7-spring-mvc-validation/index.md)
 
--   :material-account-lock:{ .lg .middle } **Week 8 — Full-Stack MVC CRUD & Auth Guard**
+-   :material-account-lock:{ .lg .middle } **Week 8 — Full-Stack MVC CRUD & Form-Based Security**
 
     ---
 
-    Build a complete CRUD web application with authentication guards, role-based view rendering, and database-backed `UserDetailsService`.
+    Construct a production-grade full-stack web application: integrate Spring MVC controllers with Spring Data JPA repositories, eliminate duplicate submissions with the Post-Redirect-Get (PRG) pattern, configure custom Bootstrap 5 form login and logout flows, apply synchronized CSRF defenses, establish multi-tiered RBAC, and adapt dynamic UI elements via the Thymeleaf Spring Security 6 dialect.
 
-    **Books:** Spring in Action Ch 2.3-2.4 · Ch 5.2  
-    **Lab:** Secure Corporate HR Portal
+    **Lab Guide:** [Secure Enterprise Employee Administration Portal](week-8-fullstack-mvc-security/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-08](https://github.com/7amo10/Spring-Labs/tree/main/Week-08-Secure-Employee-Administration-Portal)
 
-    :material-clock-outline: *Upcoming in Week 8*
+    [:octicons-arrow-right-24: Explore Week 8](week-8-fullstack-mvc-security/index.md)
 
 -   :material-graph:{ .lg .middle } **Week 9 — Advanced JPA Relational Mappings**
 
@@ -288,9 +288,26 @@ flowchart TD
 - [x] Authoring custom validation annotations (`@CorporateEmail`) and `ConstraintValidator`
 - [x] Week 7 Lab: Corporate Registration Portal with Custom Constraint Validation
 
-**Weeks 8–10** *(Upcoming)*
+**Week 8 — Full-Stack Spring MVC CRUD & Form-Based Security**
 
-- [ ] Week 8: Full-Stack MVC CRUD & Form-Based Authentication
+- [x] Multi-tier full-stack architecture: Controller $\rightarrow$ Service $\rightarrow$ Repository $\rightarrow$ Database
+- [x] Spring Data JPA derived sorting queries (`findAllByOrderByLastNameAsc()`)
+- [x] Add entity workflow with pre-populated form-backing model bean
+- [x] Post-Redirect-Get (PRG) pattern eliminating duplicate form submissions on browser refresh
+- [x] Update entity workflow with primary key preservation via hidden ID input field
+- [x] Safe deletion workflows with confirmation modals and PRG redirects
+- [x] Custom form-based login replacing HTTP Basic with Bootstrap 5 card layouts
+- [x] Login failure handling via `?error` parameter and contextual alert rendering
+- [x] Secure `POST /logout` handling with session invalidation, cookie clearing, and `?logout` confirmation
+- [x] Synchronized CSRF token enforcement and automatic Thymeleaf `_csrf` form injection
+- [x] Multi-tier Role-Based Access Control (RBAC) across `EMPLOYEE`, `MANAGER`, and `ADMIN`
+- [x] Custom HTTP 403 access-denied view routing and active principal context display
+- [x] Dynamic UI action button adaptation using Thymeleaf Spring Security 6 dialect (`sec:authorize`)
+- [x] Production database authentication via `JdbcUserDetailsManager` with custom table queries
+- [x] Week 8 Lab: Secure Enterprise Employee Administration Portal
+
+**Weeks 9–10** *(Upcoming)*
+
 - [ ] Week 9: Advanced JPA Relational Mappings
 - [ ] Week 10: Aspect-Oriented Programming (AOP)
 
