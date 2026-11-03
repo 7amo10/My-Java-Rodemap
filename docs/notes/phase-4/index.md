@@ -132,12 +132,12 @@ Master the Spring framework from first principles: IoC container internals, depe
 
     ---
 
-    Master complex entity relationships: `@OneToOne`, `@OneToMany`, `@ManyToMany`, fetch strategies, cascade types, bidirectional mapping pitfalls, and join table management.
+    Master complex entity relationships in Jakarta Persistence (JPA) and Hibernate: 1:1 bidirectional associations with `mappedBy`, 1:N bidirectional mapping, 1:N unidirectional collections, and M:N networks with `@JoinTable`. Eliminate N+1 select queries with JPQL `JOIN FETCH` and enforce programmatic foreign key dissociation protocols before deletion.
 
-    **Books:** Spring in Action Ch 3.2.2-3.2.4  
-    **Lab:** University Multi-Relationship Topology
+    **Lab Guide:** [University Academic & Course Enrollment Domain Model](week-9-advanced-jpa-mappings/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-09](https://github.com/7amo10/Spring-Labs/tree/main/Week-09-Academic-Enrollment-Domain-Model)
 
-    :material-clock-outline: *Upcoming in Week 9*
+    [:octicons-arrow-right-24: Explore Week 9](week-9-advanced-jpa-mappings/index.md)
 
 -   :material-eye:{ .lg .middle } **Week 10 — Aspect-Oriented Programming (AOP)**
 
@@ -306,9 +306,26 @@ flowchart TD
 - [x] Production database authentication via `JdbcUserDetailsManager` with custom table queries
 - [x] Week 8 Lab: Secure Enterprise Employee Administration Portal
 
-**Weeks 9–10** *(Upcoming)*
+**Week 9 — Advanced JPA & Hibernate: Relational Topologies & Fetch Optimization**
 
-- [ ] Week 9: Advanced JPA Relational Mappings
+- [x] Symmetrical 1:1 bidirectional mapping with `mappedBy` and foreign key placement rules
+- [x] Fine-tuning `CascadeType` policies (ALL vs PERSIST, MERGE, DETACH, REFRESH)
+- [x] Child-only deletion and programmatic foreign key dissociation protocols
+- [x] 1:N and N:1 bidirectional associations with symmetrical convenience synchronization methods
+- [x] Safe deletion in 1:N graphs preserving un-cascaded entities via foreign key nullification
+- [x] Fetch strategies: `FetchType.EAGER` vs `FetchType.LAZY` and JPA default fetch rules
+- [x] Hibernate runtime bytecode proxies (`PersistentBag`) and `LazyInitializationException` anatomy
+- [x] The N+1 select query problem: mathematical explosion and performance impact
+- [x] Eliminating N+1 queries with single-statement JPQL `JOIN FETCH` graph retrieval
+- [x] 1:N unidirectional mapping (`Course` $\rightarrow$ `Review`) with parent-level `@JoinColumn`
+- [x] Full lifecycle delegation with `CascadeType.ALL` on composite child entities
+- [x] M:N bidirectional mapping (`Course` $\leftrightarrow$ `Student`) via `@JoinTable`
+- [x] The Peer Entity Preservation Rule: why `CascadeType.REMOVE` is prohibited in `@ManyToMany`
+- [x] Safe deletion and dissociation in join tables when removing owning vs inverse entities
+- [x] Week 9 Lab: University Academic & Course Enrollment Domain Model
+
+**Week 10** *(Upcoming)*
+
 - [ ] Week 10: Aspect-Oriented Programming (AOP)
 
 ---

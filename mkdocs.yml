@@ -448,6 +448,13 @@ nav:
         - notes/phase-4/week-8-fullstack-mvc-security/topic-notes-part2.md
         - notes/phase-4/week-8-fullstack-mvc-security/lab-guide.md
         - notes/phase-4/week-8-fullstack-mvc-security/summary.md
+      - Week 9 - Advanced JPA Relational Mappings:
+        - notes/phase-4/week-9-advanced-jpa-mappings/index.md
+        - notes/phase-4/week-9-advanced-jpa-mappings/topic-notes-part1.md
+        - notes/phase-4/week-9-advanced-jpa-mappings/topic-notes-part2.md
+        - notes/phase-4/week-9-advanced-jpa-mappings/topic-notes-part3.md
+        - notes/phase-4/week-9-advanced-jpa-mappings/lab-guide.md
+        - notes/phase-4/week-9-advanced-jpa-mappings/summary.md
 
   - Book Summaries:
     - books/index.md
