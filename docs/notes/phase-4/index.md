@@ -139,16 +139,17 @@ Master the Spring framework from first principles: IoC container internals, depe
 
     [:octicons-arrow-right-24: Explore Week 9](week-9-advanced-jpa-mappings/index.md)
 
--   :material-eye:{ .lg .middle } **Week 10 — Aspect-Oriented Programming (AOP)**
+-   :material-eye:{ .lg .middle } **Week 10 — Aspect-Oriented Programming (AOP) & Spring Boot 4**
 
     ---
 
-    Cross-cutting concerns with Spring AOP: pointcut expressions, `@Before`/`@After`/`@Around` advice, `JoinPoint` and `ProceedingJoinPoint`, logging, audit, and performance measurement aspects.
+    Decouple cross-cutting technical concerns with Spring AOP runtime dynamic proxies. Master pointcut expressions, reusable catalogs, noise filtering, `@Order` precedence, and all five advice types (`@Before`, `@AfterReturning`, `@AfterThrowing`, `@After`, `@Around`). Navigate the self-invocation trap, explore Spring Integration, and implement Spring Boot 4 declarative URL path-segment API versioning.
 
-    **Books:** Spring in Action Ch 10 · Ch 15  
-    **Lab:** Enterprise AOP Telemetry & Audit
+    **Books:** Spring in Action Ch 10 (EIP) · Ch 15 (Actuator)  
+    **Lab Guide:** [Automated Cross-Layer Security Audit & Execution Profiler](week-10-aop-spring-boot-4/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-10](https://github.com/7amo10/Spring-Labs/tree/main/Week-10-AOP-Security-Audit-Execution-Profiler)
 
-    :material-clock-outline: *Upcoming in Week 10*
+    [:octicons-arrow-right-24: Explore Week 10](week-10-aop-spring-boot-4/index.md)
 
 </div>
 
@@ -324,9 +325,24 @@ flowchart TD
 - [x] Safe deletion and dissociation in join tables when removing owning vs inverse entities
 - [x] Week 9 Lab: University Academic & Course Enrollment Domain Model
 
-**Week 10** *(Upcoming)*
+**Week 10 — Aspect-Oriented Programming (AOP), Production Telemetry & Spring Boot 4 Updates**
 
-- [ ] Week 10: Aspect-Oriented Programming (AOP)
+- [x] Spring AOP dynamic proxy architecture: JDK Dynamic Proxies vs CGLIB bytecode subclasses
+- [x] AspectJ pointcut expression grammar (`execution(...)`), return type, package, and parameter wildcards (`*`, `..`)
+- [x] Centralized reusable pointcut catalogs with `@Pointcut` and Boolean composition (`&&`, `||`, `!`)
+- [x] Noise filtering patterns: excluding getter and setter accessors from persistence pointcuts
+- [x] Enforcing aspect precedence across multi-tier pipelines using `@Order(int)`
+- [x] Runtime method introspection and argument inspection via `JoinPoint` and `MethodSignature`
+- [x] In-place domain data post-processing and PII masking with `@AfterReturning`
+- [x] Failure telemetry interception and exception propagation semantics with `@AfterThrowing`
+- [x] Deterministic resource cleanup with `@After` (finally) advice
+- [x] High-precision latency profiling and SLA violation alerting using `@Around` with `ProceedingJoinPoint`
+- [x] Three-tier enterprise logging across Controller, Service, and DAO layers without business code intrusion
+- [x] Diagnosing and solving the internal self-invocation proxy bypass trap
+- [x] Spring Boot 4 / Spring Framework 7 declarative URL path-segment API versioning (`spring.mvc.apiversion.use.path-segment=1`)
+- [x] Spring Integration enterprise patterns (channels, filters, transformers, routers, service activators)
+- [x] Production observability and custom metrics with Spring Boot Actuator and Micrometer
+- [x] Week 10 Lab: Automated Cross-Layer Security Audit & Execution Profiler
 
 ---
 

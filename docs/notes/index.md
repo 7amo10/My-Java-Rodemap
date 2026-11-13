@@ -101,7 +101,7 @@ flowchart LR
     - Week 7: Spring MVC Web Architecture & Form Validation
     - Week 8: Full-Stack Spring MVC CRUD & Form-Based Security
     - Week 9: Advanced JPA Relational Mappings
-    - Week 10: Aspect-Oriented Programming (AOP) *(upcoming)*
+    - Week 10: Aspect-Oriented Programming (AOP), Telemetry & Spring Boot 4 Updates
 
     **Resources:** Spring in Action (6th Ed.) — Craig Walls · Chad Darby Spring Boot 3 Course
 
@@ -170,4 +170,4 @@ Each topic folder follows a consistent structure:
 - [x] Week 7: Spring MVC Web Architecture & Form Validation (Lab 07)
 - [x] Week 8: Full-Stack Spring MVC CRUD & Form-Based Security (Lab 08)
 - [x] Week 9: Advanced JPA Relational Mappings (Lab 09)
-- [ ] Week 10: Aspect-Oriented Programming (AOP) (Upcoming)
+- [x] Week 10: Aspect-Oriented Programming (AOP), Telemetry & Spring Boot 4 Updates (Lab 10)

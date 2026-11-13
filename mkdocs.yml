@@ -455,6 +455,14 @@ nav:
         - notes/phase-4/week-9-advanced-jpa-mappings/topic-notes-part3.md
         - notes/phase-4/week-9-advanced-jpa-mappings/lab-guide.md
         - notes/phase-4/week-9-advanced-jpa-mappings/summary.md
+      - Week 10 - Aspect-Oriented Programming (AOP) & Spring Boot 4:
+        - notes/phase-4/week-10-aop-spring-boot-4/index.md
+        - notes/phase-4/week-10-aop-spring-boot-4/topic-notes-part1.md
+        - notes/phase-4/week-10-aop-spring-boot-4/topic-notes-part2.md
+        - notes/phase-4/week-10-aop-spring-boot-4/book-reading-ch10.md
+        - notes/phase-4/week-10-aop-spring-boot-4/book-reading-ch15.md
+        - notes/phase-4/week-10-aop-spring-boot-4/lab-guide.md
+        - notes/phase-4/week-10-aop-spring-boot-4/summary.md
 
   - Book Summaries:
     - books/index.md
