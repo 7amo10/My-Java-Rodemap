@@ -151,6 +151,17 @@ Master the Spring framework from first principles: IoC container internals, depe
 
     [:octicons-arrow-right-24: Explore Week 10](week-10-aop-spring-boot-4/index.md)
 
+-   :material-shield-key:{ .lg .middle } **Week 11 — Enterprise Spring Security Architecture & Perimeters**
+
+    ---
+
+    Master the runtime architecture of Spring Security 6/7: deconstruct servlet filter dispatch (`DelegatingFilterProxy`, `FilterChainProxy`), architect custom `AuthenticationProvider` implementations, inject custom servlet filters, implement adaptive cryptographic password management with `DelegatingPasswordEncoder` and `CompromisedPasswordChecker`, and establish defenses against CORS and CSRF across Single-Page Application (SPA) architectures.
+
+    **Lab Guide:** [Enterprise Banking Security Perimeter & Filter Pipeline](week-11-enterprise-spring-security/lab-guide.md)  
+    **Lab Repo:** [:material-github: 7amo10/Spring-Labs — Week-11](https://github.com/7amo10/Spring-Labs/tree/main/Week-11-Enterprise-Banking-Security-Perimeter)
+
+    [:octicons-arrow-right-24: Explore Week 11](week-11-enterprise-spring-security/index.md)
+
 </div>
 
 ---
@@ -343,6 +354,37 @@ flowchart TD
 - [x] Spring Integration enterprise patterns (channels, filters, transformers, routers, service activators)
 - [x] Production observability and custom metrics with Spring Boot Actuator and Micrometer
 - [x] Week 10 Lab: Automated Cross-Layer Security Audit & Execution Profiler
+
+**Week 11 — Enterprise Spring Security: Filter Chains, Custom Providers, RBAC, CORS & CSRF**
+
+- [x] Security architecture fundamentals: CIA Triad, AAA model, and default security auto-configuration
+- [x] The Servlet Filter bridge: `DelegatingFilterProxy` delegation to `FilterChainProxy` (`springSecurityFilterChain`)
+- [x] Modern component-based `SecurityFilterChain` bean declaration replacing `WebSecurityConfigurerAdapter`
+- [x] Declarative route authorization rules via `authorizeHttpRequests()` and `requestMatchers()`
+- [x] Fail-secure posture with explicit `anyRequest().denyAll()` vs `permitAll()`
+- [x] Dual client entrypoints: Form Login session workflow vs stateless HTTP Basic Authentication
+- [x] Identity retrieval contracts: `UserDetailsService` (read-only query) vs `UserDetailsManager` (CRUD lifecycle)
+- [x] The `UserDetails` contract and evaluation of account state invariants (`isEnabled`, `isAccountNonLocked`)
+- [x] In-memory identity provisioning with `InMemoryUserDetailsManager` and `User.withUsername()` builder
+- [x] Overcoming JDBC schema limitations with Spring Data JPA and custom entity-backed `UserDetailsService`
+- [x] Customer self-registration REST endpoint with cryptographic password hashing
+- [x] Cryptographic taxonomy: encoding (Base64) vs encryption (AES) vs one-way hashing (BCrypt, Argon2)
+- [x] Rainbow table mitigation using cryptographically secure unique salts per password
+- [x] Hardware-accelerated brute-force mitigation using adaptive work factor tuning (cost factor $\ge 12$)
+- [x] Zero-downtime cryptographic migration via `DelegatingPasswordEncoder` and algorithm prefix identifiers
+- [x] Screening user credentials against public breach databases using Spring Security 6.3+ `CompromisedPasswordChecker`
+- [x] Decoupling credential validation from identity loading by implementing custom `AuthenticationProvider`
+- [x] `ProviderManager` multi-provider iteration and token matching via `supports(Class<?>)`
+- [x] Environment-specific provider isolation using Spring `@Profile("prod")` vs `@Profile("!prod")`
+- [x] Uniform JSON API error payloads using custom `AuthenticationEntryPoint` (401) and `AccessDeniedHandler` (403)
+- [x] Session fixation defense via `sessionFixation(sf -> sf.changeSessionId())`
+- [x] Concurrent login prevention and session limits using `.maximumSessions(1).maxSessionsPreventsLogin(true)`
+- [x] Capturing live security success and failure audit events via asynchronous `@EventListener` methods
+- [x] Browser Same-Origin Policy (SOP) fundamentals and preflight `OPTIONS` request handshakes
+- [x] Restrictive CORS configuration with allowed origins, methods, credentials, and preflight max-age caching
+- [x] Cross-Site Request Forgery (CSRF) threat analysis and the Synchronizer Token Pattern
+- [x] Solving the Spring Security 6 deferred CSRF token trap for SPAs using custom `CsrfCookieFilter`
+- [x] Week 11 Lab: Enterprise Banking Security Perimeter with Custom AuthenticationProvider & Filter Pipeline
 
 ---
 

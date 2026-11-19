@@ -102,6 +102,7 @@ flowchart LR
     - Week 8: Full-Stack Spring MVC CRUD & Form-Based Security
     - Week 9: Advanced JPA Relational Mappings
     - Week 10: Aspect-Oriented Programming (AOP), Telemetry & Spring Boot 4 Updates
+    - Week 11: Enterprise Spring Security: Filter Chains, Custom Providers, RBAC, CORS & CSRF
 
     **Resources:** Spring in Action (6th Ed.) — Craig Walls · Chad Darby Spring Boot 3 Course
 
@@ -171,3 +172,4 @@ Each topic folder follows a consistent structure:
 - [x] Week 8: Full-Stack Spring MVC CRUD & Form-Based Security (Lab 08)
 - [x] Week 9: Advanced JPA Relational Mappings (Lab 09)
 - [x] Week 10: Aspect-Oriented Programming (AOP), Telemetry & Spring Boot 4 Updates (Lab 10)
+- [x] Week 11: Enterprise Spring Security: Filter Chains, Custom Providers, RBAC, CORS & CSRF (Lab 11)

@@ -463,6 +463,18 @@ nav:
         - notes/phase-4/week-10-aop-spring-boot-4/book-reading-ch15.md
         - notes/phase-4/week-10-aop-spring-boot-4/lab-guide.md
         - notes/phase-4/week-10-aop-spring-boot-4/summary.md
+      - Week 11 - Enterprise Spring Security Architecture & Perimeters:
+        - notes/phase-4/week-11-enterprise-spring-security/index.md
+        - notes/phase-4/week-11-enterprise-spring-security/section-1-security-filter-chain-architecture.md
+        - notes/phase-4/week-11-enterprise-spring-security/section-2-granular-request-authorization.md
+        - notes/phase-4/week-11-enterprise-spring-security/section-3-in-memory-identity-management.md
+        - notes/phase-4/week-11-enterprise-spring-security/section-4-database-authentication-spring-data-jpa.md
+        - notes/phase-4/week-11-enterprise-spring-security/section-5-cryptographic-password-management.md
+        - notes/phase-4/week-11-enterprise-spring-security/section-6-custom-authentication-providers.md
+        - notes/phase-4/week-11-enterprise-spring-security/section-7-exception-handling-session-management.md
+        - notes/phase-4/week-11-enterprise-spring-security/section-8-cors-csrf-defense-in-depth.md
+        - notes/phase-4/week-11-enterprise-spring-security/lab-guide.md
+        - notes/phase-4/week-11-enterprise-spring-security/summary.md
 
   - Book Summaries:
     - books/index.md
